@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PBQ Renovation | Commercial & Residential Services</title>
+    
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -51,6 +55,8 @@
         .logo {
             height: 60px;
             width: auto;
+            max-width: 150px;
+            object-fit: contain;
         }
         
         .logo-text {
@@ -126,6 +132,7 @@
             font-weight: bold;
             transition: background 0.3s;
             border: 2px solid #000;
+            cursor: pointer;
         }
         
         .cta-button:hover {
@@ -291,7 +298,8 @@
         }
         
         .contact-form input,
-        .contact-form textarea {
+        .contact-form textarea,
+        .contact-form select {
             width: 100%;
             padding: 1rem;
             margin-bottom: 1.5rem;
@@ -300,10 +308,12 @@
             background: #fff;
             color: #000;
             font-size: 1rem;
+            font-family: inherit;
         }
         
         .contact-form input:focus,
-        .contact-form textarea:focus {
+        .contact-form textarea:focus,
+        .contact-form select:focus {
             outline: none;
             border-color: #000;
         }
@@ -316,6 +326,35 @@
         .contact-form textarea {
             height: 150px;
             resize: vertical;
+        }
+        
+        /* Form Status Messages */
+        .form-status {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .form-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        
+        /* Loading State */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
         }
         
         /* Footer */
@@ -342,6 +381,8 @@
         .footer-logo img {
             height: 40px;
             width: auto;
+            max-width: 120px;
+            object-fit: contain;
         }
         
         .footer-logo-text {
@@ -402,8 +443,9 @@
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <!-- Replace with your actual logo -->
-                    <img src="LOGO.jpg" alt="PBQ Renovation Logo" class="logo">
+                    <!-- Logo with multiple fallback options -->
+                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo" 
+                         onerror="this.style.display='none'">
                     <div class="logo-text">
                         <div class="company-name">PBQ RENOVATION</div>
                         <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
@@ -538,21 +580,42 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="tel" placeholder="Your Phone Number">
-                        <select style="width: 100%; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 5px; background: #fff; color: #000; font-size: 1rem;">
+                    <!-- Netlify Form -->
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+                        <!-- Honeypot field for spam protection -->
+                        <input type="hidden" name="form-name" value="contact">
+                        <p class="hidden">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+                        
+                        <!-- Form Status Messages -->
+                        <div class="form-status success" id="successMessage" style="display: none;">
+                            Thank you for your message! Nick will contact you within 24 hours.
+                        </div>
+                        <div class="form-status error" id="errorMessage" style="display: none;">
+                            Sorry, there was an error sending your message. Please try again or contact us directly.
+                        </div>
+                        
+                        <!-- Form Fields -->
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone Number">
+                        <select name="service-type" required>
                             <option value="" disabled selected>Select Service Type</option>
                             <option value="commercial">Commercial Renovation</option>
                             <option value="residential">Residential Renovation</option>
                             <option value="painting">Painting</option>
                             <option value="drywall">Drywall</option>
+                            <option value="taping">Taping</option>
+                            <option value="mudding">Mudding</option>
                             <option value="flooring">Flooring</option>
                             <option value="handyman">Handyman Services</option>
+                            <option value="other">Other</option>
                         </select>
-                        <textarea placeholder="Tell us about your project..." required></textarea>
-                        <button type="submit" class="cta-button" style="width: 100%; text-align: center;">SEND MESSAGE</button>
+                        <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+                        <button type="submit" class="cta-button" style="width: 100%; text-align: center;" id="submitButton">
+                            SEND MESSAGE
+                        </button>
                     </form>
                 </div>
             </div>
@@ -564,7 +627,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="LOGO.jpg" alt="PBQ Renovation Logo" class="logo">
+                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo"
+                         onerror="this.style.display='none'">
                     <div class="footer-logo-text">
                         <div class="footer-company-name">PBQ RENOVATION</div>
                         <div class="footer-slogan">PROVIDING THE BEST QUALITY</div>
@@ -582,6 +646,17 @@
     </footer>
 
     <script>
+        // Netlify Identity Widget
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -596,11 +671,56 @@
             });
         });
 
-        // Simple form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Form handling with Netlify
+        const contactForm = document.getElementById('contactForm');
+        const submitButton = document.getElementById('submitButton');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert('Thank you for your message! Nick will contact you within 24 hours.');
-            this.reset();
+            
+            // Show loading state
+            submitButton.textContent = 'SENDING...';
+            submitButton.disabled = true;
+            contactForm.classList.add('loading');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            try {
+                const formData = new FormData(contactForm);
+                
+                // Send to Netlify
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+                
+                if (response.ok) {
+                    // Success
+                    successMessage.style.display = 'block';
+                    contactForm.reset();
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+                
+            } catch (error) {
+                // Error
+                console.error('Form submission error:', error);
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                // Reset button state
+                submitButton.textContent = 'SEND MESSAGE';
+                submitButton.disabled = false;
+                contactForm.classList.remove('loading');
+            }
         });
 
         // Header background change on scroll
@@ -612,6 +732,23 @@
                 header.style.backgroundColor = '#ffffff';
             }
         });
+
+        // Check if logo loaded successfully
+        window.addEventListener('load', function() {
+            const logos = document.querySelectorAll('.logo');
+            logos.forEach(logo => {
+                if (logo.naturalWidth === 0) {
+                    console.log('Logo not found:', logo.src);
+                    // You can add a fallback text logo here if needed
+                }
+            });
+        });
+
+        // Hide honeypot field
+        const honeypot = document.querySelector('.hidden');
+        if (honeypot) {
+            honeypot.style.display = 'none';
+        }
     </script>
 </body>
 </html>
