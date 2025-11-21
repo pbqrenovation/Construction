@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* Все предыдущие стили остаются без изменений */
         * {
             margin: 0;
             padding: 0;
@@ -663,6 +664,7 @@
             width: 90%;
             max-width: 500px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            position: relative;
         }
         
         .request-call-form h3 {
@@ -717,6 +719,43 @@
         
         .cancel-call:hover {
             background: #d0d0d0;
+        }
+        
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            z-index: 1002;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: #27ae60;
+        }
+        
+        .notification.error {
+            background: #e74c3c;
+        }
+        
+        .close-notification {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 10px;
+            float: right;
         }
         
         /* Responsive Design */
@@ -794,6 +833,17 @@
             .nav-menu {
                 top: 160px;
                 right: 15px;
+            }
+            
+            .notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                transform: translateY(-100px);
+            }
+            
+            .notification.show {
+                transform: translateY(0);
             }
         }
     </style>
@@ -873,6 +923,9 @@
             </form>
         </div>
     </div>
+
+    <!-- Notification Area -->
+    <div id="notificationArea"></div>
 
     <!-- Floating Estimate Button -->
     <a href="#contact" class="floating-estimate">
@@ -1216,11 +1269,49 @@
             }
         });
 
-        // NEW: Request Call Functionality
+        // NEW: Request Call Functionality with Notifications
         const requestCallLink = document.getElementById('requestCallLink');
         const requestCallModal = document.getElementById('requestCallModal');
         const cancelCall = document.getElementById('cancelCall');
         const callRequestForm = document.getElementById('callRequestForm');
+        const notificationArea = document.getElementById('notificationArea');
+
+        // Function to show notifications
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                ${message}
+                <button class="close-notification">&times;</button>
+            `;
+            
+            notificationArea.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                hideNotification(notification);
+            }, 5000);
+            
+            // Close button functionality
+            const closeBtn = notification.querySelector('.close-notification');
+            closeBtn.addEventListener('click', () => {
+                hideNotification(notification);
+            });
+        }
+        
+        function hideNotification(notification) {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }
 
         requestCallLink.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1241,11 +1332,59 @@
 
         callRequestForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Here you would typically send the form data to your server
-            alert('Thank you! We will call you back as soon as possible.');
-            callRequestForm.reset();
-            requestCallModal.classList.remove('active');
+            
+            const formData = new FormData(callRequestForm);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const preferredTime = formData.get('preferred-time');
+            
+            // Show loading state
+            const submitBtn = callRequestForm.querySelector('.submit-call');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call (replace with actual API endpoint)
+            setTimeout(() => {
+                // Here you would typically send data to your server
+                // For demonstration, we'll simulate success
+                
+                // Reset form
+                callRequestForm.reset();
+                
+                // Show success notification
+                showNotification('Thank you! We will call you back within 1 hour.', 'success');
+                
+                // Close modal
+                requestCallModal.classList.remove('active');
+                
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Log the data (in real scenario, send to server)
+                console.log('Call request received:', {
+                    name: name,
+                    phone: phone,
+                    preferredTime: preferredTime,
+                    timestamp: new Date().toISOString()
+                });
+                
+            }, 1500);
         });
+
+        // Email notification simulation
+        function simulateEmailNotification(formData) {
+            // This would be replaced with actual email service integration
+            console.log('Sending email notification with data:', {
+                to: 'pbqrenovation@gmail.com',
+                subject: 'New Call Request from Website',
+                body: `Name: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nPreferred Time: ${formData.get('preferred-time')}`
+            });
+            
+            // Simulate email sent successfully
+            return true;
+        }
     </script>
 </body>
 </html>
