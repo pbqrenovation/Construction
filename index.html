@@ -20,6 +20,7 @@
             line-height: 1.6;
             color: #000;
             background-color: #ffffff;
+            scroll-behavior: smooth;
         }
         
         .container {
@@ -38,7 +39,6 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             border-bottom: 1px solid #f0f0f0;
-            transition: background-color 0.3s;
         }
         
         nav {
@@ -58,19 +58,6 @@
             width: auto;
             max-width: 150px;
             object-fit: contain;
-        }
-        
-        .logo-fallback {
-            width: 60px;
-            height: 60px;
-            background: #27ae60;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
         }
         
         .logo-text {
@@ -106,55 +93,7 @@
         }
         
         .nav-links a:hover {
-            color: #27ae60;
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #000;
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 140px;
-            left: 0;
-            width: 100%;
-            background: #fff;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            z-index: 999;
-            padding: 1rem 0;
-        }
-        
-        .mobile-menu.active {
-            display: block;
-        }
-        
-        .mobile-nav-links {
-            list-style: none;
-            text-align: center;
-        }
-        
-        .mobile-nav-links li {
-            margin: 1rem 0;
-        }
-        
-        .mobile-nav-links a {
-            color: #000;
-            text-decoration: none;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            display: block;
-            padding: 0.5rem 0;
-            transition: color 0.3s;
-        }
-        
-        .mobile-nav-links a:hover {
-            color: #27ae60;
+            color: #666;
         }
         
         /* Top Contact Bar */
@@ -348,24 +287,11 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            transition: all 0.3s;
-            min-height: 120px;
-        }
-        
-        .work-item.painting-item {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1577098599456-77f6a76db7dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
+            transition: transform 0.3s;
         }
         
         .work-item:hover {
             transform: translateX(5px);
-            border-left: 4px solid #219653;
-        }
-        
-        .work-item.painting-item:hover {
-            transform: translateX(5px);
-            border-left: 4px solid #219653;
         }
         
         .work-icon {
@@ -383,17 +309,6 @@
         .work-content p {
             color: #666;
             font-size: 0.9rem;
-        }
-        
-        .work-item.painting-item .work-content h4,
-        .work-item.painting-item .work-content p {
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-        
-        .work-item.painting-item .work-icon {
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         
         /* Portfolio Section */
@@ -421,46 +336,6 @@
             text-decoration: none;
             color: inherit;
             display: block;
-            position: relative;
-            overflow: hidden;
-            min-height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .portfolio-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-            z-index: 1;
-            transition: opacity 0.3s ease;
-        }
-        
-        .portfolio-category:hover::before {
-            opacity: 0.8;
-        }
-        
-        .portfolio-category > * {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .portfolio-category h3 {
-            color: #fff;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-        
-        .portfolio-category p {
-            color: #fff;
-            line-height: 1.6;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         
         .portfolio-category:hover {
@@ -469,54 +344,15 @@
             border-color: #27ae60;
         }
         
-        /* Specific background images for each category */
-        .portfolio-painting {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                       url('https://images.unsplash.com/photo-1578909192325-8e0d3f6c64d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
+        .portfolio-category h3 {
+            color: #000;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
         
-        .portfolio-drywall {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                       url('https://images.unsplash.com/photo-1581093450333-4c2289632b5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .portfolio-framing {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                       url('https://images.unsplash.com/photo-1595675028930-53d31bd5c5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .portfolio-flooring {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                       url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .portfolio-windows-doors {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                       url('https://images.unsplash.com/photo-1623293631868-ee4c59ee81d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .portfolio-handyman {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                       url('https://images.unsplash.com/photo-1581093450333-4c2289632b5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .portfolio-full-house {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                       url('https://images.unsplash.com/photo-1600585154340-6fba0db46aa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
+        .portfolio-category p {
+            color: #666;
+            line-height: 1.6;
         }
         
         /* Contact Section */
@@ -737,14 +573,156 @@
             color: #ccc;
         }
         
+        /* NEW: Navigation Menu Styles */
+        .nav-menu {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+            padding: 10px 0;
+            min-width: 200px;
+            display: none;
+        }
+        
+        .nav-menu.active {
+            display: block;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            padding: 10px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .nav-menu li:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-menu a {
+            color: #000;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #27ae60;
+        }
+        
+        .menu-toggle {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle:hover {
+            background: #219653;
+        }
+        
+        /* Request Call Modal */
+        .request-call-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .request-call-modal.active {
+            display: flex;
+        }
+        
+        .request-call-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+        }
+        
+        .request-call-form h3 {
+            margin-bottom: 1.5rem;
+            color: #000;
+            text-align: center;
+        }
+        
+        .request-call-form input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .request-call-form input:focus {
+            outline: none;
+            border-color: #27ae60;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .form-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-call {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .submit-call:hover {
+            background: #219653;
+        }
+        
+        .cancel-call {
+            background: #e0e0e0;
+            color: #000;
+        }
+        
+        .cancel-call:hover {
+            background: #d0d0d0;
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
             }
             
             .hero {
@@ -805,6 +783,18 @@
                 height: 50px;
                 font-size: 0.7rem;
             }
+            
+            .menu-toggle {
+                top: 160px;
+                right: 15px;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-menu {
+                top: 160px;
+                right: 15px;
+            }
         }
     </style>
 </head>
@@ -834,9 +824,8 @@
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <div class="logo-fallback">
-                        <span>PBQ</span>
-                    </div>
+                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo" 
+                         onerror="this.style.display='none'">
                     <div class="logo-text">
                         <div class="company-name">PBQ RENOVATION</div>
                         <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
@@ -848,21 +837,41 @@
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul class="mobile-nav-links">
+    <!-- NEW: Navigation Menu Toggle -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i> Menu
+    </button>
+
+    <!-- NEW: Navigation Menu -->
+    <div class="nav-menu" id="navMenu">
+        <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#specializations">Specializations</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#" id="requestCallLink">Request call</a></li>
         </ul>
+    </div>
+
+    <!-- Request Call Modal -->
+    <div class="request-call-modal" id="requestCallModal">
+        <div class="request-call-form">
+            <h3>Request a Call Back</h3>
+            <form id="callRequestForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                <input type="text" name="preferred-time" placeholder="Preferred Time to Call">
+                <div class="form-actions">
+                    <button type="submit" class="submit-call">Request Call</button>
+                    <button type="button" class="cancel-call" id="cancelCall">Cancel</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Floating Estimate Button -->
@@ -907,15 +916,14 @@
     </section>
 
     <!-- Work Types Section -->
-    <section class="work-types">
+    <section id="specializations" class="work-types">
         <div class="container">
             <div class="section-title">
                 <h2>Our Specializations</h2>
                 <p>Expert services in all aspects of construction and renovation</p>
             </div>
             <div class="work-grid">
-                <!-- Painting - with background image -->
-                <div class="work-item painting-item">
+                <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
                     </div>
@@ -924,8 +932,6 @@
                         <p>Interior & exterior painting services</p>
                     </div>
                 </div>
-                
-                <!-- Drywall/Mudding/Taping - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -935,8 +941,6 @@
                         <p>Complete drywall installation and finishing</p>
                     </div>
                 </div>
-                
-                <!-- Flooring - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -946,8 +950,6 @@
                         <p>All types of flooring installation</p>
                     </div>
                 </div>
-                
-                <!-- Handyman - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -957,8 +959,6 @@
                         <p>General repairs and maintenance</p>
                     </div>
                 </div>
-                
-                <!-- Full House Renovation - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -968,8 +968,6 @@
                         <p>Complete home transformation services</p>
                     </div>
                 </div>
-                
-                <!-- Windows & Doors - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -979,8 +977,6 @@
                         <p>Professional installation services</p>
                     </div>
                 </div>
-                
-                <!-- Framing - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -1002,33 +998,29 @@
                 <p>Explore our work across different renovation categories</p>
             </div>
             <div class="portfolio-categories">
-                <a href="portfolio-painting.html" class="portfolio-category portfolio-painting">
+                <a href="portfolio-painting.html" class="portfolio-category">
                     <h3>Painting</h3>
                     <p>Interior and exterior painting projects with precision and attention to detail</p>
                 </a>
-                <a href="portfolio-drywall.html" class="portfolio-category portfolio-drywall">
+                <a href="portfolio-drywall.html" class="portfolio-category">
                     <h3>Drywall/Taping/Mudding</h3>
                     <p>Professional drywall installation and finishing services</p>
                 </a>
-                <a href="portfolio-framing.html" class="portfolio-category portfolio-framing">
+                <a href="portfolio-framing.html" class="portfolio-category">
                     <h3>Framing</h3>
                     <p>Structural framing projects for residential and commercial spaces</p>
                 </a>
-                <a href="portfolio-flooring.html" class="portfolio-category portfolio-flooring">
+                <a href="portfolio-flooring.html" class="portfolio-category">
                     <h3>Flooring</h3>
                     <p>Various flooring installations including hardwood, laminate, and tile</p>
                 </a>
-                <a href="portfolio-windows-doors.html" class="portfolio-category portfolio-windows-doors">
+                <a href="portfolio-windows-doors.html" class="portfolio-category">
                     <h3>Windows & Doors</h3>
                     <p>Professional installation of windows and doors for energy efficiency</p>
                 </a>
-                <a href="portfolio-handyman.html" class="portfolio-category portfolio-handyman">
+                <a href="portfolio-handyman.html" class="portfolio-category">
                     <h3>Handyman</h3>
                     <p>General repair and maintenance services for homes and businesses</p>
-                </a>
-                <a href="portfolio-full-house.html" class="portfolio-category portfolio-full-house">
-                    <h3>Full House Renovation</h3>
-                    <p>Complete home transformation from foundation to finish</p>
                 </a>
             </div>
         </div>
@@ -1109,9 +1101,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <div class="logo-fallback" style="width: 40px; height: 40px; font-size: 1rem;">
-                        <span>PBQ</span>
-                    </div>
+                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo"
+                         onerror="this.style.display='none'">
                     <div class="footer-logo-text">
                         <div class="footer-company-name">PBQ RENOVATION</div>
                         <div class="footer-slogan">PROVIDING THE BEST QUALITY</div>
@@ -1156,19 +1147,10 @@
                         block: 'start'
                     });
                     
-                    // Close mobile menu after clicking a link
-                    const mobileMenu = document.getElementById('mobileMenu');
-                    mobileMenu.classList.remove('active');
+                    // Close the navigation menu after clicking a link
+                    navMenu.classList.remove('active');
                 }
             });
-        });
-
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
         });
 
         // Form handling
@@ -1182,8 +1164,6 @@
         errorMessage.style.display = 'none';
 
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             submitButton.textContent = 'SENDING...';
             submitButton.classList.add('submit-loading');
             submitButton.disabled = true;
@@ -1191,7 +1171,6 @@
             successMessage.style.display = 'none';
             errorMessage.style.display = 'none';
             
-            // Simulate form submission
             setTimeout(() => {
                 successMessage.style.display = 'block';
                 contactForm.reset();
@@ -1212,11 +1191,60 @@
             }
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.mobile-menu') && !e.target.closest('.mobile-menu-toggle') && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
+        // Check if logo loaded successfully
+        window.addEventListener('load', function() {
+            const logos = document.querySelectorAll('.logo');
+            logos.forEach(logo => {
+                if (logo.naturalWidth === 0) {
+                    console.log('Logo not found:', logo.src);
+                }
+            });
+        });
+
+        // NEW: Navigation Menu Functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!menuToggle.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.classList.remove('active');
             }
+        });
+
+        // NEW: Request Call Functionality
+        const requestCallLink = document.getElementById('requestCallLink');
+        const requestCallModal = document.getElementById('requestCallModal');
+        const cancelCall = document.getElementById('cancelCall');
+        const callRequestForm = document.getElementById('callRequestForm');
+
+        requestCallLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            navMenu.classList.remove('active');
+            requestCallModal.classList.add('active');
+        });
+
+        cancelCall.addEventListener('click', function() {
+            requestCallModal.classList.remove('active');
+        });
+
+        // Close modal when clicking outside
+        requestCallModal.addEventListener('click', function(e) {
+            if (e.target === requestCallModal) {
+                requestCallModal.classList.remove('active');
+            }
+        });
+
+        callRequestForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            alert('Thank you! We will call you back as soon as possible.');
+            callRequestForm.reset();
+            requestCallModal.classList.remove('active');
         });
     </script>
 </body>
