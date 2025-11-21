@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PBQ Renovation | Commercial & Residential Services</title>
     
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -55,13 +58,6 @@
             width: auto;
             max-width: 150px;
             object-fit: contain;
-            border: 1px solid #ddd;
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 0.8rem;
         }
         
         .logo-text {
@@ -139,20 +135,6 @@
             opacity: 0.8;
         }
         
-        /* Icons */
-        .icon {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            text-align: center;
-        }
-        
-        .icon-phone::before { content: "📞"; }
-        .icon-email::before { content: "✉️"; }
-        .icon-instagram::before { content: "📷"; }
-        .icon-bars::before { content: "☰"; }
-        .icon-check::before { content: "✓"; }
-        
         /* Floating Estimate Button */
         .floating-estimate {
             position: fixed;
@@ -186,7 +168,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), #f8f9fa;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -428,6 +410,7 @@
         
         .instagram-icon {
             color: #E4405F;
+            font-size: 1.2rem;
         }
         
         .contact-person {
@@ -554,8 +537,6 @@
             width: auto;
             max-width: 120px;
             object-fit: contain;
-            border: 1px solid #444;
-            background: #333;
         }
         
         .footer-logo-text {
@@ -682,7 +663,6 @@
             width: 90%;
             max-width: 500px;
             box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            position: relative;
         }
         
         .request-call-form h3 {
@@ -737,43 +717,6 @@
         
         .cancel-call:hover {
             background: #d0d0d0;
-        }
-        
-        /* Notification Styles */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            border-radius: 5px;
-            color: white;
-            font-weight: bold;
-            z-index: 1002;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            transform: translateX(150%);
-            transition: transform 0.3s ease;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .notification.success {
-            background: #27ae60;
-        }
-        
-        .notification.error {
-            background: #e74c3c;
-        }
-        
-        .close-notification {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 10px;
-            float: right;
         }
         
         /* Responsive Design */
@@ -852,17 +795,6 @@
                 top: 160px;
                 right: 15px;
             }
-            
-            .notification {
-                top: 10px;
-                right: 10px;
-                left: 10px;
-                transform: translateY(-100px);
-            }
-            
-            .notification.show {
-                transform: translateY(0);
-            }
         }
     </style>
 </head>
@@ -874,13 +806,13 @@
                 <span class="contacts-title">CONTACTS:</span>
                 <div class="contact-info-top">
                     <a href="tel:+14167315979">
-                        <span class="icon icon-phone"></span> +1 (416) 731-5979
+                        <i class="fas fa-phone"></i> +1 (416) 731-5979
                     </a>
                     <a href="mailto:pbqrenovation@gmail.com">
-                        <span class="icon icon-email"></span> pbqrenovation@gmail.com
+                        <i class="fas fa-envelope"></i> pbqrenovation@gmail.com
                     </a>
                     <a href="https://instagram.com/pbq_renovation" target="_blank">
-                        <span class="icon icon-instagram"></span> @pbq_renovation
+                        <i class="fab fa-instagram"></i> @pbq_renovation
                     </a>
                 </div>
             </div>
@@ -892,7 +824,8 @@
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <div class="logo">PBQ LOGO</div>
+                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo" 
+                         onerror="this.style.display='none'">
                     <div class="logo-text">
                         <div class="company-name">PBQ RENOVATION</div>
                         <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
@@ -910,7 +843,7 @@
 
     <!-- NEW: Navigation Menu Toggle -->
     <button class="menu-toggle" id="menuToggle">
-        <span class="icon icon-bars"></span> Menu
+        <i class="fas fa-bars"></i> Menu
     </button>
 
     <!-- NEW: Navigation Menu -->
@@ -940,9 +873,6 @@
             </form>
         </div>
     </div>
-
-    <!-- Notification Area -->
-    <div id="notificationArea"></div>
 
     <!-- Floating Estimate Button -->
     <a href="#contact" class="floating-estimate">
@@ -995,7 +925,7 @@
             <div class="work-grid">
                 <div class="work-item">
                     <div class="work-icon">
-                        <span class="icon-check"></span>
+                        <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="work-content">
                         <h4>Painting</h4>
@@ -1004,7 +934,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <span class="icon-check"></span>
+                        <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="work-content">
                         <h4>Drywall/Mudding/Taping</h4>
@@ -1013,7 +943,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <span class="icon-check"></span>
+                        <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="work-content">
                         <h4>Flooring</h4>
@@ -1022,7 +952,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <span class="icon-check"></span>
+                        <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="work-content">
                         <h4>Handyman</h4>
@@ -1031,7 +961,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <span class="icon-check"></span>
+                        <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="work-content">
                         <h4>Full House Renovation</h4>
@@ -1040,7 +970,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <span class="icon-check"></span>
+                        <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="work-content">
                         <h4>Windows & Doors</h4>
@@ -1049,7 +979,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <span class="icon-check"></span>
+                        <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="work-content">
                         <h4>Framing</h4>
@@ -1108,15 +1038,15 @@
                     <h3>Get In Touch</h3>
                     <div class="contact-details">
                         <p>
-                            <span class="icon icon-phone"></span>
+                            <i class="fas fa-phone"></i> 
                             <a href="tel:+14167315979" class="contact-link">+1 (416) 731-5979</a>
                         </p>
                         <p>
-                            <span class="icon icon-email"></span>
+                            <i class="fas fa-envelope"></i> 
                             <a href="mailto:pbqrenovation@gmail.com" class="contact-link">pbqrenovation@gmail.com</a>
                         </p>
                         <p>
-                            <span class="icon icon-instagram"></span>
+                            <i class="fab fa-instagram instagram-icon"></i>
                             <a href="https://instagram.com/pbq_renovation" target="_blank" class="instagram-link">
                                 @pbq_renovation
                             </a>
@@ -1129,7 +1059,10 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <!-- Netlify Form -->
+                    <form name="contact" method="POST" netlify>
+                        <input type="hidden" name="form-name" value="contact">
+                        
                         <div class="form-status success" id="successMessage">
                             Thank you for your interest! We will contact you within 24 hours.
                         </div>
@@ -1168,7 +1101,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <div class="logo" style="color: white;">PBQ LOGO</div>
+                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo"
+                         onerror="this.style.display='none'">
                     <div class="footer-logo-text">
                         <div class="footer-company-name">PBQ RENOVATION</div>
                         <div class="footer-slogan">PROVIDING THE BEST QUALITY</div>
@@ -1176,19 +1110,19 @@
                 </div>
                 <div class="footer-contact">
                     <p>
-                        <span class="icon icon-email"></span>
+                        <i class="fas fa-envelope"></i> 
                         <a href="mailto:pbqrenovation@gmail.com" style="color: #fff; text-decoration: none;">
                             pbqrenovation@gmail.com
                         </a>
                     </p>
                     <p>
-                        <span class="icon icon-phone"></span>
+                        <i class="fas fa-phone"></i> 
                         <a href="tel:+14167315979" style="color: #fff; text-decoration: none;">
                             +1 (416) 731-5979
                         </a>
                     </p>
                     <p>
-                        <span class="icon icon-instagram"></span>
+                        <i class="fab fa-instagram"></i>
                         <a href="https://instagram.com/pbq_renovation" target="_blank" style="color: #fff; text-decoration: none;">
                             @pbq_renovation
                         </a>
@@ -1220,7 +1154,7 @@
         });
 
         // Form handling
-        const contactForm = document.getElementById('contactForm');
+        const contactForm = document.querySelector('form[name="contact"]');
         const submitButton = document.getElementById('submitButton');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
@@ -1230,7 +1164,6 @@
         errorMessage.style.display = 'none';
 
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
             submitButton.textContent = 'SENDING...';
             submitButton.classList.add('submit-loading');
             submitButton.disabled = true;
@@ -1245,7 +1178,6 @@
                 submitButton.classList.remove('submit-loading');
                 submitButton.disabled = false;
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                showNotification('Thank you! Your message has been sent successfully.', 'success');
             }, 2000);
         });
 
@@ -1257,6 +1189,16 @@
             } else {
                 header.style.backgroundColor = '#ffffff';
             }
+        });
+
+        // Check if logo loaded successfully
+        window.addEventListener('load', function() {
+            const logos = document.querySelectorAll('.logo');
+            logos.forEach(logo => {
+                if (logo.naturalWidth === 0) {
+                    console.log('Logo not found:', logo.src);
+                }
+            });
         });
 
         // NEW: Navigation Menu Functionality
@@ -1274,49 +1216,11 @@
             }
         });
 
-        // NEW: Request Call Functionality with Notifications
+        // NEW: Request Call Functionality
         const requestCallLink = document.getElementById('requestCallLink');
         const requestCallModal = document.getElementById('requestCallModal');
         const cancelCall = document.getElementById('cancelCall');
         const callRequestForm = document.getElementById('callRequestForm');
-        const notificationArea = document.getElementById('notificationArea');
-
-        // Function to show notifications
-        function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.innerHTML = `
-                ${message}
-                <button class="close-notification">&times;</button>
-            `;
-            
-            notificationArea.appendChild(notification);
-            
-            // Show notification
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 100);
-            
-            // Auto remove after 5 seconds
-            setTimeout(() => {
-                hideNotification(notification);
-            }, 5000);
-            
-            // Close button functionality
-            const closeBtn = notification.querySelector('.close-notification');
-            closeBtn.addEventListener('click', () => {
-                hideNotification(notification);
-            });
-        }
-        
-        function hideNotification(notification) {
-            notification.classList.remove('show');
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 300);
-        }
 
         requestCallLink.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1337,42 +1241,10 @@
 
         callRequestForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const formData = new FormData(callRequestForm);
-            const name = formData.get('name');
-            const phone = formData.get('phone');
-            const preferredTime = formData.get('preferred-time');
-            
-            // Show loading state
-            const submitBtn = callRequestForm.querySelector('.submit-call');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                // Reset form
-                callRequestForm.reset();
-                
-                // Show success notification
-                showNotification('Thank you! We will call you back within 1 hour.', 'success');
-                
-                // Close modal
-                requestCallModal.classList.remove('active');
-                
-                // Reset button
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                // Log the data
-                console.log('Call request received:', {
-                    name: name,
-                    phone: phone,
-                    preferredTime: preferredTime,
-                    timestamp: new Date().toISOString()
-                });
-                
-            }, 1500);
+            // Here you would typically send the form data to your server
+            alert('Thank you! We will call you back as soon as possible.');
+            callRequestForm.reset();
+            requestCallModal.classList.remove('active');
         });
     </script>
 </body>
