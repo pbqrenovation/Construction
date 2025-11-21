@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Все предыдущие стили остаются без изменений */
         * {
             margin: 0;
             padding: 0;
@@ -238,7 +237,7 @@
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
         
@@ -250,6 +249,35 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s;
             border: 1px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 1;
+            transition: opacity 0.3s;
+        }
+        
+        .service-card:hover::before {
+            opacity: 0.2;
+        }
+        
+        .service-card-content {
+            position: relative;
+            z-index: 2;
         }
         
         .service-card:hover {
@@ -265,6 +293,18 @@
         .service-card p {
             color: #666;
             line-height: 1.6;
+        }
+        
+        .commercial-bg::before {
+            background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+        }
+        
+        .residential-bg::before {
+            background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        }
+        
+        .handyman-bg::before {
+            background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
         }
         
         /* Work Types */
@@ -485,33 +525,6 @@
             border: 1px solid #f5c6cb;
         }
         
-        /* Loading State */
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-        
-        .submit-loading {
-            position: relative;
-        }
-        
-        .submit-loading::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 2px solid transparent;
-            border-top: 2px solid #ffffff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            right: 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
         /* Footer */
         footer {
             background: #000;
@@ -574,7 +587,7 @@
             color: #ccc;
         }
         
-        /* NEW: Navigation Menu Styles */
+        /* Navigation Menu Styles */
         .nav-menu {
             position: fixed;
             top: 120px;
@@ -637,125 +650,6 @@
         
         .menu-toggle:hover {
             background: #219653;
-        }
-        
-        /* Request Call Modal */
-        .request-call-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .request-call-modal.active {
-            display: flex;
-        }
-        
-        .request-call-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            position: relative;
-        }
-        
-        .request-call-form h3 {
-            margin-bottom: 1.5rem;
-            color: #000;
-            text-align: center;
-        }
-        
-        .request-call-form input {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .request-call-form input:focus {
-            outline: none;
-            border-color: #27ae60;
-        }
-        
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .form-actions button {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .submit-call {
-            background: #27ae60;
-            color: white;
-        }
-        
-        .submit-call:hover {
-            background: #219653;
-        }
-        
-        .cancel-call {
-            background: #e0e0e0;
-            color: #000;
-        }
-        
-        .cancel-call:hover {
-            background: #d0d0d0;
-        }
-        
-        /* Notification Styles */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            border-radius: 5px;
-            color: white;
-            font-weight: bold;
-            z-index: 1002;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            transform: translateX(150%);
-            transition: transform 0.3s ease;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .notification.success {
-            background: #27ae60;
-        }
-        
-        .notification.error {
-            background: #e74c3c;
-        }
-        
-        .close-notification {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 10px;
-            float: right;
         }
         
         /* Responsive Design */
@@ -834,17 +728,6 @@
                 top: 160px;
                 right: 15px;
             }
-            
-            .notification {
-                top: 10px;
-                right: 10px;
-                left: 10px;
-                transform: translateY(-100px);
-            }
-            
-            .notification.show {
-                transform: translateY(0);
-            }
         }
     </style>
 </head>
@@ -874,8 +757,8 @@
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo" 
-                         onerror="this.style.display='none'">
+                    <!-- Исправленный путь к логотипу -->
+                    <img src="LOGO.jpg" alt="PBQ Renovation Logo" class="logo">
                     <div class="logo-text">
                         <div class="company-name">PBQ RENOVATION</div>
                         <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
@@ -884,6 +767,7 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#specializations">Specializations</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -891,12 +775,12 @@
         </div>
     </header>
 
-    <!-- NEW: Navigation Menu Toggle -->
+    <!-- Navigation Menu Toggle -->
     <button class="menu-toggle" id="menuToggle">
         <i class="fas fa-bars"></i> Menu
     </button>
 
-    <!-- NEW: Navigation Menu -->
+    <!-- Navigation Menu -->
     <div class="nav-menu" id="navMenu">
         <ul>
             <li><a href="#home">Home</a></li>
@@ -904,28 +788,8 @@
             <li><a href="#specializations">Specializations</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#" id="requestCallLink">Request call</a></li>
         </ul>
     </div>
-
-    <!-- Request Call Modal -->
-    <div class="request-call-modal" id="requestCallModal">
-        <div class="request-call-form">
-            <h3>Request a Call Back</h3>
-            <form id="callRequestForm">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="tel" name="phone" placeholder="Your Phone Number" required>
-                <input type="text" name="preferred-time" placeholder="Preferred Time to Call">
-                <div class="form-actions">
-                    <button type="submit" class="submit-call">Request Call</button>
-                    <button type="button" class="cancel-call" id="cancelCall">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Notification Area -->
-    <div id="notificationArea"></div>
 
     <!-- Floating Estimate Button -->
     <a href="#contact" class="floating-estimate">
@@ -952,17 +816,23 @@
                 <p>Comprehensive renovation solutions for commercial and residential properties</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <h3>Commercial Renovation</h3>
-                    <p>Professional renovation services for office spaces, retail stores, restaurants, and commercial buildings. We deliver quality results on time and within budget.</p>
+                <div class="service-card commercial-bg">
+                    <div class="service-card-content">
+                        <h3>Commercial Renovation</h3>
+                        <p>Professional renovation services for office spaces, retail stores, restaurants, and commercial buildings. We deliver quality results on time and within budget.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>Residential Renovation</h3>
-                    <p>Transform your living space with our expert residential renovation services. From single rooms to complete home makeovers, we bring your vision to life.</p>
+                <div class="service-card residential-bg">
+                    <div class="service-card-content">
+                        <h3>Residential Renovation</h3>
+                        <p>Transform your living space with our expert residential renovation services. From single rooms to complete home makeovers, we bring your vision to life.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>Handyman Services</h3>
-                    <p>Professional handyman services for all your repair and maintenance needs. From small fixes to larger projects, we handle it all with precision and care.</p>
+                <div class="service-card handyman-bg">
+                    <div class="service-card-content">
+                        <h3>Handyman Services</h3>
+                        <p>Professional handyman services for all your repair and maintenance needs. From small fixes to larger projects, we handle it all with precision and care.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1112,10 +982,8 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <!-- Netlify Form -->
-                    <form name="contact" method="POST" netlify>
-                        <input type="hidden" name="form-name" value="contact">
-                        
+                    <!-- Простая HTML форма вместо Netlify формы -->
+                    <form id="contactForm" action="#" method="POST">
                         <div class="form-status success" id="successMessage">
                             Thank you for your interest! We will contact you within 24 hours.
                         </div>
@@ -1154,8 +1022,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo"
-                         onerror="this.style.display='none'">
+                    <img src="LOGO.jpg" alt="PBQ Renovation Logo" class="logo">
                     <div class="footer-logo-text">
                         <div class="footer-company-name">PBQ RENOVATION</div>
                         <div class="footer-slogan">PROVIDING THE BEST QUALITY</div>
@@ -1207,7 +1074,7 @@
         });
 
         // Form handling
-        const contactForm = document.querySelector('form[name="contact"]');
+        const contactForm = document.getElementById('contactForm');
         const submitButton = document.getElementById('submitButton');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
@@ -1217,19 +1084,22 @@
         errorMessage.style.display = 'none';
 
         contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             submitButton.textContent = 'SENDING...';
-            submitButton.classList.add('submit-loading');
             submitButton.disabled = true;
             
             successMessage.style.display = 'none';
             errorMessage.style.display = 'none';
             
+            // Simulate form submission
             setTimeout(() => {
                 successMessage.style.display = 'block';
                 contactForm.reset();
                 submitButton.textContent = 'SEND MESSAGE';
-                submitButton.classList.remove('submit-loading');
                 submitButton.disabled = false;
+                
+                // Scroll to success message
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 2000);
         });
@@ -1244,17 +1114,7 @@
             }
         });
 
-        // Check if logo loaded successfully
-        window.addEventListener('load', function() {
-            const logos = document.querySelectorAll('.logo');
-            logos.forEach(logo => {
-                if (logo.naturalWidth === 0) {
-                    console.log('Logo not found:', logo.src);
-                }
-            });
-        });
-
-        // NEW: Navigation Menu Functionality
+        // Navigation Menu Functionality
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
 
@@ -1269,122 +1129,16 @@
             }
         });
 
-        // NEW: Request Call Functionality with Notifications
-        const requestCallLink = document.getElementById('requestCallLink');
-        const requestCallModal = document.getElementById('requestCallModal');
-        const cancelCall = document.getElementById('cancelCall');
-        const callRequestForm = document.getElementById('callRequestForm');
-        const notificationArea = document.getElementById('notificationArea');
-
-        // Function to show notifications
-        function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.innerHTML = `
-                ${message}
-                <button class="close-notification">&times;</button>
-            `;
-            
-            notificationArea.appendChild(notification);
-            
-            // Show notification
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 100);
-            
-            // Auto remove after 5 seconds
-            setTimeout(() => {
-                hideNotification(notification);
-            }, 5000);
-            
-            // Close button functionality
-            const closeBtn = notification.querySelector('.close-notification');
-            closeBtn.addEventListener('click', () => {
-                hideNotification(notification);
-            });
-        }
-        
-        function hideNotification(notification) {
-            notification.classList.remove('show');
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 300);
-        }
-
-        requestCallLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            navMenu.classList.remove('active');
-            requestCallModal.classList.add('active');
-        });
-
-        cancelCall.addEventListener('click', function() {
-            requestCallModal.classList.remove('active');
-        });
-
-        // Close modal when clicking outside
-        requestCallModal.addEventListener('click', function(e) {
-            if (e.target === requestCallModal) {
-                requestCallModal.classList.remove('active');
-            }
-        });
-
-        callRequestForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(callRequestForm);
-            const name = formData.get('name');
-            const phone = formData.get('phone');
-            const preferredTime = formData.get('preferred-time');
-            
-            // Show loading state
-            const submitBtn = callRequestForm.querySelector('.submit-call');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call (replace with actual API endpoint)
-            setTimeout(() => {
-                // Here you would typically send data to your server
-                // For demonstration, we'll simulate success
-                
-                // Reset form
-                callRequestForm.reset();
-                
-                // Show success notification
-                showNotification('Thank you! We will call you back within 1 hour.', 'success');
-                
-                // Close modal
-                requestCallModal.classList.remove('active');
-                
-                // Reset button
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                // Log the data (in real scenario, send to server)
-                console.log('Call request received:', {
-                    name: name,
-                    phone: phone,
-                    preferredTime: preferredTime,
-                    timestamp: new Date().toISOString()
+        // Handle logo loading errors
+        window.addEventListener('load', function() {
+            const logos = document.querySelectorAll('.logo');
+            logos.forEach(logo => {
+                logo.addEventListener('error', function() {
+                    console.log('Logo not found:', this.src);
+                    this.style.display = 'none';
                 });
-                
-            }, 1500);
-        });
-
-        // Email notification simulation
-        function simulateEmailNotification(formData) {
-            // This would be replaced with actual email service integration
-            console.log('Sending email notification with data:', {
-                to: 'pbqrenovation@gmail.com',
-                subject: 'New Call Request from Website',
-                body: `Name: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nPreferred Time: ${formData.get('preferred-time')}`
             });
-            
-            // Simulate email sent successfully
-            return true;
-        }
+        });
     </script>
 </body>
 </html>
