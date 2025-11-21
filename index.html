@@ -38,6 +38,7 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.3s;
         }
         
         nav {
@@ -57,6 +58,19 @@
             width: auto;
             max-width: 150px;
             object-fit: contain;
+        }
+        
+        .logo-fallback {
+            width: 60px;
+            height: 60px;
+            background: #27ae60;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
         
         .logo-text {
@@ -92,7 +106,55 @@
         }
         
         .nav-links a:hover {
-            color: #666;
+            color: #27ae60;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #000;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 140px;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+            padding: 1rem 0;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-nav-links li {
+            margin: 1rem 0;
+        }
+        
+        .mobile-nav-links a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        .mobile-nav-links a:hover {
+            color: #27ae60;
         }
         
         /* Top Contact Bar */
@@ -286,11 +348,24 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            min-height: 120px;
+        }
+        
+        .work-item.painting-item {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1577098599456-77f6a76db7dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
         }
         
         .work-item:hover {
             transform: translateX(5px);
+            border-left: 4px solid #219653;
+        }
+        
+        .work-item.painting-item:hover {
+            transform: translateX(5px);
+            border-left: 4px solid #219653;
         }
         
         .work-icon {
@@ -308,6 +383,17 @@
         .work-content p {
             color: #666;
             font-size: 0.9rem;
+        }
+        
+        .work-item.painting-item .work-content h4,
+        .work-item.painting-item .work-content p {
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .work-item.painting-item .work-icon {
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         
         /* Portfolio Section */
@@ -335,6 +421,46 @@
             text-decoration: none;
             color: inherit;
             display: block;
+            position: relative;
+            overflow: hidden;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .portfolio-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-category:hover::before {
+            opacity: 0.8;
+        }
+        
+        .portfolio-category > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .portfolio-category h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .portfolio-category p {
+            color: #fff;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         
         .portfolio-category:hover {
@@ -343,15 +469,54 @@
             border-color: #27ae60;
         }
         
-        .portfolio-category h3 {
-            color: #000;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+        /* Specific background images for each category */
+        .portfolio-painting {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                       url('https://images.unsplash.com/photo-1578909192325-8e0d3f6c64d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
         }
         
-        .portfolio-category p {
-            color: #666;
-            line-height: 1.6;
+        .portfolio-drywall {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                       url('https://images.unsplash.com/photo-1581093450333-4c2289632b5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .portfolio-framing {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                       url('https://images.unsplash.com/photo-1595675028930-53d31bd5c5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .portfolio-flooring {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                       url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .portfolio-windows-doors {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                       url('https://images.unsplash.com/photo-1623293631868-ee4c59ee81d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .portfolio-handyman {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                       url('https://images.unsplash.com/photo-1581093450333-4c2289632b5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .portfolio-full-house {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                       url('https://images.unsplash.com/photo-1600585154340-6fba0db46aa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
         }
         
         /* Contact Section */
@@ -578,6 +743,10 @@
                 display: none;
             }
             
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
             .hero {
                 margin-top: 180px;
             }
@@ -665,8 +834,9 @@
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo" 
-                         onerror="this.style.display='none'">
+                    <div class="logo-fallback">
+                        <span>PBQ</span>
+                    </div>
                     <div class="logo-text">
                         <div class="company-name">PBQ RENOVATION</div>
                         <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
@@ -678,9 +848,22 @@
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
 
     <!-- Floating Estimate Button -->
     <a href="#contact" class="floating-estimate">
@@ -731,7 +914,8 @@
                 <p>Expert services in all aspects of construction and renovation</p>
             </div>
             <div class="work-grid">
-                <div class="work-item">
+                <!-- Painting - with background image -->
+                <div class="work-item painting-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
                     </div>
@@ -740,6 +924,8 @@
                         <p>Interior & exterior painting services</p>
                     </div>
                 </div>
+                
+                <!-- Drywall/Mudding/Taping - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -749,6 +935,8 @@
                         <p>Complete drywall installation and finishing</p>
                     </div>
                 </div>
+                
+                <!-- Flooring - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -758,6 +946,8 @@
                         <p>All types of flooring installation</p>
                     </div>
                 </div>
+                
+                <!-- Handyman - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -767,6 +957,8 @@
                         <p>General repairs and maintenance</p>
                     </div>
                 </div>
+                
+                <!-- Full House Renovation - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -776,6 +968,8 @@
                         <p>Complete home transformation services</p>
                     </div>
                 </div>
+                
+                <!-- Windows & Doors - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -785,6 +979,8 @@
                         <p>Professional installation services</p>
                     </div>
                 </div>
+                
+                <!-- Framing - without background -->
                 <div class="work-item">
                     <div class="work-icon">
                         <i class="fas fa-check-circle"></i>
@@ -806,29 +1002,33 @@
                 <p>Explore our work across different renovation categories</p>
             </div>
             <div class="portfolio-categories">
-                <a href="portfolio-painting.html" class="portfolio-category">
+                <a href="portfolio-painting.html" class="portfolio-category portfolio-painting">
                     <h3>Painting</h3>
                     <p>Interior and exterior painting projects with precision and attention to detail</p>
                 </a>
-                <a href="portfolio-drywall.html" class="portfolio-category">
+                <a href="portfolio-drywall.html" class="portfolio-category portfolio-drywall">
                     <h3>Drywall/Taping/Mudding</h3>
                     <p>Professional drywall installation and finishing services</p>
                 </a>
-                <a href="portfolio-framing.html" class="portfolio-category">
+                <a href="portfolio-framing.html" class="portfolio-category portfolio-framing">
                     <h3>Framing</h3>
                     <p>Structural framing projects for residential and commercial spaces</p>
                 </a>
-                <a href="portfolio-flooring.html" class="portfolio-category">
+                <a href="portfolio-flooring.html" class="portfolio-category portfolio-flooring">
                     <h3>Flooring</h3>
                     <p>Various flooring installations including hardwood, laminate, and tile</p>
                 </a>
-                <a href="portfolio-windows-doors.html" class="portfolio-category">
+                <a href="portfolio-windows-doors.html" class="portfolio-category portfolio-windows-doors">
                     <h3>Windows & Doors</h3>
                     <p>Professional installation of windows and doors for energy efficiency</p>
                 </a>
-                <a href="portfolio-handyman.html" class="portfolio-category">
+                <a href="portfolio-handyman.html" class="portfolio-category portfolio-handyman">
                     <h3>Handyman</h3>
                     <p>General repair and maintenance services for homes and businesses</p>
+                </a>
+                <a href="portfolio-full-house.html" class="portfolio-category portfolio-full-house">
+                    <h3>Full House Renovation</h3>
+                    <p>Complete home transformation from foundation to finish</p>
                 </a>
             </div>
         </div>
@@ -909,8 +1109,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo"
-                         onerror="this.style.display='none'">
+                    <div class="logo-fallback" style="width: 40px; height: 40px; font-size: 1rem;">
+                        <span>PBQ</span>
+                    </div>
                     <div class="footer-logo-text">
                         <div class="footer-company-name">PBQ RENOVATION</div>
                         <div class="footer-slogan">PROVIDING THE BEST QUALITY</div>
@@ -954,8 +1155,20 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    // Close mobile menu after clicking a link
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    mobileMenu.classList.remove('active');
                 }
             });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
         });
 
         // Form handling
@@ -969,6 +1182,8 @@
         errorMessage.style.display = 'none';
 
         contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             submitButton.textContent = 'SENDING...';
             submitButton.classList.add('submit-loading');
             submitButton.disabled = true;
@@ -976,6 +1191,7 @@
             successMessage.style.display = 'none';
             errorMessage.style.display = 'none';
             
+            // Simulate form submission
             setTimeout(() => {
                 successMessage.style.display = 'block';
                 contactForm.reset();
@@ -996,14 +1212,11 @@
             }
         });
 
-        // Check if logo loaded successfully
-        window.addEventListener('load', function() {
-            const logos = document.querySelectorAll('.logo');
-            logos.forEach(logo => {
-                if (logo.naturalWidth === 0) {
-                    console.log('Logo not found:', logo.src);
-                }
-            });
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.mobile-menu') && !e.target.closest('.mobile-menu-toggle') && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+            }
         });
     </script>
 </body>
