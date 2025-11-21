@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Принудительный HTTPS редирект -->
+    <!-- Принудительный HTTPS редирект и безопасный контент -->
     <script>
     if (window.location.hostname === 'pbqrenovation.ca' && 
         window.location.protocol !== 'https:') {
         window.location.href = 'https://pbqrenovation.ca' + window.location.pathname + window.location.search;
     }
     </script>
-    <meta charset="UTF-8">
-<!DOCTYPE html>
-<html lang="en">
-<head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PBQ Renovation | Commercial & Residential Services</title>
@@ -768,7 +765,6 @@
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <!-- Исправленный путь к логотипу -->
                     <img src="LOGO.jpg" alt="PBQ Renovation Logo" class="logo">
                     <div class="logo-text">
                         <div class="company-name">PBQ RENOVATION</div>
@@ -993,8 +989,13 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <!-- Простая HTML форма вместо Netlify формы -->
-                    <form id="contactForm" action="#" method="POST">
+                    <!-- Netlify Form with real submission -->
+                    <form name="contact" method="POST" netlify netlify-honeypot="bot-field" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p style="display: none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                        </p>
+                        
                         <div class="form-status success" id="successMessage">
                             Thank you for your interest! We will contact you within 24 hours.
                         </div>
@@ -1085,7 +1086,7 @@
         });
 
         // Form handling
-        const contactForm = document.getElementById('contactForm');
+        const contactForm = document.querySelector('form[name="contact"]');
         const submitButton = document.getElementById('submitButton');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
@@ -1095,24 +1096,23 @@
         errorMessage.style.display = 'none';
 
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+            // Let Netlify handle the submission
             submitButton.textContent = 'SENDING...';
             submitButton.disabled = true;
             
             successMessage.style.display = 'none';
             errorMessage.style.display = 'none';
             
-            // Simulate form submission
+            // Netlify will handle the actual submission
+            // We'll show success after a short delay
             setTimeout(() => {
                 successMessage.style.display = 'block';
-                contactForm.reset();
                 submitButton.textContent = 'SEND MESSAGE';
                 submitButton.disabled = false;
                 
                 // Scroll to success message
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 2000);
+            }, 1000);
         });
 
         // Header background change on scroll
