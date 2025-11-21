@@ -1,143 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PBQ Renovation | Commercial & Residential Services</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PBQ RENOVATION</title>
 
-    <!-- Global Styles -->
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
-            color: #000;
-            background: #fff;
-            line-height: 1.6;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
         }
-        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
 
-        /* Top Contact Bar */
-        .top-contact {
-            background: #000;
-            color: #fff;
-            padding: 12px 0;
-            font-size: 0.95rem;
+        /* TOP CONTACT BAR */
+        .top-contact-bar {
+            background: black;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            text-align: center;
         }
-        .top-contact .list {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .top-contact a {
-            color: #fff;
+
+        .top-contact-bar a {
+            color: white;
             text-decoration: none;
+            margin: 0 15px;
         }
-        .top-contact img {
+
+        .top-contact-bar img {
             width: 18px;
             vertical-align: middle;
-            margin-right: 5px;
+            margin-right: 6px;
         }
 
-        /* Header */
+        /* HEADER */
         header {
-            background: #fff;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;
+            padding: 20px 0;
+            text-align: center;
         }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo { height: 60px; }
 
-        .nav-links { list-style: none; display: flex; gap: 2rem; }
-        .nav-links a {
+        header .logo {
+            width: 160px;
+        }
+
+        nav a {
+            margin: 0 20px;
             text-decoration: none;
-            color: #000;
-            font-weight: 600;
+            color: black;
         }
 
-        /* Hero */
+        /* HERO */
         .hero {
-            background: url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5") center/cover no-repeat;
-            height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-attachment: fixed;
+            background-image: url("mainphoto.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 650px;
+            position: relative;
         }
-        .hero-content {
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
-            background: rgba(255,255,255,0.8);
-            padding: 3rem;
-            border-radius: 8px;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
         }
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            border: 2px solid #000;
-            transition: 0.3s;
+
+        /* SECTIONS */
+        .section {
+            padding: 40px 20px;
+            text-align: center;
         }
-        .cta-btn:hover { background: transparent; color: #000; }
 
-        /* Sections */
-        section { padding: 4rem 0; }
-
-        .section-title { text-align: center; margin-bottom: 2.5rem; }
-        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
-
-        /* Work Types */
-        .work-grid {
+        /* SERVICES */
+        .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-            gap: 1.5rem;
-        }
-        .work-item {
-            padding: 2rem;
-            background: #f8f9fa;
-            border-left: 4px solid #000;
-            border-radius: 8px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
         }
 
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        .service-box {
+            padding: 20px;
+            border: 1px solid #ddd;
+            font-size: 18px;
         }
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
+
+        /* CONTACT */
+        .contact-section {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        form input, form textarea, form select {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.2rem;
-            border-radius: 6px;
+            padding: 12px;
+            margin: 10px 0;
             border: 1px solid #ccc;
-            font-size: 1rem;
         }
-        .contact-form textarea { height: 150px; }
 
-        /* Footer */
+        button {
+            padding: 12px 25px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
         footer {
-            background: #000;
-            color: #fff;
-            padding: 2rem 0;
             text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .contact-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            padding: 30px 0;
+            background: #111;
+            color: white;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -145,158 +130,101 @@
 <body>
 
     <!-- TOP CONTACT BAR -->
-    <div class="top-contact">
-        <div class="container">
-            <div class="list">
+    <div class="top-contact-bar">
+        <span>📞 +1 (416) 731-5979</span>
+        <span>✉️ <a href="mailto:pbqrenovation@gmail.com">pbqrenovation@gmail.com</a></span>
 
-                <span>📞 +1 (416) 731-5979</span>
-
-                <span>✉️ <a href="mailto:pbqrenovation@gmail.com">pbqrenovation@gmail.com</a></span>
-
-                <a href="https://instagram.com/pbq_renovation" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-                    @pbq_renovation
-                </a>
-
-            </div>
-        </div>
+        <a href="https://instagram.com/pbq_renovation" target="_blank">
+            <img src="inst.png" alt="Instagram"> Instagram
+        </a>
     </div>
 
     <!-- HEADER -->
     <header>
-        <div class="container">
-            <nav>
-                <img src="./LOGO.jpg" class="logo" alt="PBQ Renovation">
+        <img src="LOGO.jpg" class="logo" alt="PBQ Renovation">
 
-                <ul class="nav-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#work">Our Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#work">Our Work</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
     <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>PBQ RENOVATION</h1>
-            <p>Providing The Best Quality</p>
-            <a href="#contact" class="cta-btn">GET FREE ESTIMATE</a>
+    <div class="hero">
+        <div class="hero-text">
+            PBQ RENOVATION<br />
+            Providing The Best Quality
         </div>
-    </section>
+    </div>
 
-    <!-- SERVICES -->
-    <section id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Specializations</h2>
-            </div>
+    <!-- SERVICES SECTION -->
+    <div class="section" id="services">
+        <h2>Our Specializations</h2>
 
-            <div class="work-grid">
-                <div class="work-item"><h4>Painting</h4></div>
-                <div class="work-item"><h4>Drywall</h4></div>
-                <div class="work-item"><h4>Taping</h4></div>
-                <div class="work-item"><h4>Mudding</h4></div>
-                <div class="work-item"><h4>Flooring</h4></div>
-                <div class="work-item"><h4>Handyman</h4></div>
+        <div class="services">
+            <div class="service-box">Painting</div>
+            <div class="service-box">Drywall</div>
+            <div class="service-box">Taping</div>
+            <div class="service-box">Mudding</div>
+            <div class="service-box">Flooring</div>
+            <div class="service-box">Handyman</div>
 
-                <!-- NEW WORK TYPES -->
-                <div class="work-item"><h4>Full Basement Finishing</h4></div>
-                <div class="work-item"><h4>Full House Renovation</h4></div>
-            </div>
+            <!-- ADDED NEW SERVICES -->
+            <div class="service-box">Full Basement Finishing</div>
+            <div class="service-box">Full House Renovation</div>
         </div>
-    </section>
+    </div>
 
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="container">
+    <!-- CONTACT SECTION -->
+    <div class="section" id="contact">
+        <h2>Contact Us</h2>
 
-            <div class="section-title">
-                <h2>Contact Us</h2>
-            </div>
+        <div class="contact-section">
+            <p><strong>Phone:</strong> +1 (416) 731-5979</p>
+            <p><strong>Email:</strong> pbqrenovation@gmail.com</p>
+            <p>
+                <a href="https://instagram.com/pbq_renovation" target="_blank">
+                    <img src="inst.png" width="20"> Instagram
+                </a>
+            </p>
 
-            <div class="contact-grid">
+            <!-- NETLIFY FORM -->
+            <form name="contact" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
 
-                <!-- CONTACT INFO -->
-                <div>
-                    <h3>Get In Touch</h3>
-                    <p>Phone: +1 (416) 731-5979</p>
-                    <p>Email: pbqrenovation@gmail.com</p>
+                <input type="text" name="name" placeholder="Your Name" required>
 
-                    <p>
-                        <a href="https://instagram.com/pbq_renovation" target="_blank">
-                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="20">
-                            @pbq_renovation
-                        </a>
-                    </p>
+                <input type="email" name="email" placeholder="Your Email" required>
 
-                    <h4 style="margin-top:2rem;">Nick Korzh — CEO</h4>
-                    <p>Available 7 days a week</p>
-                </div>
+                <input type="tel" name="phone" placeholder="Your Phone" required>
 
-                <!-- CONTACT FORM (Web3Forms) -->
-                <form class="contact-form" id="contactForm">
+                <select name="service">
+                    <option disabled selected>Select Service</option>
+                    <option>Commercial Renovation</option>
+                    <option>Residential Renovation</option>
+                    <option>Painting</option>
+                    <option>Drywall</option>
+                    <option>Taping</option>
+                    <option>Mudding</option>
+                    <option>Flooring</option>
+                    <option>Handyman</option>
 
-                    <!-- REQUIRED FOR WEB3FORMS -->
-                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
+                    <!-- NEW SERVICES -->
+                    <option>Full Basement Finishing</option>
+                    <option>Full House Renovation</option>
+                </select>
 
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="tel" name="phone" placeholder="Your Phone">
+                <textarea name="message" placeholder="Tell us about your project..." required></textarea>
 
-                    <select name="service">
-                        <option disabled selected>Select Service</option>
-                        <option value="Commercial Renovation">Commercial Renovation</option>
-                        <option value="Residential Renovation">Residential Renovation</option>
-                        <option value="Painting">Painting</option>
-                        <option value="Drywall">Drywall</option>
-                        <option value="Taping">Taping</option>
-                        <option value="Mudding">Mudding</option>
-                        <option value="Flooring">Flooring</option>
-                        <option value="Handyman">Handyman</option>
-
-                        <!-- NEW TYPES -->
-                        <option value="Full Basement Finishing">Full Basement Finishing</option>
-                        <option value="Full House Renovation">Full House Renovation</option>
-                    </select>
-
-                    <textarea name="message" placeholder="Tell us about your project..." required></textarea>
-
-                    <button class="cta-btn" type="submit">SEND MESSAGE</button>
-                </form>
-
-            </div>
-
+                <button type="submit">SEND MESSAGE</button>
+            </form>
         </div>
-    </section>
+    </div>
 
-    <!-- FOOTER -->
     <footer>
-        <p>© 2024 PBQ Renovation — All Rights Reserved</p>
+        © 2024 PBQ Renovation — All Rights Reserved
     </footer>
-
-    <!-- FORM HANDLER -->
-    <script>
-    document.getElementById("contactForm").addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const form = e.target;
-
-        let data = new FormData(form);
-
-        let response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: data
-        });
-
-        if (response.ok) {
-            alert("Your message has been sent! Nick will contact you shortly.");
-            form.reset();
-        } else {
-            alert("Error. Please try again.");
-        }
-    });
-    </script>
 
 </body>
 </html>
