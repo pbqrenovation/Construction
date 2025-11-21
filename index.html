@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PBQ Renovation | Commercial & Residential Services</title>
     
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        /* Все предыдущие стили остаются без изменений */
         * {
             margin: 0;
             padding: 0;
@@ -59,6 +55,13 @@
             width: auto;
             max-width: 150px;
             object-fit: contain;
+            border: 1px solid #ddd;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.8rem;
         }
         
         .logo-text {
@@ -136,6 +139,20 @@
             opacity: 0.8;
         }
         
+        /* Icons */
+        .icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+        }
+        
+        .icon-phone::before { content: "📞"; }
+        .icon-email::before { content: "✉️"; }
+        .icon-instagram::before { content: "📷"; }
+        .icon-bars::before { content: "☰"; }
+        .icon-check::before { content: "✓"; }
+        
         /* Floating Estimate Button */
         .floating-estimate {
             position: fixed;
@@ -169,7 +186,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), #f8f9fa;
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -411,7 +428,6 @@
         
         .instagram-icon {
             color: #E4405F;
-            font-size: 1.2rem;
         }
         
         .contact-person {
@@ -538,6 +554,8 @@
             width: auto;
             max-width: 120px;
             object-fit: contain;
+            border: 1px solid #444;
+            background: #333;
         }
         
         .footer-logo-text {
@@ -856,13 +874,13 @@
                 <span class="contacts-title">CONTACTS:</span>
                 <div class="contact-info-top">
                     <a href="tel:+14167315979">
-                        <i class="fas fa-phone"></i> +1 (416) 731-5979
+                        <span class="icon icon-phone"></span> +1 (416) 731-5979
                     </a>
                     <a href="mailto:pbqrenovation@gmail.com">
-                        <i class="fas fa-envelope"></i> pbqrenovation@gmail.com
+                        <span class="icon icon-email"></span> pbqrenovation@gmail.com
                     </a>
                     <a href="https://instagram.com/pbq_renovation" target="_blank">
-                        <i class="fab fa-instagram"></i> @pbq_renovation
+                        <span class="icon icon-instagram"></span> @pbq_renovation
                     </a>
                 </div>
             </div>
@@ -874,8 +892,7 @@
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo" 
-                         onerror="this.style.display='none'">
+                    <div class="logo">PBQ LOGO</div>
                     <div class="logo-text">
                         <div class="company-name">PBQ RENOVATION</div>
                         <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
@@ -893,7 +910,7 @@
 
     <!-- NEW: Navigation Menu Toggle -->
     <button class="menu-toggle" id="menuToggle">
-        <i class="fas fa-bars"></i> Menu
+        <span class="icon icon-bars"></span> Menu
     </button>
 
     <!-- NEW: Navigation Menu -->
@@ -978,7 +995,7 @@
             <div class="work-grid">
                 <div class="work-item">
                     <div class="work-icon">
-                        <i class="fas fa-check-circle"></i>
+                        <span class="icon-check"></span>
                     </div>
                     <div class="work-content">
                         <h4>Painting</h4>
@@ -987,7 +1004,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <i class="fas fa-check-circle"></i>
+                        <span class="icon-check"></span>
                     </div>
                     <div class="work-content">
                         <h4>Drywall/Mudding/Taping</h4>
@@ -996,7 +1013,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <i class="fas fa-check-circle"></i>
+                        <span class="icon-check"></span>
                     </div>
                     <div class="work-content">
                         <h4>Flooring</h4>
@@ -1005,7 +1022,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <i class="fas fa-check-circle"></i>
+                        <span class="icon-check"></span>
                     </div>
                     <div class="work-content">
                         <h4>Handyman</h4>
@@ -1014,7 +1031,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <i class="fas fa-check-circle"></i>
+                        <span class="icon-check"></span>
                     </div>
                     <div class="work-content">
                         <h4>Full House Renovation</h4>
@@ -1023,7 +1040,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <i class="fas fa-check-circle"></i>
+                        <span class="icon-check"></span>
                     </div>
                     <div class="work-content">
                         <h4>Windows & Doors</h4>
@@ -1032,7 +1049,7 @@
                 </div>
                 <div class="work-item">
                     <div class="work-icon">
-                        <i class="fas fa-check-circle"></i>
+                        <span class="icon-check"></span>
                     </div>
                     <div class="work-content">
                         <h4>Framing</h4>
@@ -1091,15 +1108,15 @@
                     <h3>Get In Touch</h3>
                     <div class="contact-details">
                         <p>
-                            <i class="fas fa-phone"></i> 
+                            <span class="icon icon-phone"></span>
                             <a href="tel:+14167315979" class="contact-link">+1 (416) 731-5979</a>
                         </p>
                         <p>
-                            <i class="fas fa-envelope"></i> 
+                            <span class="icon icon-email"></span>
                             <a href="mailto:pbqrenovation@gmail.com" class="contact-link">pbqrenovation@gmail.com</a>
                         </p>
                         <p>
-                            <i class="fab fa-instagram instagram-icon"></i>
+                            <span class="icon icon-instagram"></span>
                             <a href="https://instagram.com/pbq_renovation" target="_blank" class="instagram-link">
                                 @pbq_renovation
                             </a>
@@ -1112,10 +1129,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <!-- Netlify Form -->
-                    <form name="contact" method="POST" netlify>
-                        <input type="hidden" name="form-name" value="contact">
-                        
+                    <form id="contactForm">
                         <div class="form-status success" id="successMessage">
                             Thank you for your interest! We will contact you within 24 hours.
                         </div>
@@ -1154,8 +1168,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo"
-                         onerror="this.style.display='none'">
+                    <div class="logo" style="color: white;">PBQ LOGO</div>
                     <div class="footer-logo-text">
                         <div class="footer-company-name">PBQ RENOVATION</div>
                         <div class="footer-slogan">PROVIDING THE BEST QUALITY</div>
@@ -1163,19 +1176,19 @@
                 </div>
                 <div class="footer-contact">
                     <p>
-                        <i class="fas fa-envelope"></i> 
+                        <span class="icon icon-email"></span>
                         <a href="mailto:pbqrenovation@gmail.com" style="color: #fff; text-decoration: none;">
                             pbqrenovation@gmail.com
                         </a>
                     </p>
                     <p>
-                        <i class="fas fa-phone"></i> 
+                        <span class="icon icon-phone"></span>
                         <a href="tel:+14167315979" style="color: #fff; text-decoration: none;">
                             +1 (416) 731-5979
                         </a>
                     </p>
                     <p>
-                        <i class="fab fa-instagram"></i>
+                        <span class="icon icon-instagram"></span>
                         <a href="https://instagram.com/pbq_renovation" target="_blank" style="color: #fff; text-decoration: none;">
                             @pbq_renovation
                         </a>
@@ -1207,7 +1220,7 @@
         });
 
         // Form handling
-        const contactForm = document.querySelector('form[name="contact"]');
+        const contactForm = document.getElementById('contactForm');
         const submitButton = document.getElementById('submitButton');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
@@ -1217,6 +1230,7 @@
         errorMessage.style.display = 'none';
 
         contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             submitButton.textContent = 'SENDING...';
             submitButton.classList.add('submit-loading');
             submitButton.disabled = true;
@@ -1231,6 +1245,7 @@
                 submitButton.classList.remove('submit-loading');
                 submitButton.disabled = false;
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                showNotification('Thank you! Your message has been sent successfully.', 'success');
             }, 2000);
         });
 
@@ -1242,16 +1257,6 @@
             } else {
                 header.style.backgroundColor = '#ffffff';
             }
-        });
-
-        // Check if logo loaded successfully
-        window.addEventListener('load', function() {
-            const logos = document.querySelectorAll('.logo');
-            logos.forEach(logo => {
-                if (logo.naturalWidth === 0) {
-                    console.log('Logo not found:', logo.src);
-                }
-            });
         });
 
         // NEW: Navigation Menu Functionality
@@ -1344,11 +1349,8 @@
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Simulate API call (replace with actual API endpoint)
+            // Simulate API call
             setTimeout(() => {
-                // Here you would typically send data to your server
-                // For demonstration, we'll simulate success
-                
                 // Reset form
                 callRequestForm.reset();
                 
@@ -1362,7 +1364,7 @@
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 
-                // Log the data (in real scenario, send to server)
+                // Log the data
                 console.log('Call request received:', {
                     name: name,
                     phone: phone,
@@ -1372,19 +1374,6 @@
                 
             }, 1500);
         });
-
-        // Email notification simulation
-        function simulateEmailNotification(formData) {
-            // This would be replaced with actual email service integration
-            console.log('Sending email notification with data:', {
-                to: 'pbqrenovation@gmail.com',
-                subject: 'New Call Request from Website',
-                body: `Name: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nPreferred Time: ${formData.get('preferred-time')}`
-            });
-            
-            // Simulate email sent successfully
-            return true;
-        }
     </script>
 </body>
 </html>
