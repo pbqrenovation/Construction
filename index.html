@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PBQ Renovation | Commercial & Residential Services</title>
     
-    <!-- Netlify Identity Widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -98,9 +95,79 @@
             color: #666;
         }
         
+        /* Top Contact Bar */
+        .top-contact {
+            background: #27ae60;
+            color: white;
+            padding: 0.8rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-contact .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contacts-title {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-right: 1rem;
+        }
+        
+        .contact-info-top {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .contact-info-top a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.3s;
+        }
+        
+        .contact-info-top a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Floating Estimate Button */
+        .floating-estimate {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            background: #27ae60;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+            cursor: pointer;
+            line-height: 1.2;
+            padding: 5px;
+        }
+        
+        .floating-estimate:hover {
+            background: #219653;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+        
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -109,7 +176,7 @@
             justify-content: center;
             text-align: center;
             color: #000;
-            margin-top: 100px;
+            margin-top: 140px;
         }
         
         .hero-content h1 {
@@ -206,7 +273,7 @@
         
         .work-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
         
@@ -249,29 +316,42 @@
             background: #f8f9fa;
         }
         
-        .portfolio-grid {
+        .portfolio-categories {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
         
-        .portfolio-item {
-            position: relative;
+        .portfolio-category {
+            background: #fff;
+            padding: 2.5rem 2rem;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            height: 250px;
-            background: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-style: italic;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         
-        .portfolio-placeholder {
-            text-align: center;
-            padding: 2rem;
+        .portfolio-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #27ae60;
+        }
+        
+        .portfolio-category h3 {
+            color: #000;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .portfolio-category p {
+            color: #666;
+            line-height: 1.6;
         }
         
         /* Contact Section */
@@ -302,6 +382,16 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+        
+        .contact-link {
+            color: #000;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-link:hover {
+            color: #27ae60;
         }
         
         .instagram-link {
@@ -385,20 +475,39 @@
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
-            display: block;
         }
         
         .form-status.error {
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
-            display: block;
         }
         
         /* Loading State */
         .loading {
             opacity: 0.6;
             pointer-events: none;
+        }
+        
+        .submit-loading {
+            position: relative;
+        }
+        
+        .submit-loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            right: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         /* Footer */
@@ -469,6 +578,10 @@
                 display: none;
             }
             
+            .hero {
+                margin-top: 180px;
+            }
+            
             .hero-content h1 {
                 font-size: 2rem;
             }
@@ -504,16 +617,54 @@
                 flex-direction: column;
                 gap: 0.5rem;
             }
+            
+            .top-contact .container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .contact-info-top {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            .floating-estimate {
+                right: 20px;
+                bottom: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Top Contact Bar -->
+    <div class="top-contact">
+        <div class="container">
+            <div style="display: flex; align-items: center;">
+                <span class="contacts-title">CONTACTS:</span>
+                <div class="contact-info-top">
+                    <a href="tel:+14167315979">
+                        <i class="fas fa-phone"></i> +1 (416) 731-5979
+                    </a>
+                    <a href="mailto:pbqrenovation@gmail.com">
+                        <i class="fas fa-envelope"></i> pbqrenovation@gmail.com
+                    </a>
+                    <a href="https://instagram.com/pbq_renovation" target="_blank">
+                        <i class="fab fa-instagram"></i> @pbq_renovation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <!-- Logo with multiple fallback options -->
                     <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo" 
                          onerror="this.style.display='none'">
                     <div class="logo-text">
@@ -524,12 +675,17 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Our Work</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <!-- Floating Estimate Button -->
+    <a href="#contact" class="floating-estimate">
+        FREE<br>ESTIMATE
+    </a>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -537,7 +693,7 @@
             <h1>PBQ RENOVATION</h1>
             <div class="slogan">PROVIDING THE BEST QUALITY</div>
             <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px;">
-                Professional Commercial & Residential Renovation Services in Toronto
+                Professional Commercial & Residential Renovation Services in Greater Toronto Area
             </p>
             <a href="#contact" class="cta-button">GET FREE ESTIMATE</a>
         </div>
@@ -558,6 +714,10 @@
                 <div class="service-card">
                     <h3>Residential Renovation</h3>
                     <p>Transform your living space with our expert residential renovation services. From single rooms to complete home makeovers, we bring your vision to life.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Handyman Services</h3>
+                    <p>Professional handyman services for all your repair and maintenance needs. From small fixes to larger projects, we handle it all with precision and care.</p>
                 </div>
             </div>
         </div>
@@ -585,26 +745,8 @@
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <div class="work-content">
-                        <h4>Drywall</h4>
-                        <p>Professional drywall installation</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <div class="work-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="work-content">
-                        <h4>Taping</h4>
-                        <p>Precision taping services</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <div class="work-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="work-content">
-                        <h4>Mudding</h4>
-                        <p>Expert mudding and finishing</p>
+                        <h4>Drywall/Mudding/Taping</h4>
+                        <p>Complete drywall installation and finishing</p>
                     </div>
                 </div>
                 <div class="work-item">
@@ -625,6 +767,33 @@
                         <p>General repairs and maintenance</p>
                     </div>
                 </div>
+                <div class="work-item">
+                    <div class="work-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="work-content">
+                        <h4>Full House Renovation</h4>
+                        <p>Complete home transformation services</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="work-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="work-content">
+                        <h4>Windows & Doors</h4>
+                        <p>Professional installation services</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <div class="work-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="work-content">
+                        <h4>Framing</h4>
+                        <p>Structural framing and construction</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -633,28 +802,34 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-title">
-                <h2>Our Work</h2>
-                <p>Browse our portfolio of completed projects</p>
+                <h2>Portfolio</h2>
+                <p>Explore our work across different renovation categories</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-placeholder">
-                        <h4>Project Gallery</h4>
-                        <p>Your project photos will appear here</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-placeholder">
-                        <h4>Commercial Projects</h4>
-                        <p>Office and retail renovations</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-placeholder">
-                        <h4>Residential Projects</h4>
-                        <p>Home renovations and upgrades</p>
-                    </div>
-                </div>
+            <div class="portfolio-categories">
+                <a href="portfolio-painting.html" class="portfolio-category">
+                    <h3>Painting</h3>
+                    <p>Interior and exterior painting projects with precision and attention to detail</p>
+                </a>
+                <a href="portfolio-drywall.html" class="portfolio-category">
+                    <h3>Drywall/Taping/Mudding</h3>
+                    <p>Professional drywall installation and finishing services</p>
+                </a>
+                <a href="portfolio-framing.html" class="portfolio-category">
+                    <h3>Framing</h3>
+                    <p>Structural framing projects for residential and commercial spaces</p>
+                </a>
+                <a href="portfolio-flooring.html" class="portfolio-category">
+                    <h3>Flooring</h3>
+                    <p>Various flooring installations including hardwood, laminate, and tile</p>
+                </a>
+                <a href="portfolio-windows-doors.html" class="portfolio-category">
+                    <h3>Windows & Doors</h3>
+                    <p>Professional installation of windows and doors for energy efficiency</p>
+                </a>
+                <a href="portfolio-handyman.html" class="portfolio-category">
+                    <h3>Handyman</h3>
+                    <p>General repair and maintenance services for homes and businesses</p>
+                </a>
             </div>
         </div>
     </section>
@@ -670,8 +845,14 @@
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
                     <div class="contact-details">
-                        <p><i class="fas fa-phone"></i> +1 (416) 731-5979</p>
-                        <p><i class="fas fa-envelope"></i> pbqrenovation@gmail.com</p>
+                        <p>
+                            <i class="fas fa-phone"></i> 
+                            <a href="tel:+14167315979" class="contact-link">+1 (416) 731-5979</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i> 
+                            <a href="mailto:pbqrenovation@gmail.com" class="contact-link">pbqrenovation@gmail.com</a>
+                        </p>
                         <p>
                             <i class="fab fa-instagram instagram-icon"></i>
                             <a href="https://instagram.com/pbq_renovation" target="_blank" class="instagram-link">
@@ -682,27 +863,21 @@
                     <div class="contact-person">
                         <h4>Nick Korzh</h4>
                         <div class="position">CEO</div>
-                        <p>Ready to discuss your renovation project and provide you with the best quality service.</p>
+                        <p>Let's discuss your project and explore how we can deliver stunning results, on time and on budget.</p>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <!-- Netlify Form - Fixed version -->
-                    <form name="contact" method="POST" netlify netlify-honeypot="bot-field" id="contactForm">
-                        <!-- Honeypot field for spam protection -->
+                    <!-- Netlify Form -->
+                    <form name="contact" method="POST" netlify>
                         <input type="hidden" name="form-name" value="contact">
-                        <p style="display: none;">
-                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                        </p>
                         
-                        <!-- Form Status Messages -->
                         <div class="form-status success" id="successMessage">
-                            Thank you for your message! Nick will contact you within 24 hours.
+                            Thank you for your interest! We will contact you within 24 hours.
                         </div>
                         <div class="form-status error" id="errorMessage">
-                            Sorry, there was an error sending your message. Please try again or contact us directly.
+                            Sorry, there was an error. Please email us directly at pbqrenovation@gmail.com
                         </div>
                         
-                        <!-- Form Fields -->
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                         <input type="tel" name="phone" placeholder="Your Phone Number">
@@ -711,11 +886,12 @@
                             <option value="commercial">Commercial Renovation</option>
                             <option value="residential">Residential Renovation</option>
                             <option value="painting">Painting</option>
-                            <option value="drywall">Drywall</option>
-                            <option value="taping">Taping</option>
-                            <option value="mudding">Mudding</option>
+                            <option value="drywall">Drywall/Mudding/Taping</option>
                             <option value="flooring">Flooring</option>
                             <option value="handyman">Handyman Services</option>
+                            <option value="full-house">Full House Renovation</option>
+                            <option value="windows-doors">Windows and Doors Installation</option>
+                            <option value="framing">Framing</option>
                             <option value="other">Other</option>
                         </select>
                         <textarea name="message" placeholder="Tell us about your project..." required></textarea>
@@ -741,8 +917,18 @@
                     </div>
                 </div>
                 <div class="footer-contact">
-                    <p><i class="fas fa-envelope"></i> pbqrenovation@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +1 (416) 731-5979</p>
+                    <p>
+                        <i class="fas fa-envelope"></i> 
+                        <a href="mailto:pbqrenovation@gmail.com" style="color: #fff; text-decoration: none;">
+                            pbqrenovation@gmail.com
+                        </a>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i> 
+                        <a href="tel:+14167315979" style="color: #fff; text-decoration: none;">
+                            +1 (416) 731-5979
+                        </a>
+                    </p>
                     <p>
                         <i class="fab fa-instagram"></i>
                         <a href="https://instagram.com/pbq_renovation" target="_blank" style="color: #fff; text-decoration: none;">
@@ -758,17 +944,6 @@
     </footer>
 
     <script>
-        // Netlify Identity Widget
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
-        }
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -783,8 +958,8 @@
             });
         });
 
-        // Form handling with Netlify - FIXED VERSION
-        const contactForm = document.getElementById('contactForm');
+        // Form handling
+        const contactForm = document.querySelector('form[name="contact"]');
         const submitButton = document.getElementById('submitButton');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
@@ -794,50 +969,21 @@
         errorMessage.style.display = 'none';
 
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            const originalText = submitButton.textContent;
             submitButton.textContent = 'SENDING...';
+            submitButton.classList.add('submit-loading');
             submitButton.disabled = true;
-            contactForm.classList.add('loading');
             
-            // Hide previous messages
             successMessage.style.display = 'none';
             errorMessage.style.display = 'none';
             
-            // Create a new FormData object
-            const formData = new FormData(contactForm);
-            
-            // Use Netlify's built-in form handling
-            fetch('/', {
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success
-                    successMessage.style.display = 'block';
-                    contactForm.reset();
-                    
-                    // Scroll to success message
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            })
-            .catch(error => {
-                // Error
-                console.error('Form submission error:', error);
-                errorMessage.style.display = 'block';
-                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            })
-            .finally(() => {
-                // Reset button state
-                submitButton.textContent = originalText;
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                contactForm.reset();
+                submitButton.textContent = 'SEND MESSAGE';
+                submitButton.classList.remove('submit-loading');
                 submitButton.disabled = false;
-                contactForm.classList.remove('loading');
-            });
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 2000);
         });
 
         // Header background change on scroll
