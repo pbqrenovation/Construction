@@ -84,6 +84,7 @@
       color:var(--dark);
       background:#fff;
     }
+
     h1,h2,h3,h4{font-family:'Poppins',sans-serif;line-height:1.2}
     a{color:inherit}
 
@@ -128,9 +129,6 @@
       background:rgba(255,255,255,.92);
       backdrop-filter:blur(10px);
       padding:.8rem 0;
-      position:fixed;
-      top:42px;left:0;right:0;
-      z-index:1000;
       border-bottom:1px solid rgba(2,6,23,.08);
       box-shadow:var(--shadow-sm);
     }
@@ -148,24 +146,46 @@
       font-weight:700;text-transform:uppercase;letter-spacing:1px
     }
 
-    .nav-links{display:flex;list-style:none;gap:26px;align-items:center}
+    /* Горизонтальное меню (ПК) */
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:26px;
+      align-items:center;
+    }
     .nav-links a{
-      text-decoration:none;font-weight:800;text-transform:uppercase;
-      font-size:.82rem;letter-spacing:.6px;color:var(--dark);
-      position:relative;transition:var(--transition);
+      text-decoration:none;
+      font-weight:800;
+      text-transform:uppercase;
+      font-size:.82rem;
+      letter-spacing:.6px;
+      color:var(--dark);
+      position:relative;
+      transition:var(--transition);
     }
     .nav-links a::after{
-      content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--primary);
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      height:2px;
+      width:0;
+      background:var(--primary);
       transition:var(--transition);
     }
     .nav-links a:hover{color:var(--primary)}
     .nav-links a:hover::after{width:100%}
 
-    /* Mobile menu */
+    /* Мобильное меню (бургер) */
     .menu-toggle{
       display:none;
-      background:var(--primary);color:#fff;border:none;border-radius:999px;
-      padding:12px 16px;font-weight:900;cursor:pointer;
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      padding:12px 16px;
+      font-weight:900;
+      cursor:pointer;
       box-shadow:var(--shadow-md);
       transition:var(--transition);
       border:1px solid rgba(255,255,255,.12);
@@ -173,17 +193,33 @@
     .menu-toggle:hover{background:var(--primary-dark);transform:translateY(-1px)}
 
     .nav-menu{
-      position:fixed;top:120px;right:16px;
-      background:#fff;border:1px solid var(--border);
-      border-radius:16px;box-shadow:var(--shadow-lg);
-      min-width:220px;display:none;z-index:1100;overflow:hidden;
+      position:absolute;
+      top:calc(100% + 10px);
+      right:24px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:var(--shadow-lg);
+      min-width:220px;
+      display:none;
+      z-index:1100;
+      overflow:hidden;
     }
     .nav-menu.active{display:block;animation:slideIn .2s ease}
-    @keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes slideIn{
+      from{opacity:0;transform:translateY(-6px)}
+      to{opacity:1;transform:translateY(0)}
+    }
     .nav-menu ul{list-style:none}
     .nav-menu li{border-bottom:1px solid var(--border)}
     .nav-menu li:last-child{border-bottom:none}
-    .nav-menu a{display:block;padding:14px 16px;text-decoration:none;font-weight:800}
+    .nav-menu a{
+      display:block;
+      padding:14px 16px;
+      text-decoration:none;
+      font-weight:800;
+      color:var(--dark);
+    }
     .nav-menu a:hover{background:var(--light);color:var(--primary)}
 
     /* Floating Estimate Button */
@@ -206,7 +242,6 @@
 
     /* Hero */
     .hero{
-      margin-top:130px;
       min-height:78vh;
       display:flex;align-items:center;
       color:#fff;
@@ -502,8 +537,6 @@
 
     /* Responsive */
     @media (max-width: 900px){
-      header{top:56px}
-      .hero{margin-top:160px}
       .nav-links{display:none}
       .menu-toggle{display:inline-flex;align-items:center;gap:8px}
       .trust{grid-template-columns:1fr;max-width:520px}
@@ -552,6 +585,7 @@
           </div>
         </div>
 
+        <!-- Горизонтальное меню (ПК) -->
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
@@ -560,23 +594,24 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
 
+        <!-- Кнопка мобильного меню -->
         <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navMenu">
           <i class="fas fa-bars"></i> Menu
         </button>
+
+        <!-- Меню-окошко (мобильное) -->
+        <div class="nav-menu" id="navMenu" role="dialog" aria-label="Menu">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#specializations">Specializations</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </nav>
     </div>
   </header>
-
-  <!-- Navigation Menu -->
-  <div class="nav-menu" id="navMenu" role="dialog" aria-label="Menu">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#specializations">Specializations</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
 
   <!-- Floating Estimate -->
   <a href="#contact" class="floating-estimate" aria-label="Get a free estimate">FREE<br>ESTIMATE</a>
@@ -862,64 +897,70 @@
   </div>
 
   <script>
-    // Smooth scroll + close menu
+    // Mobile menu
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
 
-    function closeMenu(){
+    function closeMenu() {
       navMenu.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded','false');
+      menuToggle.setAttribute('aria-expanded', 'false');
     }
 
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = navMenu.classList.toggle('active');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
+    // Close when clicking outside
     document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) closeMenu();
+      if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        closeMenu();
+      }
     });
 
+    // Close on scroll
+    window.addEventListener('scroll', closeMenu);
+
+    // Smooth scroll and close menu
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
+        if (id === '#') return;
         const target = document.querySelector(id);
-        if (!target) return;
-        e.preventDefault();
-        closeMenu();
-        target.scrollIntoView({behavior:'smooth', block:'start'});
+        if (target) {
+          e.preventDefault();
+          closeMenu();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
     });
 
-    // Form UX (Netlify)
+    // Form (Netlify)
     const contactForm = document.querySelector('form[name="contact"]');
     const submitButton = document.getElementById('submitButton');
     const successMessage = document.getElementById('successMessage');
     const errorMessage = document.getElementById('errorMessage');
 
-    contactForm.addEventListener('submit', () => {
-      submitButton.innerHTML = 'SENDING... <i class="fas fa-spinner fa-spin" style="margin-left:8px;"></i>';
-      submitButton.disabled = true;
+    if (contactForm) {
+      contactForm.addEventListener('submit', () => {
+        submitButton.innerHTML = 'SENDING... <i class="fas fa-spinner fa-spin" style="margin-left:8px;"></i>';
+        submitButton.disabled = true;
 
-      setTimeout(() => {
-        successMessage.style.display = 'block';
-        errorMessage.style.display = 'none';
-        submitButton.innerHTML = 'SEND MESSAGE <i class="fas fa-paper-plane" style="margin-left:8px;"></i>';
-        submitButton.disabled = false;
-        successMessage.scrollIntoView({behavior:'smooth', block:'center'});
-      }, 900);
-    });
-
-    // Header background on scroll
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-      header.style.backgroundColor = (window.scrollY > 30) ? 'rgba(255,255,255,.98)' : 'rgba(255,255,255,.92)';
-    });
+        setTimeout(() => {
+          successMessage.style.display = 'block';
+          errorMessage.style.display = 'none';
+          submitButton.innerHTML = 'SEND MESSAGE <i class="fas fa-paper-plane" style="margin-left:8px;"></i>';
+          submitButton.disabled = false;
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 1000);
+      });
+    }
 
     // Logo fallback
     window.addEventListener('load', () => {
       document.querySelectorAll('.logo').forEach(logo => {
-        logo.addEventListener('error', () => { logo.style.display='none'; });
+        logo.addEventListener('error', () => { logo.style.display = 'none'; });
       });
     });
   </script>
