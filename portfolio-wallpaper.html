@@ -1,550 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Force HTTPS -->
-  <script>
-    if (window.location.hostname === 'pbqrenovation.ca' && window.location.protocol !== 'https:') {
-      window.location.href = 'https://pbqrenovation.ca' + window.location.pathname + window.location.search;
-    }
-  </script>
-
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>PBQ Renovation - Wallpaper Projects</title>
-  <meta name="description" content="Wallpaper installation and removal projects by PBQ Renovation in Toronto GTA. See our work with different patterns and textures.">
-
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    :root{
-      --primary:#16a34a;
-      --primary-dark:#15803d;
-      --primary-soft:#dcfce7;
-      --dark:#0b1220;
-      --light:#f8fafc;
-      --muted:#64748b;
-      --border:#e2e8f0;
-
-      --shadow-sm:0 6px 16px rgba(2,6,23,.08);
-      --shadow-md:0 18px 40px rgba(2,6,23,.14);
-      --shadow-lg:0 26px 70px rgba(2,6,23,.18);
-
-      --radius:22px;
-      --transition:all .25s cubic-bezier(.4,0,.2,1);
-    }
-
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.6;
-      color:var(--dark);
-      background:#fff;
-    }
-
-    h1,h2,h3,h4{font-family:'Poppins',sans-serif;line-height:1.2}
-    a{color:inherit}
-
-    .container{max-width:1280px;margin:0 auto;padding:0 24px}
-
-    /* Skip link */
-    .skip-link{
-      position:absolute;left:-999px;top:10px;
-      background:#fff;color:#000;padding:10px 14px;border-radius:10px;
-      z-index:9999;border:1px solid var(--border);
-    }
-    .skip-link:focus{left:10px}
-
-    /* Top Contact Bar */
-    .top-contact{
-      background:var(--dark);
-      color:#fff;
-      padding:.55rem 0;
-      font-size:.9rem;
-    }
-    .top-contact .container{
-      display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
-    }
-    .contacts-title{
-      display:flex;align-items:center;gap:8px;
-      font-weight:800;color:var(--primary);letter-spacing:.3px;
-      text-transform:uppercase;
-    }
-    .contact-info-top{
-      display:flex;gap:18px;align-items:center;flex-wrap:wrap;
-    }
-    .contact-info-top a{
-      color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;
-      opacity:.95;transition:var(--transition);
-      font-weight:600;
-    }
-    .contact-info-top a:hover{color:var(--primary)}
-    .contact-info-top i{font-size:1rem}
-
-    /* Header */
-    header{
-      background:rgba(255,255,255,.92);
-      backdrop-filter:blur(10px);
-      padding:.8rem 0;
-      border-bottom:1px solid rgba(2,6,23,.08);
-      box-shadow:var(--shadow-sm);
-    }
-
-    nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .logo-container{display:flex;align-items:center;gap:12px;min-width:240px}
-    .logo{
-      height:54px;width:auto;max-width:140px;
-      object-fit:contain;border-radius:10px;
-    }
-    .logo-text{display:flex;flex-direction:column}
-    .company-name{font-size:1.35rem;font-weight:800;letter-spacing:-.4px}
-    .company-slogan{
-      font-size:.74rem;color:var(--muted);
-      font-weight:700;text-transform:uppercase;letter-spacing:1px
-    }
-
-    /* Горизонтальное меню (ПК) */
-    .nav-links{
-      display:flex;
-      list-style:none;
-      gap:26px;
-      align-items:center;
-    }
-    .nav-links a{
-      text-decoration:none;
-      font-weight:800;
-      text-transform:uppercase;
-      font-size:.82rem;
-      letter-spacing:.6px;
-      color:var(--dark);
-      position:relative;
-      transition:var(--transition);
-    }
-    .nav-links a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-6px;
-      height:2px;
-      width:0;
-      background:var(--primary);
-      transition:var(--transition);
-    }
-    .nav-links a:hover{color:var(--primary)}
-    .nav-links a:hover::after{width:100%}
-
-    /* Мобильное меню (бургер) */
-    .menu-toggle{
-      display:none;
-      background:var(--primary);
-      color:#fff;
-      border:none;
-      border-radius:999px;
-      padding:12px 16px;
-      font-weight:900;
-      cursor:pointer;
-      box-shadow:var(--shadow-md);
-      transition:var(--transition);
-      border:1px solid rgba(255,255,255,.12);
-    }
-    .menu-toggle:hover{background:var(--primary-dark);transform:translateY(-1px)}
-
-    .nav-menu{
-      position:absolute;
-      top:calc(100% + 10px);
-      right:24px;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:16px;
-      box-shadow:var(--shadow-lg);
-      min-width:220px;
-      display:none;
-      z-index:1100;
-      overflow:hidden;
-    }
-    .nav-menu.active{display:block;animation:slideIn .2s ease}
-    @keyframes slideIn{
-      from{opacity:0;transform:translateY(-6px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-    .nav-menu ul{list-style:none}
-    .nav-menu li{border-bottom:1px solid var(--border)}
-    .nav-menu li:last-child{border-bottom:none}
-    .nav-menu a{
-      display:block;
-      padding:14px 16px;
-      text-decoration:none;
-      font-weight:800;
-      color:var(--dark);
-    }
-    .nav-menu a:hover{background:var(--light);color:var(--primary)}
-
-    /* Floating Estimate Button */
-    .floating-estimate{
-      position:fixed;right:20px;bottom:86px;
-      background:var(--primary);
-      color:#fff;width:64px;height:64px;border-radius:22px;
-      display:flex;align-items:center;justify-content:center;
-      text-decoration:none;font-weight:900;font-size:.68rem;
-      text-align:center;box-shadow:var(--shadow-lg);
-      transition:var(--transition);z-index:999;
-      border:2px solid rgba(255,255,255,.0);
-      line-height:1.1;padding:6px;
-    }
-    .floating-estimate:hover{
-      background:var(--primary-dark);
-      transform:translateY(-4px);
-      border-color:rgba(255,255,255,.95);
-    }
-
-    /* Стили для страницы портфолио */
-    .portfolio-detail{
-      padding:40px 0 60px;
-      background:var(--light);
-    }
-    .back-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      margin-bottom:24px;
-      color:var(--primary);
-      text-decoration:none;
-      font-weight:700;
-      transition:var(--transition);
-    }
-    .back-link:hover{
-      color:var(--primary-dark);
-      transform:translateX(-4px);
-    }
-    .portfolio-detail h1{
-      font-size:2.5rem;
-      margin-bottom:12px;
-    }
-    .portfolio-detail .lead{
-      color:var(--muted);
-      margin-bottom:32px;
-      max-width:700px;
-    }
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:24px;
-    }
-    .gallery-item{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow-sm);
-      transition:var(--transition);
-    }
-    .gallery-item:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-md);
-      border-color:rgba(22,163,74,.4);
-    }
-    .gallery-item img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-      display:block;
-    }
-    .gallery-info{
-      padding:16px;
-    }
-    .gallery-info h3{
-      font-size:1.2rem;
-      margin-bottom:6px;
-    }
-    .gallery-info p{
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    /* Footer */
-    footer{background:var(--dark);color:#fff;padding:3.8rem 0 2rem}
-    .footer-content{
-      display:flex;justify-content:space-between;align-items:center;
-      gap:18px;flex-wrap:wrap;margin-bottom:18px;
-    }
-    .footer-logo{display:flex;align-items:center;gap:12px}
-    .footer-logo img{height:44px;max-width:120px;object-fit:contain;filter:brightness(0) invert(1);border-radius:10px}
-    .footer-company-name{font-weight:900}
-    .footer-slogan{font-size:.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:1px}
-    .footer-contact p{display:flex;align-items:center;gap:10px;margin-bottom:8px;opacity:.95}
-    .footer-contact a{text-decoration:none;color:#fff}
-    .footer-contact a:hover{color:var(--primary)}
-    .footer-address{
-      margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);
-      color:#94a3b8;text-align:center;font-size:.92rem;
-    }
-    .copyright{text-align:center;color:#94a3b8;font-size:.9rem;margin-top:14px}
-
-    /* Mobile sticky bar */
-    .mobile-bar{
-      position:fixed;left:0;right:0;bottom:0;
-      background:rgba(255,255,255,.96);
-      border-top:1px solid var(--border);
-      box-shadow:0 -16px 40px rgba(2,6,23,.12);
-      z-index:1200;
-      padding:10px 12px;
-      display:none;
-    }
-    .mobile-bar .row{display:flex;gap:10px}
-    .mobile-bar a{
-      flex:1;
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 12px;border-radius:999px;
-      text-decoration:none;font-weight:900;
-      border:1px solid var(--border);
-      transition:var(--transition);
-    }
-    .mobile-bar .call{background:var(--primary);color:#fff;border-color:transparent}
-    .mobile-bar .call:hover{background:var(--primary-dark)}
-    .mobile-bar .msg{background:#fff}
-    .mobile-bar .msg:hover{border-color:rgba(22,163,74,.45);color:var(--primary)}
-
-    @media (max-width: 900px){
-      .nav-links{display:none}
-      .menu-toggle{display:inline-flex;align-items:center;gap:8px}
-      .mobile-bar{display:block}
-      .floating-estimate{bottom:86px}
-    }
-    @media (max-width: 520px){
-      .company-name{font-size:1.15rem}
-      .portfolio-detail h1{font-size:2rem}
-    }
-  </style>
-</head>
-
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Top Contact Bar -->
-  <div class="top-contact">
-    <div class="container">
-      <div class="contacts-title">
-        <i class="fas fa-phone-alt"></i> CONTACTS
-      </div>
-      <div class="contact-info-top">
-        <a href="tel:+14167315979"><i class="fas fa-phone"></i> +1 (416) 731-5979</a>
-        <a href="mailto:pbqrenovation@gmail.com"><i class="fas fa-envelope"></i> pbqrenovation@gmail.com</a>
-        <a href="https://instagram.com/pbq_renovation" target="_blank" rel="noopener">
-          <i class="fab fa-instagram"></i> @pbq_renovation
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <nav aria-label="Primary">
-        <div class="logo-container">
-          <img src="LOGO.jpg" alt="PBQ Renovation Logo" class="logo" loading="eager">
-          <div class="logo-text">
-            <div class="company-name">PBQ RENOVATION</div>
-            <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
-          </div>
-        </div>
-
-        <!-- Горизонтальное меню (ПК) -->
-        <ul class="nav-links">
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#specializations">Specializations</a></li>
-          <li><a href="index.html#portfolio">Portfolio</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-
-        <!-- Кнопка мобильного меню -->
-        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navMenu">
-          <i class="fas fa-bars"></i> Menu
-        </button>
-
-        <!-- Меню-окошко (мобильное) -->
-        <div class="nav-menu" id="navMenu" role="dialog" aria-label="Menu">
-          <ul>
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#specializations">Specializations</a></li>
-            <li><a href="index.html#portfolio">Portfolio</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Floating Estimate -->
-  <a href="index.html#contact" class="floating-estimate" aria-label="Get a free estimate">FREE<br>ESTIMATE</a>
-
-  <main id="main">
-    <!-- Детальная страница портфолио: Wallpaper -->
-    <section class="portfolio-detail">
-      <div class="container">
-        <a href="index.html#portfolio" class="back-link">
-          <i class="fas fa-arrow-left"></i> Back to Portfolio
-        </a>
-
-        <h1>Wallpaper Projects</h1>
-        <p class="lead">We install and remove wallpaper with precision — clean seams, careful alignment, and beautiful finishes for any room.</p>
-
-        <div class="gallery-grid">
-          <!-- Пример 1 -->
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1616047006789-bda7f239a4a3?q=80&w=2070" alt="Wallpaper installation living room">
-            <div class="gallery-info">
-              <h3>Modern Geometric Wallpaper</h3>
-              <p>Living room feature wall with precise pattern matching.</p>
-            </div>
-          </div>
-
-          <!-- Пример 2 -->
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1585773690163-975bf5c1e1e2?q=80&w=2070" alt="Wallpaper bedroom">
-            <div class="gallery-info">
-              <h3>Textured Wallpaper in Bedroom</h3>
-              <p>Soft beige textured wallpaper creating a cozy atmosphere.</p>
-            </div>
-          </div>
-
-          <!-- Пример 3 -->
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=2070" alt="Wallpaper hallway">
-            <div class="gallery-info">
-              <h3>Classic Damask Pattern</h3>
-              <p>Elegant hallway with traditional wallpaper and border.</p>
-            </div>
-          </div>
-
-          <!-- Пример 4 -->
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1628744448840-2c52e971f8c8?q=80&w=2070" alt="Wallpaper removal">
-            <div class="gallery-info">
-              <h3>Wallpaper Removal & Preparation</h3>
-              <p>Careful removal and wall prep for a fresh new look.</p>
-            </div>
-          </div>
-
-          <!-- Пример 5 -->
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2070" alt="Wallpaper kitchen">
-            <div class="gallery-info">
-              <h3>Kitchen Accent Wall</h3>
-              <p>Moisture-resistant wallpaper in a modern kitchen.</p>
-            </div>
-          </div>
-
-          <!-- Пример 6 -->
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1635874942004-9b0a2b29f10d?q=80&w=2070" alt="Wallpaper children room">
-            <div class="gallery-info">
-              <h3>Children's Room Mural</h3>
-              <p>Fun and colorful wallpaper installation.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="LOGO.jpg" alt="PBQ Renovation Logo" loading="lazy">
-          <div>
-            <div class="footer-company-name">PBQ RENOVATION</div>
-            <div class="footer-slogan">PROVIDING THE BEST QUALITY</div>
-          </div>
-        </div>
-
-        <div class="footer-contact">
-          <p><i class="fas fa-envelope"></i> <a href="mailto:pbqrenovation@gmail.com">pbqrenovation@gmail.com</a></p>
-          <p><i class="fas fa-phone-alt"></i> <a href="tel:+14167315979">+1 (416) 731-5979</a></p>
-          <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/pbq_renovation" target="_blank" rel="noopener">@pbq_renovation</a></p>
-          <p><i class="fas fa-globe"></i> <a href="https://pbqrenovation.ca" target="_blank" rel="noopener">pbqrenovation.ca</a></p>
-        </div>
-      </div>
-
-      <div class="footer-address">
-        <p><i class="fas fa-map-marker-alt" style="margin-right:8px;color:var(--primary);"></i> 105 Cactus Ave, North York, ON, M2R 2V1</p>
-      </div>
-
-      <div class="copyright">
-        <p>&copy; 2024 PBQ Renovation. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Mobile sticky bar -->
-  <div class="mobile-bar" aria-label="Quick contact">
-    <div class="row">
-      <a class="call" href="tel:+14167315979"><i class="fas fa-phone"></i> Call</a>
-      <a class="msg" href="index.html#contact"><i class="fas fa-message"></i> Message</a>
-    </div>
-  </div>
-
-  <script>
-    // Mobile menu
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    function closeMenu() {
-      navMenu.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = navMenu.classList.toggle('active');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // Close when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
-        closeMenu();
-      }
-    });
-
-    // Close on scroll
-    window.addEventListener('scroll', closeMenu);
-
-    // Smooth scroll for internal links (если есть)
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        if (id === '#') return;
-        const target = document.querySelector(id);
-        if (target) {
-          e.preventDefault();
-          closeMenu();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpaper Portfolio | PBQ Renovation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #000; background: #fff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        header {
+            background: #ffffff; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-bottom: 1px solid #f0f0f0;
         }
-      });
-    });
+        
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo-container { display: flex; align-items: center; gap: 1rem; }
+        .logo { height: 60px; width: auto; max-width: 150px; object-fit: contain; }
+        .logo-text { display: flex; flex-direction: column; }
+        .company-name { font-size: 1.8rem; font-weight: bold; color: #000; }
+        .company-slogan { font-size: 0.9rem; color: #666; font-weight: 500; }
+        
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: #000; text-decoration: none; font-weight: 500; transition: color 0.3s; text-transform: uppercase; font-size: 0.9rem; }
+        .nav-links a:hover { color: #666; }
+        
+        .portfolio-gallery { padding: 120px 0 5rem 0; }
+        .gallery-title { text-align: center; margin-bottom: 3rem; }
+        .gallery-title h1 { font-size: 2.5rem; color: #000; margin-bottom: 1rem; }
+        .gallery-title p { color: #666; font-size: 1.1rem; }
+        
+        .back-button {
+            display: inline-flex; align-items: center; gap: 0.5rem; color: #27ae60; text-decoration: none;
+            font-weight: bold; margin-bottom: 2rem; transition: color 0.3s;
+        }
+        .back-button:hover { color: #219653; }
+        
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s; background: #f8f9fa; aspect-ratio: 4/3;
+        }
+        .gallery-item:hover { transform: translateY(-5px); }
+        
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+        .image-placeholder {
+            display: flex; align-items: center; justify-content: center; height: 100%; color: #666;
+            font-style: italic; text-align: center; padding: 2rem; background: #e0e0e0;
+        }
+        
+        footer { background: #000; color: #fff; text-align: center; padding: 3rem 0; margin-top: 5rem; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .footer-logo { display: flex; align-items: center; gap: 1rem; }
+        .footer-logo img { height: 40px; width: auto; max-width: 120px; object-fit: contain; }
+        .footer-logo-text { display: flex; flex-direction: column; text-align: left; }
+        .footer-company-name { font-size: 1.2rem; font-weight: bold; }
+        .footer-slogan { font-size: 0.8rem; color: #ccc; }
+        .footer-contact { text-align: right; }
+        .footer-contact p { margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem; }
+        .copyright { border-top: 1px solid #333; padding-top: 2rem; color: #ccc; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-logo-text, .footer-contact { text-align: center; }
+            .footer-contact p { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo" onerror="this.style.display='none'">
+                    <div class="logo-text">
+                        <div class="company-name">PBQ RENOVATION</div>
+                        <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    // Логотип-заглушка
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.logo').forEach(logo => {
-        logo.addEventListener('error', () => { logo.style.display = 'none'; });
-      });
-    });
-  </script>
+    <section class="portfolio-gallery">
+        <div class="container">
+            <a href="index.html#portfolio" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            
+            <div class="gallery-title">
+                <h1>Wallpaper Projects</h1>
+                <p>Professional wallpaper installation and removal services</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Photo 1 -->
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <div>
+                            <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem; color: #999;"></i>
+                            <p>Add your wallpaper project photo here</p>
+                            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Recommended size: 800x600px</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <div>
+                            <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem; color: #999;"></i>
+                            <p>Add your wallpaper project photo here</p>
+                            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Recommended size: 800x600px</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo 3 -->
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <div>
+                            <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 1rem; color: #999;"></i>
+                            <p>Add your wallpaper project photo here</p>
+                            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Recommended size: 800x600px</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add more photos as needed -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./LOGO.jpg" alt="PBQ Renovation Logo" class="logo" onerror="this.style.display='none'">
+                    <div class="footer-logo-text">
+                        <div class="footer-company-name">PBQ RENOVATION</div>
+                        <div class="footer-slogan">PROVIDING THE BEST QUALITY</div>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> pbqrenovation@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (416) 731-5979</p>
+                    <p><i class="fab fa-instagram"></i> @pbq_renovation</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 PBQ Renovation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
