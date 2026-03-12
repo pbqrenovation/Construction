@@ -59,6 +59,7 @@
   </script>
 
   <style>
+    /* --- ВСЕ СТИЛИ БЕЗ ИЗМЕНЕНИЙ (можно оставить как есть) --- */
     :root{
       --primary:#16a34a;
       --primary-dark:#15803d;
@@ -781,7 +782,7 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact (исправленная форма с Formspree) -->
     <section id="contact" class="section">
       <div class="container">
         <div class="section-title">
@@ -808,12 +809,12 @@
           </div>
 
           <div class="card">
-            <form name="contact" method="POST" netlify netlify-honeypot="bot-field" data-netlify="true">
-              <input type="hidden" name="form-name" value="contact">
-              <p style="display:none;">
-                <label>Don’t fill this out: <input name="bot-field"></label>
-              </p>
+            <!-- Форма отправляется на Formspree -->
+            <form id="contactForm" action="https://formspree.io/f/mdawgbbw" method="POST">
+              <!-- Скрытое поле honeypot для антиспама Formspree -->
+              <input type="text" name="_gotcha" style="display:none">
 
+              <!-- Блоки для отображения статуса -->
               <div class="form-status success" id="successMessage">
                 Thank you! We’ll contact you within 24 hours.
               </div>
@@ -912,17 +913,14 @@
       menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Закрытие при клике вне меню
     document.addEventListener('click', (e) => {
       if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
         closeMenu();
       }
     });
 
-    // Закрытие при скролле
     window.addEventListener('scroll', closeMenu);
 
-    // Плавный скролл и закрытие меню при клике на ссылку
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
@@ -936,28 +934,68 @@
       });
     });
 
-    // Форма (Netlify)
-    const contactForm = document.querySelector('form[name="contact"]');
+    // Форма Formspree (асинхронная отправка)
+    const contactForm = document.getElementById('contactForm');
     const submitButton = document.getElementById('submitButton');
     const successMessage = document.getElementById('successMessage');
     const errorMessage = document.getElementById('errorMessage');
 
     if (contactForm) {
-      contactForm.addEventListener('submit', () => {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault(); // Отключаем стандартную отправку (перезагрузку)
+
+        // Блокируем кнопку
+        if (submitButton.disabled) return;
+        const originalText = submitButton.innerHTML;
         submitButton.innerHTML = 'SENDING... <i class="fas fa-spinner fa-spin" style="margin-left:8px;"></i>';
         submitButton.disabled = true;
 
-        setTimeout(() => {
-          successMessage.style.display = 'block';
-          errorMessage.style.display = 'none';
-          submitButton.innerHTML = 'SEND MESSAGE <i class="fas fa-paper-plane" style="margin-left:8px;"></i>';
+        // Прячем старые сообщения
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+
+        // Собираем данные формы
+        const formData = new FormData(contactForm);
+
+        try {
+          // Отправляем POST запрос на endpoint Formspree
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json' // Formspree рекомендует этот заголовок
+            }
+          });
+
+          if (response.ok) {
+            // Успех
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+            contactForm.reset(); // очищаем поля
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            // Ошибка сервера (например, невалидные данные)
+            const data = await response.json();
+            console.error('Formspree error:', data);
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } catch (error) {
+          // Ошибка сети
+          console.error('Network error:', error);
+          errorMessage.style.display = 'block';
+          successMessage.style.display = 'none';
+          errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } finally {
+          // Восстанавливаем кнопку
+          submitButton.innerHTML = originalText;
           submitButton.disabled = false;
-          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 1000);
+        }
       });
     }
 
-    // Логотип-заглушка
+    // Обработка ошибок загрузки логотипа
     window.addEventListener('load', () => {
       document.querySelectorAll('.logo').forEach(logo => {
         logo.addEventListener('error', () => { logo.style.display = 'none'; });
