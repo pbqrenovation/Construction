@@ -12,13 +12,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PBQ Renovation | Wallpaper, Drywall, Painting & Handyman in Toronto GTA</title>
-  <meta name="description" content="PBQ Renovation — professional wallpaper installation, custom wall panels, drywall finishing, interior painting, and handyman services in Toronto GTA. Call/Text 416-731-5979 for a free estimate.">
+  <title>PBQ Renovation | Wallpaper, Drywall & Painting in Toronto GTA</title>
+  <meta name="description" content="PBQ Renovation — professional wallpaper installation, custom wall panels, drywall finishing, interior painting in Toronto GTA. Call/Text 416-731-5979 for a free estimate.">
   <meta name="theme-color" content="#0b1220">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="PBQ Renovation | Wallpaper, Drywall, Painting & Handyman in Toronto GTA">
-  <meta property="og:description" content="Wallpaper installation, drywall, painting & handyman services in Toronto GTA. Free estimates. Call/Text 416-731-5979.">
+  <meta property="og:title" content="PBQ Renovation | Wallpaper, Drywall & Painting in Toronto GTA">
+  <meta property="og:description" content="Wallpaper installation, drywall, painting services in Toronto GTA. Free estimates. Call/Text 416-731-5979.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pbqrenovation.ca/">
   <meta property="og:image" content="https://pbqrenovation.ca/og.jpg">
@@ -59,7 +59,6 @@
   </script>
 
   <style>
-    /* --- ВСЕ СТИЛИ (как в последней рабочей версии, без слайдера) --- */
     :root{
       --primary:#16a34a;
       --primary-dark:#15803d;
@@ -401,31 +400,50 @@
     .residential-bg::before{background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')}
     .handyman-bg::before{background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')}
 
-    /* Specializations */
+    /* Specializations — теперь 3 колонки, увеличенные */
     .spec-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:16px;margin-top:28px;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-top:28px;
     }
     .spec-item{
       background:var(--light);
       border:1px solid var(--border);
-      padding:18px 18px;
-      border-radius:18px;
-      display:flex;gap:14px;align-items:flex-start;
+      padding:28px 24px;
+      border-radius:24px;
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
       transition:var(--transition);
       box-shadow:var(--shadow-sm);
     }
-    .spec-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(22,163,74,.45)}
-    .spec-icon{color:var(--primary);font-size:1.9rem;min-width:38px;text-align:center}
-    .spec-content h4{font-size:1.1rem;margin-bottom:6px}
-    .spec-content p{color:var(--muted);font-size:.95rem}
+    .spec-item:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-md);
+      border-color:rgba(22,163,74,.45);
+    }
+    .spec-icon{
+      color:var(--primary);
+      font-size:2.2rem;
+      min-width:48px;
+      text-align:center;
+    }
+    .spec-content h4{
+      font-size:1.25rem;
+      margin-bottom:8px;
+    }
+    .spec-content p{
+      color:var(--muted);
+      font-size:0.95rem;
+      line-height:1.5;
+    }
 
-    /* Portfolio */
+    /* Portfolio — тоже 3 колонки, увеличенные */
     .portfolio-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:24px;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
       margin-top:28px;
     }
     .portfolio-card{
@@ -445,7 +463,7 @@
       border-color:rgba(22,163,74,.55);
     }
     .portfolio-image{
-      height:220px;
+      height:260px;
       background-size:cover;
       background-position:center;
       position:relative;
@@ -457,16 +475,17 @@
       background:linear-gradient(to top, rgba(0,0,0,.35), transparent 60%);
     }
     .portfolio-content{
-      padding:18px;
+      padding:22px 20px;
       text-align:center;
     }
     .portfolio-content h3{
-      font-size:1.25rem;
-      margin-bottom:8px;
+      font-size:1.35rem;
+      margin-bottom:10px;
     }
     .portfolio-content p{
       color:var(--muted);
-      font-size:.95rem;
+      font-size:0.95rem;
+      line-height:1.5;
     }
 
     /* Contact */
@@ -613,8 +632,26 @@
       .floating-estimate{bottom:86px}
       .top-contact .container{justify-content:center}
       .rating-block{font-size:0.85rem;padding:6px 14px;}
+
+      /* На планшетах делаем 2 колонки для спецов и портфолио */
+      .spec-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+      }
+      .portfolio-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+      }
     }
-    @media (max-width: 520px){
+    @media (max-width: 640px){
+      .spec-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+      }
+      .portfolio-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+      }
       .company-name{font-size:1.15rem}
       .hero-content h1{font-size:2.2rem}
       .hero-content .slogan{font-size:1.05rem}
@@ -719,7 +756,7 @@
       </div>
     </section>
 
-    <!-- Specializations (Wallpaper на первом месте) -->
+    <!-- Specializations — только 3: Wallpaper, Painting, Drywall -->
     <section id="specializations" class="section">
       <div class="container">
         <div class="section-title"><h2>Our Specializations</h2><p>Most requested services in Toronto GTA.</p></div>
@@ -727,12 +764,11 @@
           <div class="spec-item"><div class="spec-icon"><i class="fas fa-paint-roller"></i></div><div class="spec-content"><h4>Wallpaper</h4><p>Install & removal • careful seams • clean edges</p></div></div>
           <div class="spec-item"><div class="spec-icon"><i class="fas fa-paint-brush"></i></div><div class="spec-content"><h4>Painting</h4><p>Interior & exterior painting • clean lines • professional finish</p></div></div>
           <div class="spec-item"><div class="spec-icon"><i class="fas fa-border-all"></i></div><div class="spec-content"><h4>Drywall & Finishing</h4><p>Installation • taping • mudding • sanding (smooth results)</p></div></div>
-          <div class="spec-item"><div class="spec-icon"><i class="fas fa-wrench"></i></div><div class="spec-content"><h4>Handyman</h4><p>Repairs & maintenance • patching • adjustments</p></div></div>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio (теперь карточки ведут на отдельные страницы) -->
+    <!-- Portfolio — только 3 карточки: Wallpaper, Painting, Drywall -->
     <section id="portfolio" class="section light">
       <div class="container">
         <div class="section-title"><h2>Portfolio</h2><p>Explore our work across different renovation categories</p></div>
@@ -742,16 +778,12 @@
             <div class="portfolio-content"><h3>Wallpaper</h3><p>Expert wallpaper installation, design, and removal for any space</p></div>
           </a>
           <a href="portfolio-painting.html" class="portfolio-card">
-            <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158');"></div>
+            <div class="portfolio-image" style="background-image:url('https://raw.githubusercontent.com/pbqrenovation/Construction/main/p1.jpg');"></div>
             <div class="portfolio-content"><h3>Painting</h3><p>Interior and exterior painting projects with precision and attention to detail</p></div>
           </a>
           <a href="portfolio-drywall.html" class="portfolio-card">
-            <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070');"></div>
+            <div class="portfolio-image" style="background-image:url('https://raw.githubusercontent.com/pbqrenovation/Construction/main/d1.jpg');"></div>
             <div class="portfolio-content"><h3>Drywall / Taping / Mudding</h3><p>Professional drywall installation and finishing services</p></div>
-          </a>
-          <a href="portfolio-handyman.html" class="portfolio-card">
-            <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="portfolio-content"><h3>Handyman</h3><p>General repair and maintenance services for homes and businesses</p></div>
           </a>
         </div>
       </div>
@@ -781,7 +813,7 @@
               <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
               <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
               <div class="form-group"><input type="tel" name="phone" placeholder="Your Phone Number"></div>
-              <div class="form-group"><select name="service-type" required><option value="" disabled selected>Select Service Type</option><option value="wallpaper">Wallpaper</option><option value="painting">Painting</option><option value="drywall">Drywall / Finishing (Taping/Mudding)</option><option value="handyman">Handyman Services</option><option value="other">Other</option></select></div>
+              <div class="form-group"><select name="service-type" required><option value="" disabled selected>Select Service Type</option><option value="wallpaper">Wallpaper</option><option value="painting">Painting</option><option value="drywall">Drywall / Finishing (Taping/Mudding)</option><option value="other">Other</option></select></div>
               <div class="form-group"><textarea name="message" placeholder="Tell us about your project (location, size, timeline). If possible, include photos." required></textarea></div>
               <button type="submit" class="submit-button" id="submitButton">SEND MESSAGE <i class="fas fa-paper-plane" style="margin-left:8px;"></i></button>
             </form>
