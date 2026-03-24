@@ -12,13 +12,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PBQ Renovation | Drywall, Painting & Handyman in Toronto GTA</title>
-  <meta name="description" content="PBQ Renovation — drywall installation & finishing (taping/mudding), interior painting, wallpaper, and handyman services in Toronto GTA. Call/Text 416-731-5979 for a free estimate.">
+  <title>PBQ Renovation | Wallpaper, Drywall, Painting & Handyman in Toronto GTA</title>
+  <meta name="description" content="PBQ Renovation — professional wallpaper installation, custom wall panels, drywall finishing, interior painting, and handyman services in Toronto GTA. Call/Text 416-731-5979 for a free estimate.">
   <meta name="theme-color" content="#0b1220">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="PBQ Renovation | Drywall, Painting & Handyman in Toronto GTA">
-  <meta property="og:description" content="Drywall, finishing, painting & handyman services in Toronto GTA. Free estimates. Call/Text 416-731-5979.">
+  <meta property="og:title" content="PBQ Renovation | Wallpaper, Drywall, Painting & Handyman in Toronto GTA">
+  <meta property="og:description" content="Wallpaper installation, drywall, painting & handyman services in Toronto GTA. Free estimates. Call/Text 416-731-5979.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pbqrenovation.ca/">
   <meta property="og:image" content="https://pbqrenovation.ca/og.jpg">
@@ -59,7 +59,7 @@
   </script>
 
   <style>
-    /* --- ВСЕ СТИЛИ БЕЗ ИЗМЕНЕНИЙ (можно оставить как есть) --- */
+    /* --- ВСЕ СТИЛИ С ОБНОВЛЕНИЯМИ --- */
     :root{
       --primary:#16a34a;
       --primary-dark:#15803d;
@@ -300,6 +300,36 @@
     .btn-ghost{background:rgba(255,255,255,.10)}
     .btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
 
+    /* Rating block */
+    .rating-block{
+      margin-top: 20px;
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.2);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .rating-block a{
+      color: #fff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .rating-block a:hover{
+      color: var(--primary);
+      gap: 10px;
+    }
+    .rating-block i{
+      font-size: 1.1rem;
+    }
+
     .trust{
       margin-top:26px;
       display:grid;
@@ -444,6 +474,30 @@
     .contact-link{text-decoration:none;color:var(--dark);transition:var(--transition)}
     .contact-link:hover{color:var(--primary)}
 
+    /* Google Business Profile link - border-top удалён */
+    .google-profile{
+      margin-top: 20px;
+      padding-top: 12px;
+      /* border-top: 1px solid var(--border);  УДАЛЕНО */
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+    .google-profile i{
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    .google-profile a{
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+    .google-profile a:hover{
+      color: var(--primary);
+    }
+
     .contact-person{
       margin-top:18px;background:#fff;border:1px solid var(--border);
       border-left:5px solid var(--primary);
@@ -501,10 +555,6 @@
     .footer-contact p{display:flex;align-items:center;gap:10px;margin-bottom:8px;opacity:.95}
     .footer-contact a{text-decoration:none;color:#fff}
     .footer-contact a:hover{color:var(--primary)}
-    .footer-address{
-      margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);
-      color:#94a3b8;text-align:center;font-size:.92rem;
-    }
     .copyright{text-align:center;color:#94a3b8;font-size:.9rem;margin-top:14px}
 
     /* Mobile sticky bar */
@@ -545,6 +595,7 @@
       .mobile-bar{display:block}
       .floating-estimate{bottom:86px}
       .top-contact .container{justify-content:center}
+      .rating-block{font-size:0.85rem;padding:6px 14px;}
     }
     @media (max-width: 520px){
       .company-name{font-size:1.15rem}
@@ -623,12 +674,12 @@
       <div class="container">
         <div class="hero-content">
           <div class="hero-badge">
-            <i class="fas fa-map-marker-alt"></i> Toronto GTA • Drywall • Painting • Handyman
+            <i class="fas fa-map-marker-alt"></i> Toronto GTA
           </div>
 
-          <h1>Drywall, Painting & Handyman<br>Done Clean & On-Time</h1>
+          <h1>Professional Wallpaper Installation in Toronto<br>Seamless Finish • Precision Work • Perfect Results</h1>
           <div class="slogan">Professional work. Smooth finish. Clear communication.</div>
-          <p>PBQ Renovation helps homeowners and businesses across the GTA with drywall installation & finishing (taping/mudding), interior painting, wallpaper, and repairs.</p>
+          <p>PBQ Renovation helps homeowners and businesses across the GTA with professional wallpaper installation and custom wall panels, along with drywall installation & finishing (taping/mudding), interior painting, and repairs.</p>
 
           <div class="cta-row">
             <a class="btn btn-primary" href="tel:+14167315979">
@@ -636,6 +687,13 @@
             </a>
             <a class="btn btn-ghost" href="#contact">
               <i class="fas fa-message"></i> Get Free Estimate
+            </a>
+          </div>
+
+          <div class="rating-block">
+            <i class="fas fa-star" style="color:#FFD700;"></i> 5.0 Rating on Google •
+            <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" rel="noopener">
+              See Our Reviews <i class="fas fa-arrow-right"></i>
             </a>
           </div>
 
@@ -650,10 +708,9 @@
             </div>
             <div class="trust-item">
               <i class="fas fa-receipt"></i>
-              <div><b>Free Estimates</b><span>Fast quote with photos</span></div>
+              <div><b>Fast Response</b><span>Quick replies within hours</span></div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -694,7 +751,7 @@
       </div>
     </section>
 
-    <!-- Specializations -->
+    <!-- Specializations (Wallpaper на первом месте) -->
     <section id="specializations" class="section">
       <div class="container">
         <div class="section-title">
@@ -703,6 +760,14 @@
         </div>
 
         <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-icon"><i class="fas fa-paint-roller"></i></div>
+            <div class="spec-content">
+              <h4>Wallpaper</h4>
+              <p>Install & removal • careful seams • clean edges</p>
+            </div>
+          </div>
+
           <div class="spec-item">
             <div class="spec-icon"><i class="fas fa-paint-brush"></i></div>
             <div class="spec-content">
@@ -726,19 +791,11 @@
               <p>Repairs & maintenance • patching • adjustments</p>
             </div>
           </div>
-
-          <div class="spec-item">
-            <div class="spec-icon"><i class="fas fa-paint-roller"></i></div>
-            <div class="spec-content">
-              <h4>Wallpaper</h4>
-              <p>Install & removal • careful seams • clean edges</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio -->
+    <!-- Portfolio (Wallpaper на первом месте) -->
     <section id="portfolio" class="section light">
       <div class="container">
         <div class="section-title">
@@ -747,6 +804,14 @@
         </div>
 
         <div class="portfolio-grid">
+          <a href="portfolio-wallpaper.html" class="portfolio-card">
+            <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1618219944342-824e40a13285?q=80&w=1974');"></div>
+            <div class="portfolio-content">
+              <h3>Wallpaper</h3>
+              <p>Expert wallpaper installation, design, and removal for any space</p>
+            </div>
+          </a>
+
           <a href="portfolio-painting.html" class="portfolio-card">
             <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158');"></div>
             <div class="portfolio-content">
@@ -770,19 +835,11 @@
               <p>General repair and maintenance services for homes and businesses</p>
             </div>
           </a>
-
-          <a href="portfolio-wallpaper.html" class="portfolio-card">
-            <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1618219944342-824e40a13285?q=80&w=1974');"></div>
-            <div class="portfolio-content">
-              <h3>Wallpaper</h3>
-              <p>Expert wallpaper installation, design, and removal for any space</p>
-            </div>
-          </a>
         </div>
       </div>
     </section>
 
-    <!-- Contact (исправленная форма с Formspree) -->
+    <!-- Contact -->
     <section id="contact" class="section">
       <div class="container">
         <div class="section-title">
@@ -801,6 +858,14 @@
               <p><i class="fas fa-globe"></i><a href="https://pbqrenovation.ca" target="_blank" rel="noopener" class="contact-link">pbqrenovation.ca</a></p>
             </div>
 
+            <!-- Без разделительной линии -->
+            <div class="google-profile">
+              <i class="fas fa-map-marker-alt"></i>
+              <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" rel="noopener">
+                Our Google Business Profile
+              </a>
+            </div>
+
             <div class="contact-person">
               <h4>Nick Korzh</h4>
               <div class="position">Owner</div>
@@ -809,12 +874,9 @@
           </div>
 
           <div class="card">
-            <!-- Форма отправляется на Formspree -->
             <form id="contactForm" action="https://formspree.io/f/mdawgbbw" method="POST">
-              <!-- Скрытое поле honeypot для антиспама Formspree -->
               <input type="text" name="_gotcha" style="display:none">
 
-              <!-- Блоки для отображения статуса -->
               <div class="form-status success" id="successMessage">
                 Thank you! We’ll contact you within 24 hours.
               </div>
@@ -837,10 +899,10 @@
               <div class="form-group">
                 <select name="service-type" required>
                   <option value="" disabled selected>Select Service Type</option>
+                  <option value="wallpaper">Wallpaper</option>
                   <option value="painting">Painting</option>
                   <option value="drywall">Drywall / Finishing (Taping/Mudding)</option>
                   <option value="handyman">Handyman Services</option>
-                  <option value="wallpaper">Wallpaper</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -879,10 +941,7 @@
         </div>
       </div>
 
-      <div class="footer-address">
-        <p><i class="fas fa-map-marker-alt" style="margin-right:8px;color:var(--primary);"></i> 105 Cactus Ave, North York, ON, M2R 2V1</p>
-      </div>
-
+      <!-- Адрес удалён -->
       <div class="copyright">
         <p>&copy; 2024 PBQ Renovation. All rights reserved.</p>
       </div>
@@ -934,7 +993,7 @@
       });
     });
 
-    // Форма Formspree (асинхронная отправка)
+    // Форма Formspree
     const contactForm = document.getElementById('contactForm');
     const submitButton = document.getElementById('submitButton');
     const successMessage = document.getElementById('successMessage');
@@ -942,39 +1001,33 @@
 
     if (contactForm) {
       contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault(); // Отключаем стандартную отправку (перезагрузку)
+        e.preventDefault();
 
-        // Блокируем кнопку
         if (submitButton.disabled) return;
         const originalText = submitButton.innerHTML;
         submitButton.innerHTML = 'SENDING... <i class="fas fa-spinner fa-spin" style="margin-left:8px;"></i>';
         submitButton.disabled = true;
 
-        // Прячем старые сообщения
         successMessage.style.display = 'none';
         errorMessage.style.display = 'none';
 
-        // Собираем данные формы
         const formData = new FormData(contactForm);
 
         try {
-          // Отправляем POST запрос на endpoint Formspree
           const response = await fetch(contactForm.action, {
             method: 'POST',
             body: formData,
             headers: {
-              'Accept': 'application/json' // Formspree рекомендует этот заголовок
+              'Accept': 'application/json'
             }
           });
 
           if (response.ok) {
-            // Успех
             successMessage.style.display = 'block';
             errorMessage.style.display = 'none';
-            contactForm.reset(); // очищаем поля
+            contactForm.reset();
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
           } else {
-            // Ошибка сервера (например, невалидные данные)
             const data = await response.json();
             console.error('Formspree error:', data);
             errorMessage.style.display = 'block';
@@ -982,13 +1035,11 @@
             errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
         } catch (error) {
-          // Ошибка сети
           console.error('Network error:', error);
           errorMessage.style.display = 'block';
           successMessage.style.display = 'none';
           errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } finally {
-          // Восстанавливаем кнопку
           submitButton.innerHTML = originalText;
           submitButton.disabled = false;
         }
