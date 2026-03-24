@@ -276,11 +276,9 @@
       margin-bottom:16px;
       font-weight:700;
     }
+    /* абзац удалён */
     .hero-content p{
-      max-width:640px;
-      font-size:1.08rem;
-      opacity:.88;
-      margin-bottom:22px;
+      display:none;
     }
 
     .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
@@ -400,7 +398,7 @@
     .residential-bg::before{background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')}
     .handyman-bg::before{background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')}
 
-    /* Specializations — теперь 3 колонки, увеличенные */
+    /* Specializations — 3 колонки */
     .spec-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -439,7 +437,7 @@
       line-height:1.5;
     }
 
-    /* Portfolio — тоже 3 колонки, увеличенные */
+    /* Portfolio — 3 колонки */
     .portfolio-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -633,7 +631,6 @@
       .top-contact .container{justify-content:center}
       .rating-block{font-size:0.85rem;padding:6px 14px;}
 
-      /* На планшетах делаем 2 колонки для спецов и портфолио */
       .spec-grid{
         grid-template-columns:repeat(2,1fr);
         gap:20px;
@@ -726,13 +723,13 @@
           </div>
           <h1>Professional Wallpaper Installation in Toronto<br>Seamless Finish • Precision Work • Perfect Results</h1>
           <div class="slogan">Professional work. Smooth finish. Clear communication.</div>
-          <p>PBQ Renovation helps homeowners and businesses across the GTA with professional wallpaper installation and custom wall panels, along with drywall installation & finishing (taping/mudding), interior painting, and repairs.</p>
+          <!-- абзац удалён -->
           <div class="cta-row">
             <a class="btn btn-primary" href="tel:+14167315979"><i class="fas fa-phone"></i> Call / Text 416-731-5979</a>
             <a class="btn btn-ghost" href="#contact"><i class="fas fa-message"></i> Get Free Estimate</a>
           </div>
           <div class="rating-block">
-            <i class="fas fa-star" style="color:#FFD700;"></i> 5.0 Rating on Google •
+            <i class="fas fa-star" style="color:#FFD700;"></i> 5.0 Rating on Google
             <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" rel="noopener">See Our Reviews <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="trust" aria-label="Trust highlights">
@@ -756,7 +753,7 @@
       </div>
     </section>
 
-    <!-- Specializations — только 3: Wallpaper, Painting, Drywall -->
+    <!-- Specializations: Wallpaper, Painting, Drywall -->
     <section id="specializations" class="section">
       <div class="container">
         <div class="section-title"><h2>Our Specializations</h2><p>Most requested services in Toronto GTA.</p></div>
@@ -768,7 +765,7 @@
       </div>
     </section>
 
-    <!-- Portfolio — только 3 карточки: Wallpaper, Painting, Drywall -->
+    <!-- Portfolio: Wallpaper, Painting, Drywall -->
     <section id="portfolio" class="section light">
       <div class="container">
         <div class="section-title"><h2>Portfolio</h2><p>Explore our work across different renovation categories</p></div>
@@ -834,7 +831,8 @@
     </div>
   </footer>
 
-  <div class="mobile-bar" aria-label="Quick contact"><div class="row"><a class="call" href="tel:+14167315979"><i class="fas fa-phone"></i> Call</a><a class="msg" href="#contact"><i class="fas fa-message"></i> Message</a></div></div>
+  <!-- Mobile sticky bar: кнопка Message теперь ведёт на SMS -->
+  <div class="mobile-bar" aria-label="Quick contact"><div class="row"><a class="call" href="tel:+14167315979"><i class="fas fa-phone"></i> Call</a><a class="msg" href="sms:+14167315979"><i class="fas fa-message"></i> Message</a></div></div>
 
   <script>
     // Мобильное меню
