@@ -59,7 +59,7 @@
   </script>
 
   <style>
-    /* --- ВСЕ СТИЛИ С ОБНОВЛЕНИЯМИ --- */
+    /* --- ВСЕ СТИЛИ С ОБНОВЛЕНИЯМИ ДЛЯ СЛАЙДЕРА --- */
     :root{
       --primary:#16a34a;
       --primary-dark:#15803d;
@@ -424,26 +424,104 @@
     /* Portfolio */
     .portfolio-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:16px;margin-top:28px;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:24px;
+      margin-top:28px;
     }
     .portfolio-card{
-      background:#fff;border:1px solid var(--border);
+      background:#fff;
+      border:1px solid var(--border);
       border-radius:var(--radius);
-      overflow:hidden;text-decoration:none;
+      overflow:hidden;
+      text-decoration:none;
       box-shadow:var(--shadow-sm);
       transition:var(--transition);
       color:inherit;
+      display:flex;
+      flex-direction:column;
     }
-    .portfolio-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(22,163,74,.55)}
-    .portfolio-image{height:200px;background-size:cover;background-position:center;position:relative}
-    .portfolio-image::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,.35), transparent 60%);
+    .portfolio-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow-lg);
+      border-color:rgba(22,163,74,.55);
     }
-    .portfolio-content{padding:18px;text-align:center}
-    .portfolio-content h3{font-size:1.25rem;margin-bottom:8px}
-    .portfolio-content p{color:var(--muted);font-size:.95rem}
+    /* Стили для слайдера внутри карточки Wallpaper */
+    .slider-container{
+      position:relative;
+      height:200px;
+      overflow:hidden;
+      background:#f0f0f0;
+    }
+    .slider-image{
+      width:100%;
+      height:100%;
+      background-size:cover;
+      background-position:center;
+      transition:background-image 0.3s ease;
+    }
+    .slider-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,0.6);
+      color:white;
+      border:none;
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.2rem;
+      transition:all 0.2s;
+      z-index:2;
+    }
+    .slider-btn:hover{
+      background:var(--primary);
+    }
+    .slider-btn.prev{
+      left:12px;
+    }
+    .slider-btn.next{
+      right:12px;
+    }
+    .slider-dots{
+      position:absolute;
+      bottom:12px;
+      left:0;
+      right:0;
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      z-index:2;
+    }
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.6);
+      cursor:pointer;
+      transition:all 0.2s;
+    }
+    .dot.active{
+      background:var(--primary);
+      width:20px;
+      border-radius:10px;
+    }
+    .portfolio-content{
+      padding:18px;
+      text-align:center;
+      flex-shrink:0;
+    }
+    .portfolio-content h3{
+      font-size:1.25rem;
+      margin-bottom:8px;
+    }
+    .portfolio-content p{
+      color:var(--muted);
+      font-size:.95rem;
+    }
 
     /* Contact */
     .contact-grid{
@@ -795,7 +873,7 @@
       </div>
     </section>
 
-    <!-- Portfolio (Wallpaper на первом месте) -->
+    <!-- Portfolio (Wallpaper с галереей на первом месте) -->
     <section id="portfolio" class="section light">
       <div class="container">
         <div class="section-title">
@@ -804,13 +882,19 @@
         </div>
 
         <div class="portfolio-grid">
-          <a href="portfolio-wallpaper.html" class="portfolio-card">
-            <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1618219944342-824e40a13285?q=80&w=1974');"></div>
+          <!-- Карточка Wallpaper со слайдером из 7 изображений -->
+          <div class="portfolio-card">
+            <div class="slider-container" id="wallpaperSlider">
+              <div class="slider-image" style="background-image: url('https://raw.githubusercontent.com/pbqrenovation/Construction/main/w1.jpg');"></div>
+              <button class="slider-btn prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+              <button class="slider-btn next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+              <div class="slider-dots" id="sliderDots"></div>
+            </div>
             <div class="portfolio-content">
               <h3>Wallpaper</h3>
               <p>Expert wallpaper installation, design, and removal for any space</p>
             </div>
-          </a>
+          </div>
 
           <a href="portfolio-painting.html" class="portfolio-card">
             <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158');"></div>
@@ -858,7 +942,6 @@
               <p><i class="fas fa-globe"></i><a href="https://pbqrenovation.ca" target="_blank" rel="noopener" class="contact-link">pbqrenovation.ca</a></p>
             </div>
 
-            <!-- Без разделительной линии -->
             <div class="google-profile">
               <i class="fas fa-map-marker-alt"></i>
               <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" rel="noopener">
@@ -992,6 +1075,59 @@
         }
       });
     });
+
+    // Слайдер для Wallpaper
+    const wallpaperImages = [
+      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w1.jpg',
+      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w2.jpg',
+      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w3.jpg',
+      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w4.jpg',
+      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w5.jpg',
+      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w6.jpg',
+      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w7.jpg'
+    ];
+    let currentIndex = 0;
+    const sliderContainer = document.getElementById('wallpaperSlider');
+    if (sliderContainer) {
+      const sliderImage = sliderContainer.querySelector('.slider-image');
+      const prevBtn = sliderContainer.querySelector('.prev');
+      const nextBtn = sliderContainer.querySelector('.next');
+      const dotsContainer = sliderContainer.querySelector('.slider-dots');
+
+      function updateSlider() {
+        sliderImage.style.backgroundImage = `url('${wallpaperImages[currentIndex]}')`;
+        // обновить активную точку
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, idx) => {
+          if (idx === currentIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
+        });
+      }
+
+      function createDots() {
+        dotsContainer.innerHTML = '';
+        wallpaperImages.forEach((_, idx) => {
+          const dot = document.createElement('div');
+          dot.classList.add('dot');
+          if (idx === currentIndex) dot.classList.add('active');
+          dot.addEventListener('click', () => {
+            currentIndex = idx;
+            updateSlider();
+          });
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + wallpaperImages.length) % wallpaperImages.length;
+        updateSlider();
+      });
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % wallpaperImages.length;
+        updateSlider();
+      });
+      createDots();
+    }
 
     // Форма Formspree
     const contactForm = document.getElementById('contactForm');
