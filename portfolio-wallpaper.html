@@ -65,6 +65,7 @@
       overflow:hidden;
       box-shadow:var(--shadow-sm);
       transition:transform 0.2s, box-shadow 0.2s;
+      cursor:pointer;
     }
     .gallery-item:hover{
       transform:translateY(-6px);
@@ -89,7 +90,83 @@
       padding:2rem 0;
       margin-top:3rem;
     }
+
+    /* Lightbox styles */
+    .lightbox{
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.9);
+      z-index:9999;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    .lightbox.active{
+      display:flex;
+    }
+    .lightbox-content{
+      position:relative;
+      max-width:90%;
+      max-height:90%;
+      cursor:default;
+    }
+    .lightbox-content img{
+      width:auto;
+      max-width:100%;
+      max-height:90vh;
+      object-fit:contain;
+      border-radius:8px;
+      box-shadow:0 0 30px rgba(0,0,0,0.5);
+    }
+    .close-lightbox{
+      position:absolute;
+      top:-40px;
+      right:0;
+      color:#fff;
+      font-size:2rem;
+      cursor:pointer;
+      transition:color 0.2s;
+      background:none;
+      border:none;
+      padding:0;
+    }
+    .close-lightbox:hover{
+      color:var(--primary);
+    }
+    .lightbox-prev, .lightbox-next{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,0.5);
+      color:#fff;
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.8rem;
+      cursor:pointer;
+      transition:background 0.2s;
+      border:none;
+    }
+    .lightbox-prev:hover, .lightbox-next:hover{
+      background:var(--primary);
+    }
+    .lightbox-prev{
+      left:-70px;
+    }
+    .lightbox-next{
+      right:-70px;
+    }
     @media (max-width: 700px){
+      .lightbox-prev{left:-40px; width:40px; height:40px; font-size:1.2rem;}
+      .lightbox-next{right:-40px; width:40px; height:40px; font-size:1.2rem;}
+      .close-lightbox{top:-30px; right:0; font-size:1.5rem;}
       .gallery-grid{grid-template-columns:1fr;}
     }
   </style>
@@ -107,35 +184,8 @@
       <p>Seamless finishes, precision work — our recent wallpaper projects in Toronto GTA.</p>
     </div>
 
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w1.jpg" alt="Wallpaper installation project 1">
-        <div class="caption">Elegant floral pattern</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w2.jpg" alt="Wallpaper installation project 2">
-        <div class="caption">Modern geometric design</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w3.jpg" alt="Wallpaper installation project 3">
-        <div class="caption">Textured wall covering</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w4.jpg" alt="Wallpaper installation project 4">
-        <div class="caption">Accent wall with bold print</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w5.jpg" alt="Wallpaper installation project 5">
-        <div class="caption">Classic damask style</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w6.jpg" alt="Wallpaper installation project 6">
-        <div class="caption">Contemporary neutral tones</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w7.jpg" alt="Wallpaper installation project 7">
-        <div class="caption">Custom wall panel finish</div>
-      </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- все фото будут вставлены через JS, но можно оставить и статически -->
     </div>
   </div>
 
@@ -144,5 +194,92 @@
       <p>&copy; 2024 PBQ Renovation. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Lightbox structure -->
+  <div class="lightbox" id="lightbox">
+    <button class="close-lightbox" id="closeLightbox">&times;</button>
+    <button class="lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="">
+    </div>
+    <button class="lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <script>
+    // Массив с изображениями и подписями
+    const images = [
+      { src: 'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w1.jpg', caption: 'Elegant floral pattern' },
+      { src: 'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w2.jpg', caption: 'Modern geometric design' },
+      { src: 'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w3.jpg', caption: 'Textured wall covering' },
+      { src: 'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w4.jpg', caption: 'Accent wall with bold print' },
+      { src: 'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w5.jpg', caption: 'Classic damask style' },
+      { src: 'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w6.jpg', caption: 'Contemporary neutral tones' },
+      { src: 'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w7.jpg', caption: 'Custom wall panel finish' }
+    ];
+
+    // Генерируем галерею
+    const galleryGrid = document.getElementById('galleryGrid');
+    images.forEach((img, index) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.setAttribute('data-index', index);
+      item.innerHTML = `
+        <img src="${img.src}" alt="${img.caption}" loading="lazy">
+        <div class="caption">${img.caption}</div>
+      `;
+      item.addEventListener('click', () => openLightbox(index));
+      galleryGrid.appendChild(item);
+    });
+
+    // Lightbox элементы
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeLightbox = document.getElementById('closeLightbox');
+    const prevBtn = document.getElementById('lightboxPrev');
+    const nextBtn = document.getElementById('lightboxNext');
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightboxImage();
+      lightbox.classList.add('active');
+    }
+
+    function updateLightboxImage() {
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].caption;
+    }
+
+    function closeLightboxFunc() {
+      lightbox.classList.remove('active');
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateLightboxImage();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateLightboxImage();
+    }
+
+    closeLightbox.addEventListener('click', closeLightboxFunc);
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
+
+    // Закрытие при клике на фон (вне изображения)
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightboxFunc();
+    });
+
+    // Клавиатурная навигация
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightboxFunc();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+  </script>
 </body>
 </html>
