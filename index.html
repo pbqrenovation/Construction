@@ -59,7 +59,7 @@
   </script>
 
   <style>
-    /* --- ВСЕ СТИЛИ С ОБНОВЛЕНИЯМИ ДЛЯ СЛАЙДЕРА --- */
+    /* --- ВСЕ СТИЛИ (как в последней рабочей версии, без слайдера) --- */
     :root{
       --primary:#16a34a;
       --primary-dark:#15803d;
@@ -424,7 +424,7 @@
     /* Portfolio */
     .portfolio-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:24px;
       margin-top:28px;
     }
@@ -437,82 +437,28 @@
       box-shadow:var(--shadow-sm);
       transition:var(--transition);
       color:inherit;
-      display:flex;
-      flex-direction:column;
+      display:block;
     }
     .portfolio-card:hover{
       transform:translateY(-8px);
       box-shadow:var(--shadow-lg);
       border-color:rgba(22,163,74,.55);
     }
-    /* Стили для слайдера внутри карточки Wallpaper */
-    .slider-container{
-      position:relative;
-      height:200px;
-      overflow:hidden;
-      background:#f0f0f0;
-    }
-    .slider-image{
-      width:100%;
-      height:100%;
+    .portfolio-image{
+      height:220px;
       background-size:cover;
       background-position:center;
-      transition:background-image 0.3s ease;
+      position:relative;
     }
-    .slider-btn{
+    .portfolio-image::after{
+      content:"";
       position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:rgba(0,0,0,0.6);
-      color:white;
-      border:none;
-      width:36px;
-      height:36px;
-      border-radius:50%;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:1.2rem;
-      transition:all 0.2s;
-      z-index:2;
-    }
-    .slider-btn:hover{
-      background:var(--primary);
-    }
-    .slider-btn.prev{
-      left:12px;
-    }
-    .slider-btn.next{
-      right:12px;
-    }
-    .slider-dots{
-      position:absolute;
-      bottom:12px;
-      left:0;
-      right:0;
-      display:flex;
-      justify-content:center;
-      gap:8px;
-      z-index:2;
-    }
-    .dot{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.6);
-      cursor:pointer;
-      transition:all 0.2s;
-    }
-    .dot.active{
-      background:var(--primary);
-      width:20px;
-      border-radius:10px;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.35), transparent 60%);
     }
     .portfolio-content{
       padding:18px;
       text-align:center;
-      flex-shrink:0;
     }
     .portfolio-content h3{
       font-size:1.25rem;
@@ -552,11 +498,9 @@
     .contact-link{text-decoration:none;color:var(--dark);transition:var(--transition)}
     .contact-link:hover{color:var(--primary)}
 
-    /* Google Business Profile link - border-top удалён */
     .google-profile{
       margin-top: 20px;
       padding-top: 12px;
-      /* border-top: 1px solid var(--border);  УДАЛЕНО */
       display: flex;
       align-items: center;
       gap: 10px;
@@ -659,11 +603,6 @@
     .mobile-bar .msg{background:#fff}
     .mobile-bar .msg:hover{border-color:rgba(22,163,74,.45);color:var(--primary)}
 
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-    }
-
     /* Responsive */
     @media (max-width: 900px){
       .nav-links{display:none}
@@ -714,8 +653,6 @@
             <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
           </div>
         </div>
-
-        <!-- Горизонтальное меню (ПК) -->
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
@@ -723,13 +660,9 @@
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-
-        <!-- Кнопка мобильного меню -->
         <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navMenu">
           <i class="fas fa-bars"></i> Menu
         </button>
-
-        <!-- Меню-окошко (мобильное) -->
         <div class="nav-menu" id="navMenu" role="dialog" aria-label="Menu">
           <ul>
             <li><a href="#home">Home</a></li>
@@ -754,40 +687,21 @@
           <div class="hero-badge">
             <i class="fas fa-map-marker-alt"></i> Toronto GTA
           </div>
-
           <h1>Professional Wallpaper Installation in Toronto<br>Seamless Finish • Precision Work • Perfect Results</h1>
           <div class="slogan">Professional work. Smooth finish. Clear communication.</div>
           <p>PBQ Renovation helps homeowners and businesses across the GTA with professional wallpaper installation and custom wall panels, along with drywall installation & finishing (taping/mudding), interior painting, and repairs.</p>
-
           <div class="cta-row">
-            <a class="btn btn-primary" href="tel:+14167315979">
-              <i class="fas fa-phone"></i> Call / Text 416-731-5979
-            </a>
-            <a class="btn btn-ghost" href="#contact">
-              <i class="fas fa-message"></i> Get Free Estimate
-            </a>
+            <a class="btn btn-primary" href="tel:+14167315979"><i class="fas fa-phone"></i> Call / Text 416-731-5979</a>
+            <a class="btn btn-ghost" href="#contact"><i class="fas fa-message"></i> Get Free Estimate</a>
           </div>
-
           <div class="rating-block">
             <i class="fas fa-star" style="color:#FFD700;"></i> 5.0 Rating on Google •
-            <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" rel="noopener">
-              See Our Reviews <i class="fas fa-arrow-right"></i>
-            </a>
+            <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" rel="noopener">See Our Reviews <i class="fas fa-arrow-right"></i></a>
           </div>
-
           <div class="trust" aria-label="Trust highlights">
-            <div class="trust-item">
-              <i class="fas fa-broom"></i>
-              <div><b>Clean Work</b><span>Protected floors • tidy finish</span></div>
-            </div>
-            <div class="trust-item">
-              <i class="fas fa-clock"></i>
-              <div><b>On-Time</b><span>Clear schedule & updates</span></div>
-            </div>
-            <div class="trust-item">
-              <i class="fas fa-receipt"></i>
-              <div><b>Fast Response</b><span>Quick replies within hours</span></div>
-            </div>
+            <div class="trust-item"><i class="fas fa-broom"></i><div><b>Clean Work</b><span>Protected floors • tidy finish</span></div></div>
+            <div class="trust-item"><i class="fas fa-clock"></i><div><b>On-Time</b><span>Clear schedule & updates</span></div></div>
+            <div class="trust-item"><i class="fas fa-receipt"></i><div><b>Fast Response</b><span>Quick replies within hours</span></div></div>
           </div>
         </div>
       </div>
@@ -796,35 +710,11 @@
     <!-- Services -->
     <section id="services" class="section light">
       <div class="container">
-        <div class="section-title">
-          <h2>Our Services</h2>
-          <p>Focused, high-quality renovation help — from small repairs to full projects.</p>
-        </div>
-
+        <div class="section-title"><h2>Our Services</h2><p>Focused, high-quality renovation help — from small repairs to full projects.</p></div>
         <div class="services-grid">
-          <div class="service-card commercial-bg">
-            <div class="service-card-content">
-              <i class="fas fa-building"></i>
-              <h3>Commercial Renovation</h3>
-              <p>Offices, retail, restaurants — clean work, clear timelines, professional results.</p>
-            </div>
-          </div>
-
-          <div class="service-card residential-bg">
-            <div class="service-card-content">
-              <i class="fas fa-home"></i>
-              <h3>Residential Renovation</h3>
-              <p>Room upgrades, repairs, and finishing — smooth walls and a clean look.</p>
-            </div>
-          </div>
-
-          <div class="service-card handyman-bg">
-            <div class="service-card-content">
-              <i class="fas fa-tools"></i>
-              <h3>Handyman Services</h3>
-              <p>Fixes, patching, adjustments, and small jobs — done right, without mess.</p>
-            </div>
-          </div>
+          <div class="service-card commercial-bg"><div class="service-card-content"><i class="fas fa-building"></i><h3>Commercial Renovation</h3><p>Offices, retail, restaurants — clean work, clear timelines, professional results.</p></div></div>
+          <div class="service-card residential-bg"><div class="service-card-content"><i class="fas fa-home"></i><h3>Residential Renovation</h3><p>Room upgrades, repairs, and finishing — smooth walls and a clean look.</p></div></div>
+          <div class="service-card handyman-bg"><div class="service-card-content"><i class="fas fa-tools"></i><h3>Handyman Services</h3><p>Fixes, patching, adjustments, and small jobs — done right, without mess.</p></div></div>
         </div>
       </div>
     </section>
@@ -832,92 +722,36 @@
     <!-- Specializations (Wallpaper на первом месте) -->
     <section id="specializations" class="section">
       <div class="container">
-        <div class="section-title">
-          <h2>Our Specializations</h2>
-          <p>Most requested services in Toronto GTA.</p>
-        </div>
-
+        <div class="section-title"><h2>Our Specializations</h2><p>Most requested services in Toronto GTA.</p></div>
         <div class="spec-grid">
-          <div class="spec-item">
-            <div class="spec-icon"><i class="fas fa-paint-roller"></i></div>
-            <div class="spec-content">
-              <h4>Wallpaper</h4>
-              <p>Install & removal • careful seams • clean edges</p>
-            </div>
-          </div>
-
-          <div class="spec-item">
-            <div class="spec-icon"><i class="fas fa-paint-brush"></i></div>
-            <div class="spec-content">
-              <h4>Painting</h4>
-              <p>Interior & exterior painting • clean lines • professional finish</p>
-            </div>
-          </div>
-
-          <div class="spec-item">
-            <div class="spec-icon"><i class="fas fa-border-all"></i></div>
-            <div class="spec-content">
-              <h4>Drywall & Finishing</h4>
-              <p>Installation • taping • mudding • sanding (smooth results)</p>
-            </div>
-          </div>
-
-          <div class="spec-item">
-            <div class="spec-icon"><i class="fas fa-wrench"></i></div>
-            <div class="spec-content">
-              <h4>Handyman</h4>
-              <p>Repairs & maintenance • patching • adjustments</p>
-            </div>
-          </div>
+          <div class="spec-item"><div class="spec-icon"><i class="fas fa-paint-roller"></i></div><div class="spec-content"><h4>Wallpaper</h4><p>Install & removal • careful seams • clean edges</p></div></div>
+          <div class="spec-item"><div class="spec-icon"><i class="fas fa-paint-brush"></i></div><div class="spec-content"><h4>Painting</h4><p>Interior & exterior painting • clean lines • professional finish</p></div></div>
+          <div class="spec-item"><div class="spec-icon"><i class="fas fa-border-all"></i></div><div class="spec-content"><h4>Drywall & Finishing</h4><p>Installation • taping • mudding • sanding (smooth results)</p></div></div>
+          <div class="spec-item"><div class="spec-icon"><i class="fas fa-wrench"></i></div><div class="spec-content"><h4>Handyman</h4><p>Repairs & maintenance • patching • adjustments</p></div></div>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio (Wallpaper с галереей на первом месте) -->
+    <!-- Portfolio (теперь карточки ведут на отдельные страницы) -->
     <section id="portfolio" class="section light">
       <div class="container">
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Explore our work across different renovation categories</p>
-        </div>
-
+        <div class="section-title"><h2>Portfolio</h2><p>Explore our work across different renovation categories</p></div>
         <div class="portfolio-grid">
-          <!-- Карточка Wallpaper со слайдером из 7 изображений -->
-          <div class="portfolio-card">
-            <div class="slider-container" id="wallpaperSlider">
-              <div class="slider-image" style="background-image: url('https://raw.githubusercontent.com/pbqrenovation/Construction/main/w1.jpg');"></div>
-              <button class="slider-btn prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-              <button class="slider-btn next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
-              <div class="slider-dots" id="sliderDots"></div>
-            </div>
-            <div class="portfolio-content">
-              <h3>Wallpaper</h3>
-              <p>Expert wallpaper installation, design, and removal for any space</p>
-            </div>
-          </div>
-
+          <a href="portfolio-wallpaper.html" class="portfolio-card">
+            <div class="portfolio-image" style="background-image:url('https://raw.githubusercontent.com/pbqrenovation/Construction/main/w1.jpg');"></div>
+            <div class="portfolio-content"><h3>Wallpaper</h3><p>Expert wallpaper installation, design, and removal for any space</p></div>
+          </a>
           <a href="portfolio-painting.html" class="portfolio-card">
             <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158');"></div>
-            <div class="portfolio-content">
-              <h3>Painting</h3>
-              <p>Interior and exterior painting projects with precision and attention to detail</p>
-            </div>
+            <div class="portfolio-content"><h3>Painting</h3><p>Interior and exterior painting projects with precision and attention to detail</p></div>
           </a>
-
           <a href="portfolio-drywall.html" class="portfolio-card">
             <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070');"></div>
-            <div class="portfolio-content">
-              <h3>Drywall / Taping / Mudding</h3>
-              <p>Professional drywall installation and finishing services</p>
-            </div>
+            <div class="portfolio-content"><h3>Drywall / Taping / Mudding</h3><p>Professional drywall installation and finishing services</p></div>
           </a>
-
           <a href="portfolio-handyman.html" class="portfolio-card">
             <div class="portfolio-image" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-            <div class="portfolio-content">
-              <h3>Handyman</h3>
-              <p>General repair and maintenance services for homes and businesses</p>
-            </div>
+            <div class="portfolio-content"><h3>Handyman</h3><p>General repair and maintenance services for homes and businesses</p></div>
           </a>
         </div>
       </div>
@@ -926,77 +760,30 @@
     <!-- Contact -->
     <section id="contact" class="section">
       <div class="container">
-        <div class="section-title">
-          <h2>Contact Us</h2>
-          <p>Send details and photos — we’ll reply with a fast estimate.</p>
-        </div>
-
+        <div class="section-title"><h2>Contact Us</h2><p>Send details and photos — we’ll reply with a fast estimate.</p></div>
         <div class="contact-grid">
           <div class="card contact-info">
             <h3>Get In Touch</h3>
-
             <div class="contact-details">
               <p><i class="fas fa-phone-alt"></i><a href="tel:+14167315979" class="contact-link">+1 (416) 731-5979</a></p>
               <p><i class="fas fa-envelope"></i><a href="mailto:pbqrenovation@gmail.com" class="contact-link">pbqrenovation@gmail.com</a></p>
               <p><i class="fab fa-instagram" style="color:#E4405F;"></i><a href="https://instagram.com/pbq_renovation" target="_blank" rel="noopener" class="contact-link">@pbq_renovation</a></p>
               <p><i class="fas fa-globe"></i><a href="https://pbqrenovation.ca" target="_blank" rel="noopener" class="contact-link">pbqrenovation.ca</a></p>
             </div>
-
-            <div class="google-profile">
-              <i class="fas fa-map-marker-alt"></i>
-              <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" rel="noopener">
-                Our Google Business Profile
-              </a>
-            </div>
-
-            <div class="contact-person">
-              <h4>Nick Korzh</h4>
-              <div class="position">Owner</div>
-              <p>Tell us what you need — we’ll suggest the best option and give a clear estimate.</p>
-            </div>
+            <div class="google-profile"><i class="fas fa-map-marker-alt"></i><a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" rel="noopener">Our Google Business Profile</a></div>
+            <div class="contact-person"><h4>Nick Korzh</h4><div class="position">Owner</div><p>Tell us what you need — we’ll suggest the best option and give a clear estimate.</p></div>
           </div>
-
           <div class="card">
             <form id="contactForm" action="https://formspree.io/f/mdawgbbw" method="POST">
               <input type="text" name="_gotcha" style="display:none">
-
-              <div class="form-status success" id="successMessage">
-                Thank you! We’ll contact you within 24 hours.
-              </div>
-              <div class="form-status error" id="errorMessage">
-                Something went wrong. Please email us at pbqrenovation@gmail.com
-              </div>
-
-              <div class="form-group">
-                <input type="text" name="name" placeholder="Your Name" required>
-              </div>
-
-              <div class="form-group">
-                <input type="email" name="email" placeholder="Your Email" required>
-              </div>
-
-              <div class="form-group">
-                <input type="tel" name="phone" placeholder="Your Phone Number">
-              </div>
-
-              <div class="form-group">
-                <select name="service-type" required>
-                  <option value="" disabled selected>Select Service Type</option>
-                  <option value="wallpaper">Wallpaper</option>
-                  <option value="painting">Painting</option>
-                  <option value="drywall">Drywall / Finishing (Taping/Mudding)</option>
-                  <option value="handyman">Handyman Services</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <textarea name="message" placeholder="Tell us about your project (location, size, timeline). If possible, include photos." required></textarea>
-              </div>
-
-              <button type="submit" class="submit-button" id="submitButton">
-                SEND MESSAGE <i class="fas fa-paper-plane" style="margin-left:8px;"></i>
-              </button>
+              <div class="form-status success" id="successMessage">Thank you! We’ll contact you within 24 hours.</div>
+              <div class="form-status error" id="errorMessage">Something went wrong. Please email us at pbqrenovation@gmail.com</div>
+              <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+              <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+              <div class="form-group"><input type="tel" name="phone" placeholder="Your Phone Number"></div>
+              <div class="form-group"><select name="service-type" required><option value="" disabled selected>Select Service Type</option><option value="wallpaper">Wallpaper</option><option value="painting">Painting</option><option value="drywall">Drywall / Finishing (Taping/Mudding)</option><option value="handyman">Handyman Services</option><option value="other">Other</option></select></div>
+              <div class="form-group"><textarea name="message" placeholder="Tell us about your project (location, size, timeline). If possible, include photos." required></textarea></div>
+              <button type="submit" class="submit-button" id="submitButton">SEND MESSAGE <i class="fas fa-paper-plane" style="margin-left:8px;"></i></button>
             </form>
           </div>
         </div>
@@ -1008,186 +795,48 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">
-          <img src="LOGO.jpg" alt="PBQ Renovation Logo" loading="lazy">
-          <div>
-            <div class="footer-company-name">PBQ RENOVATION</div>
-            <div class="footer-slogan">PROVIDING THE BEST QUALITY</div>
-          </div>
-        </div>
-
-        <div class="footer-contact">
-          <p><i class="fas fa-envelope"></i> <a href="mailto:pbqrenovation@gmail.com">pbqrenovation@gmail.com</a></p>
-          <p><i class="fas fa-phone-alt"></i> <a href="tel:+14167315979">+1 (416) 731-5979</a></p>
-          <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/pbq_renovation" target="_blank" rel="noopener">@pbq_renovation</a></p>
-          <p><i class="fas fa-globe"></i> <a href="https://pbqrenovation.ca" target="_blank" rel="noopener">pbqrenovation.ca</a></p>
-        </div>
+        <div class="footer-logo"><img src="LOGO.jpg" alt="PBQ Renovation Logo" loading="lazy"><div><div class="footer-company-name">PBQ RENOVATION</div><div class="footer-slogan">PROVIDING THE BEST QUALITY</div></div></div>
+        <div class="footer-contact"><p><i class="fas fa-envelope"></i> <a href="mailto:pbqrenovation@gmail.com">pbqrenovation@gmail.com</a></p><p><i class="fas fa-phone-alt"></i> <a href="tel:+14167315979">+1 (416) 731-5979</a></p><p><i class="fab fa-instagram"></i> <a href="https://instagram.com/pbq_renovation" target="_blank" rel="noopener">@pbq_renovation</a></p><p><i class="fas fa-globe"></i> <a href="https://pbqrenovation.ca" target="_blank" rel="noopener">pbqrenovation.ca</a></p></div>
       </div>
-
-      <!-- Адрес удалён -->
-      <div class="copyright">
-        <p>&copy; 2024 PBQ Renovation. All rights reserved.</p>
-      </div>
+      <div class="copyright"><p>&copy; 2024 PBQ Renovation. All rights reserved.</p></div>
     </div>
   </footer>
 
-  <!-- Mobile sticky bar -->
-  <div class="mobile-bar" aria-label="Quick contact">
-    <div class="row">
-      <a class="call" href="tel:+14167315979"><i class="fas fa-phone"></i> Call</a>
-      <a class="msg" href="#contact"><i class="fas fa-message"></i> Message</a>
-    </div>
-  </div>
+  <div class="mobile-bar" aria-label="Quick contact"><div class="row"><a class="call" href="tel:+14167315979"><i class="fas fa-phone"></i> Call</a><a class="msg" href="#contact"><i class="fas fa-message"></i> Message</a></div></div>
 
   <script>
     // Мобильное меню
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
-
-    function closeMenu() {
-      navMenu.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
-
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = navMenu.classList.toggle('active');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
-        closeMenu();
-      }
-    });
-
+    function closeMenu() { navMenu.classList.remove('active'); menuToggle.setAttribute('aria-expanded', 'false'); }
+    menuToggle.addEventListener('click', (e) => { e.stopPropagation(); const isOpen = navMenu.classList.toggle('active'); menuToggle.setAttribute('aria-expanded', String(isOpen)); });
+    document.addEventListener('click', (e) => { if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) closeMenu(); });
     window.addEventListener('scroll', closeMenu);
-
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        if (id === '#') return;
-        const target = document.querySelector(id);
-        if (target) {
-          e.preventDefault();
-          closeMenu();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Слайдер для Wallpaper
-    const wallpaperImages = [
-      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w1.jpg',
-      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w2.jpg',
-      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w3.jpg',
-      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w4.jpg',
-      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w5.jpg',
-      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w6.jpg',
-      'https://raw.githubusercontent.com/pbqrenovation/Construction/main/w7.jpg'
-    ];
-    let currentIndex = 0;
-    const sliderContainer = document.getElementById('wallpaperSlider');
-    if (sliderContainer) {
-      const sliderImage = sliderContainer.querySelector('.slider-image');
-      const prevBtn = sliderContainer.querySelector('.prev');
-      const nextBtn = sliderContainer.querySelector('.next');
-      const dotsContainer = sliderContainer.querySelector('.slider-dots');
-
-      function updateSlider() {
-        sliderImage.style.backgroundImage = `url('${wallpaperImages[currentIndex]}')`;
-        // обновить активную точку
-        const dots = dotsContainer.querySelectorAll('.dot');
-        dots.forEach((dot, idx) => {
-          if (idx === currentIndex) dot.classList.add('active');
-          else dot.classList.remove('active');
-        });
-      }
-
-      function createDots() {
-        dotsContainer.innerHTML = '';
-        wallpaperImages.forEach((_, idx) => {
-          const dot = document.createElement('div');
-          dot.classList.add('dot');
-          if (idx === currentIndex) dot.classList.add('active');
-          dot.addEventListener('click', () => {
-            currentIndex = idx;
-            updateSlider();
-          });
-          dotsContainer.appendChild(dot);
-        });
-      }
-
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + wallpaperImages.length) % wallpaperImages.length;
-        updateSlider();
-      });
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % wallpaperImages.length;
-        updateSlider();
-      });
-      createDots();
-    }
-
-    // Форма Formspree
+    document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', (e) => { const id = a.getAttribute('href'); if (id === '#') return; const target = document.querySelector(id); if (target) { e.preventDefault(); closeMenu(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+    // Форма
     const contactForm = document.getElementById('contactForm');
     const submitButton = document.getElementById('submitButton');
     const successMessage = document.getElementById('successMessage');
     const errorMessage = document.getElementById('errorMessage');
-
     if (contactForm) {
       contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-
         if (submitButton.disabled) return;
         const originalText = submitButton.innerHTML;
         submitButton.innerHTML = 'SENDING... <i class="fas fa-spinner fa-spin" style="margin-left:8px;"></i>';
         submitButton.disabled = true;
-
         successMessage.style.display = 'none';
         errorMessage.style.display = 'none';
-
         const formData = new FormData(contactForm);
-
         try {
-          const response = await fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
-
-          if (response.ok) {
-            successMessage.style.display = 'block';
-            errorMessage.style.display = 'none';
-            contactForm.reset();
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            const data = await response.json();
-            console.error('Formspree error:', data);
-            errorMessage.style.display = 'block';
-            successMessage.style.display = 'none';
-            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        } catch (error) {
-          console.error('Network error:', error);
-          errorMessage.style.display = 'block';
-          successMessage.style.display = 'none';
-          errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } finally {
-          submitButton.innerHTML = originalText;
-          submitButton.disabled = false;
-        }
+          const response = await fetch(contactForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+          if (response.ok) { successMessage.style.display = 'block'; contactForm.reset(); successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+          else { const data = await response.json(); console.error('Formspree error:', data); errorMessage.style.display = 'block'; errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        } catch (error) { console.error('Network error:', error); errorMessage.style.display = 'block'; errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        finally { submitButton.innerHTML = originalText; submitButton.disabled = false; }
       });
     }
-
-    // Обработка ошибок загрузки логотипа
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.logo').forEach(logo => {
-        logo.addEventListener('error', () => { logo.style.display = 'none'; });
-      });
-    });
+    window.addEventListener('load', () => { document.querySelectorAll('.logo').forEach(logo => { logo.addEventListener('error', () => { logo.style.display = 'none'; }); }); });
   </script>
 </body>
 </html>
