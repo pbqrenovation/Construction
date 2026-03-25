@@ -9,6 +9,15 @@
     gtag('js', new Date());
     gtag('config', 'AW-18039120597');
   </script>
+  <!-- Event snippet for Request quote conversion page -->
+  <script>
+    // Function to send conversion event when form is submitted
+    function sendConversionEvent() {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {'send_to': 'AW-18039120597/QYtnCKCvuo8cENXF3JlD'});
+      }
+    }
+  </script>
   <!-- Force HTTPS -->
   <script>
     if (window.location.hostname === 'pbqrenovation.ca' && window.location.protocol !== 'https:') {
@@ -62,7 +71,7 @@
       line-height:1.6;
       color:var(--dark);
       background:#fff;
-      -webkit-overflow-scrolling: touch; /* плавный скроллинг на iOS */
+      -webkit-overflow-scrolling: touch;
     }
     h1,h2,h3,h4{font-family:'Poppins',sans-serif;line-height:1.2}
     a{color:inherit}
@@ -90,14 +99,14 @@
     .company-name{font-size:1.35rem;font-weight:800;letter-spacing:-.4px}
     .company-slogan{font-size:.74rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px}
 
-    /* Горизонтальное меню (ПК) */
+    /* Desktop Navigation */
     .nav-links{display:flex;list-style:none;gap:26px;align-items:center}
     .nav-links a{text-decoration:none;font-weight:800;text-transform:uppercase;font-size:.82rem;letter-spacing:.6px;color:var(--dark);position:relative;transition:var(--transition)}
     .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--primary);transition:var(--transition)}
     .nav-links a:hover{color:var(--primary)}
     .nav-links a:hover::after{width:100%}
 
-    /* Мобильное меню (бургер) */
+    /* Mobile Menu */
     .menu-toggle{display:none;background:var(--primary);color:#fff;border:none;border-radius:999px;padding:12px 16px;font-weight:900;cursor:pointer;box-shadow:var(--shadow-md);transition:var(--transition);border:1px solid rgba(255,255,255,.12)}
     .menu-toggle:hover{background:var(--primary-dark);transform:translateY(-1px)}
     .nav-menu{position:absolute;top:calc(100% + 10px);right:24px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-lg);min-width:220px;display:none;z-index:1100;overflow:hidden}
@@ -160,7 +169,7 @@
     .residential-bg::before{background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')}
     .handyman-bg::before{background-image:url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')}
 
-    /* Specializations – 3 колонки */
+    /* Specializations */
     .spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
     .spec-item{background:var(--light);border:1px solid var(--border);padding:28px 24px;border-radius:24px;display:flex;gap:18px;align-items:flex-start;transition:var(--transition);box-shadow:var(--shadow-sm)}
     .spec-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(22,163,74,.45)}
@@ -168,7 +177,7 @@
     .spec-content h4{font-size:1.25rem;margin-bottom:8px}
     .spec-content p{color:var(--muted);font-size:.95rem;line-height:1.5}
 
-    /* Portfolio – 3 колонки */
+    /* Portfolio */
     .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:28px}
     .portfolio-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;box-shadow:var(--shadow-sm);transition:var(--transition);color:inherit;display:block}
     .portfolio-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(22,163,74,.55)}
@@ -363,7 +372,7 @@
     <!-- Contact -->
     <section id="contact" class="section">
       <div class="container">
-        <div class="section-title"><h2>Contact Us</h2><p>Send details and photos — we’ll reply with a fast estimate.</p></div>
+        <div class="section-title"><h2>Contact Us</h2><p>Send details and photos — we'll reply with a fast estimate.</p></div>
         <div class="contact-grid">
           <div class="card contact-info">
             <h3>Get In Touch</h3>
@@ -374,12 +383,12 @@
               <p><i class="fas fa-globe"></i><a href="https://pbqrenovation.ca" target="_blank" rel="noopener" class="contact-link">pbqrenovation.ca</a></p>
             </div>
             <div class="google-profile"><i class="fas fa-map-marker-alt"></i><a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" rel="noopener">Our Google Business Profile</a></div>
-            <div class="contact-person"><h4>Nick Korzh</h4><div class="position">Owner</div><p>Tell us what you need — we’ll suggest the best option and give a clear estimate.</p></div>
+            <div class="contact-person"><h4>Nick Korzh</h4><div class="position">Owner</div><p>Tell us what you need — we'll suggest the best option and give a clear estimate.</p></div>
           </div>
           <div class="card">
             <form id="contactForm" action="https://formspree.io/f/mdawgbbw" method="POST">
               <input type="text" name="_gotcha" style="display:none">
-              <div class="form-status success" id="successMessage">Thank you! We’ll contact you within 24 hours.</div>
+              <div class="form-status success" id="successMessage">Thank you! We'll contact you within 24 hours.</div>
               <div class="form-status error" id="errorMessage">Something went wrong. Please email us at pbqrenovation@gmail.com</div>
               <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
               <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
@@ -400,14 +409,14 @@
         <div class="footer-logo"><img src="LOGO.jpg" alt="PBQ Renovation Logo" loading="lazy"><div><div class="footer-company-name">PBQ RENOVATION</div><div class="footer-slogan">PROVIDING THE BEST QUALITY</div></div></div>
         <div class="footer-contact"><p><i class="fas fa-envelope"></i> <a href="mailto:pbqrenovation@gmail.com">pbqrenovation@gmail.com</a></p><p><i class="fas fa-phone-alt"></i> <a href="tel:+14167315979">+1 (416) 731-5979</a></p><p><i class="fab fa-instagram"></i> <a href="https://instagram.com/pbq_renovation" target="_blank" rel="noopener">@pbq_renovation</a></p><p><i class="fas fa-globe"></i> <a href="https://pbqrenovation.ca" target="_blank" rel="noopener">pbqrenovation.ca</a></p></div>
       </div>
-      <div class="copyright"><p>&copy; 2024 PBQ Renovation. All rights reserved.</p></div>
+      <div class="copyright"><p>&copy; 2025 PBQ Renovation. All rights reserved.</p></div>
     </div>
   </footer>
 
   <div class="mobile-bar" aria-label="Quick contact"><div class="row"><a class="call" href="tel:+14167315979"><i class="fas fa-phone"></i> Call</a><a class="msg" href="sms:+14167315979"><i class="fas fa-message"></i> Message</a></div></div>
 
   <script>
-    // Мобильное меню
+    // Mobile menu
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     function closeMenu() { navMenu.classList.remove('active'); menuToggle.setAttribute('aria-expanded', 'false'); }
@@ -415,7 +424,7 @@
     document.addEventListener('click', (e) => { if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) closeMenu(); });
     window.addEventListener('scroll', closeMenu);
 
-    // Плавная прокрутка для ссылок в мобильном меню и других якорях
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
@@ -429,11 +438,12 @@
       });
     });
 
-    // Форма
+    // Contact form with Google Ads conversion tracking
     const contactForm = document.getElementById('contactForm');
     const submitButton = document.getElementById('submitButton');
     const successMessage = document.getElementById('successMessage');
     const errorMessage = document.getElementById('errorMessage');
+    
     if (contactForm) {
       contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -446,13 +456,28 @@
         const formData = new FormData(contactForm);
         try {
           const response = await fetch(contactForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-          if (response.ok) { successMessage.style.display = 'block'; contactForm.reset(); successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+          if (response.ok) { 
+            successMessage.style.display = 'block'; 
+            contactForm.reset(); 
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Send Google Ads conversion event when form is successfully submitted
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'conversion', {'send_to': 'AW-18039120597/QYtnCKCvuo8cENXF3JlD'});
+              console.log('Google Ads conversion event sent successfully');
+            }
+          }
           else { errorMessage.style.display = 'block'; errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
         } catch (error) { errorMessage.style.display = 'block'; errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
         finally { submitButton.innerHTML = originalText; submitButton.disabled = false; }
       });
     }
-    window.addEventListener('load', () => { document.querySelectorAll('.logo').forEach(logo => { logo.addEventListener('error', () => { logo.style.display = 'none'; }); }); });
+    
+    // Handle logo loading error
+    window.addEventListener('load', () => { 
+      document.querySelectorAll('.logo').forEach(logo => { 
+        logo.addEventListener('error', () => { logo.style.display = 'none'; }); 
+      }); 
+    });
   </script>
 </body>
 </html>
