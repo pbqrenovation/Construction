@@ -9,23 +9,33 @@
     gtag('js', new Date());
     gtag('config', 'AW-18039120597');
   </script>
+  <script>
+    function sendConversionEvent() {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {'send_to': 'AW-18039120597/QYtnCKCvuo8cENXF3JlD'});
+      }
+    }
+  </script>
+  <script>
+    if (window.location.hostname === 'pbqrenovation.ca' && window.location.protocol !== 'https:') {
+      window.location.href = 'https://pbqrenovation.ca' + window.location.pathname + window.location.search;
+    }
+  </script>
 
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Wall Panels Portfolio | PBQ Renovation - Custom Wall Panel Installation Toronto</title>
-  <meta name="description" content="Professional wall panel installation portfolio by PBQ Renovation. See our work with 3D panels, acoustic panels, modern accent walls, and custom wall paneling in Toronto GTA.">
+  <title>PBQ Renovation | Wallpaper, Wall Panels, Drywall & Painting in Toronto GTA</title>
+  <meta name="description" content="PBQ Renovation — professional wallpaper installation, custom wall panels, drywall finishing, interior painting in Toronto GTA. Call/Text 416-731-5979 for a free estimate.">
   <meta name="theme-color" content="#0b1220">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Wall Panels Portfolio | PBQ Renovation">
-  <meta property="og:description" content="Custom wall panel installation projects in Toronto GTA. 3D panels, acoustic walls, modern accent walls.">
+  <meta property="og:title" content="PBQ Renovation | Wallpaper, Wall Panels, Drywall & Painting in Toronto GTA">
+  <meta property="og:description" content="Wallpaper installation, wall panels, drywall, painting services in Toronto GTA. Free estimates. Call/Text 416-731-5979.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pbqrenovation.ca/portfolio-wallpanels.html">
-  <meta property="og:image" content="https://pbqrenovation.ca/wallpanels-og.jpg">
-
-  <!-- Preconnect -->
+  <meta property="og:url" content="https://pbqrenovation.ca/">
+  <meta property="og:image" content="https://pbqrenovation.ca/og.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -44,107 +54,115 @@
       --radius:22px;
       --transition:all .25s cubic-bezier(.4,0,.2,1);
     }
-
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      font-family:'Inter',system-ui,sans-serif;
-      line-height:1.6;
-      color:var(--dark);
-      background:var(--light);
-    }
-    h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.2}
+    body{font-family:'Inter',system-ui,sans-serif;line-height:1.6;color:var(--dark);background:#fff}
+    h1,h2,h3,h4{font-family:'Poppins',sans-serif;line-height:1.2}
     .container{max-width:1280px;margin:0 auto;padding:0 24px}
-
-    /* Header */
+    .skip-link{position:absolute;left:-999px;top:10px;background:#fff;color:#000;padding:10px 14px;border-radius:10px;z-index:9999;border:1px solid var(--border)}
+    .skip-link:focus{left:10px}
     .top-contact{background:var(--dark);color:#fff;padding:.55rem 0;font-size:.9rem}
     .top-contact .container{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-    .contacts-title{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--primary)}
+    .contacts-title{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--primary);letter-spacing:.3px;text-transform:uppercase}
     .contact-info-top{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .contact-info-top a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;transition:all .25s}
+    .contact-info-top a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;opacity:.95;transition:var(--transition);font-weight:600}
     .contact-info-top a:hover{color:var(--primary)}
-
-    header{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:.8rem 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+    header{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);padding:.8rem 0;border-bottom:1px solid rgba(2,6,23,.08);box-shadow:var(--shadow-sm)}
     nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .logo-container{display:flex;align-items:center;gap:12px}
+    .logo-container{display:flex;align-items:center;gap:12px;min-width:240px}
     .logo{height:54px;width:auto;max-width:140px;object-fit:contain;border-radius:10px}
-    .logo-text .company-name{font-size:1.35rem;font-weight:800}
-    .logo-text .company-slogan{font-size:.74rem;color:var(--muted);font-weight:700}
-    .back-link{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:10px 20px;border-radius:999px;text-decoration:none;font-weight:700;transition:var(--transition)}
-    .back-link:hover{background:var(--primary-dark);transform:translateX(-4px)}
-
-    /* Page Header */
-    .page-header{background:linear-gradient(135deg, var(--dark) 0%, #1a2a3a 100%);color:#fff;padding:3rem 0;text-align:center}
-    .page-header h1{font-size:2.8rem;margin-bottom:1rem}
-    .page-header p{font-size:1.2rem;opacity:.9;max-width:700px;margin:0 auto}
-
-    /* Gallery Section */
-    .gallery-section{padding:4rem 0}
-    .gallery-section h2{font-size:1.8rem;margin-bottom:2rem;text-align:center}
-    .gallery-section h2::after{content:"";display:block;width:80px;height:4px;background:var(--primary);margin:12px auto 0;border-radius:99px}
-
-    /* Filter Buttons */
-    .filter-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:2.5rem}
-    .filter-btn{background:#fff;border:1px solid var(--border);padding:10px 24px;border-radius:999px;font-weight:600;cursor:pointer;transition:var(--transition);font-family:inherit}
-    .filter-btn:hover{background:var(--primary-soft);border-color:var(--primary)}
-    .filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-
-    /* Masonry Gallery */
-    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(350px, 1fr));gap:28px}
-    .gallery-item{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:var(--transition);cursor:pointer;border:1px solid var(--border)}
-    .gallery-item:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(22,163,74,.4)}
-    .gallery-img{width:100%;height:280px;object-fit:cover;transition:var(--transition)}
-    .gallery-item:hover .gallery-img{transform:scale(1.03)}
-    .gallery-info{padding:20px}
-    .gallery-info h3{font-size:1.2rem;margin-bottom:8px;color:var(--dark)}
-    .gallery-info .category{display:inline-block;background:var(--primary-soft);color:var(--primary-dark);padding:4px 12px;border-radius:999px;font-size:.75rem;font-weight:700;margin-bottom:12px}
-    .gallery-info p{color:var(--muted);font-size:.9rem}
-
-    /* Lightbox Modal */
-    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);z-index:2000;justify-content:center;align-items:center;cursor:pointer}
-    .modal.active{display:flex}
-    .modal-content{max-width:90vw;max-height:90vh;position:relative}
-    .modal-img{max-width:100%;max-height:90vh;object-fit:contain;border-radius:12px}
-    .modal-close{position:absolute;top:-40px;right:0;color:#fff;font-size:2rem;cursor:pointer;background:none;border:none;padding:10px}
-    .modal-caption{position:absolute;bottom:-50px;left:0;right:0;text-align:center;color:#fff;font-size:1rem;padding:10px}
-    .modal-nav{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 20px;pointer-events:none}
-    .modal-nav button{background:rgba(255,255,255,.2);border:none;color:#fff;font-size:2rem;padding:12px 20px;border-radius:50%;cursor:pointer;transition:all .2s;pointer-events:auto}
-    .modal-nav button:hover{background:var(--primary);transform:scale(1.1)}
-
-    /* Add Photo Section (Admin Panel - visible when logged in, for demo it's shown but you can hide) */
-    .add-photo-section{background:var(--light);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;margin-top:3rem;text-align:center}
-    .add-photo-section h3{font-size:1.3rem;margin-bottom:1rem}
-    .add-photo-section p{color:var(--muted);margin-bottom:1rem}
-    .upload-area{border:2px dashed var(--border);border-radius:24px;padding:2rem;background:#fff;transition:var(--transition);cursor:pointer}
-    .upload-area:hover{border-color:var(--primary);background:var(--primary-soft)}
-    .upload-area input{display:none}
-    .upload-label{display:flex;flex-direction:column;align-items:center;gap:12px;cursor:pointer}
-    .upload-label i{font-size:3rem;color:var(--primary)}
-    .photo-form-inputs{margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:15px}
-    .photo-form-inputs input, .photo-form-inputs select{padding:12px;border:1px solid var(--border);border-radius:12px;font-family:inherit}
-    .add-photo-btn{background:var(--primary);color:#fff;border:none;padding:12px 24px;border-radius:999px;font-weight:700;cursor:pointer;margin-top:1rem;transition:var(--transition)}
-    .add-photo-btn:hover{background:var(--primary-dark)}
-
-    /* Footer */
-    footer{background:var(--dark);color:#fff;padding:2.5rem 0;margin-top:2rem}
-    .footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+    .logo-text{display:flex;flex-direction:column}
+    .company-name{font-size:1.35rem;font-weight:800;letter-spacing:-.4px}
+    .company-slogan{font-size:.74rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+    .nav-links{display:flex;list-style:none;gap:26px;align-items:center}
+    .nav-links a{text-decoration:none;font-weight:800;text-transform:uppercase;font-size:.82rem;letter-spacing:.6px;color:var(--dark);position:relative;transition:var(--transition)}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--primary);transition:var(--transition)}
+    .nav-links a:hover{color:var(--primary)}
+    .nav-links a:hover::after{width:100%}
+    .menu-toggle{display:none;background:var(--primary);color:#fff;border:none;border-radius:999px;padding:12px 16px;font-weight:900;cursor:pointer}
+    .menu-toggle:hover{background:var(--primary-dark)}
+    .nav-menu{position:absolute;top:calc(100% + 10px);right:24px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-lg);min-width:220px;display:none;z-index:1100;overflow:hidden}
+    .nav-menu.active{display:block}
+    .nav-menu a{display:block;padding:14px 16px;text-decoration:none;font-weight:800;color:var(--dark)}
+    .nav-menu a:hover{background:var(--light);color:var(--primary)}
+    .floating-estimate{position:fixed;right:20px;bottom:86px;background:var(--primary);color:#fff;width:64px;height:64px;border-radius:22px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:900;font-size:.68rem;text-align:center;box-shadow:var(--shadow-lg);z-index:999;line-height:1.1;padding:6px}
+    .floating-estimate:hover{background:var(--primary-dark);transform:translateY(-4px)}
+    .hero{min-height:78vh;display:flex;align-items:center;color:#fff;background:radial-gradient(1000px 500px at 20% 20%, rgba(22,163,74,.20), transparent 55%), linear-gradient(135deg, rgba(2,6,23,.78), rgba(2,6,23,.55)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');background-size:cover;background-position:center}
+    .hero .container{padding:56px 24px}
+    .hero-content{max-width:860px}
+    .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);font-weight:900;margin-bottom:16px}
+    .hero-content h1{font-size:3.15rem;letter-spacing:-1px;margin-bottom:14px}
+    .hero-content .slogan{font-size:1.2rem;margin-bottom:16px;font-weight:700}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.22);text-decoration:none;font-weight:900;transition:var(--transition);cursor:pointer}
+    .btn-primary{background:var(--primary);border-color:transparent}
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+    .btn-ghost{background:rgba(255,255,255,.10)}
+    .btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
+    .rating-block{margin-top:20px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);display:inline-flex;align-items:center;gap:12px;padding:10px 20px;border-radius:999px;font-weight:600}
+    .rating-block a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+    .rating-block a:hover{color:var(--primary);gap:10px}
+    .trust{margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:780px}
+    .trust-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:14px;display:flex;gap:10px;align-items:flex-start}
+    .section{padding:5.5rem 0;background:#fff}
+    .section.light{background:var(--light)}
+    .section-title{text-align:center;margin-bottom:3.5rem}
+    .section-title h2{font-size:2.35rem;display:inline-block;position:relative;padding-bottom:12px}
+    .section-title h2::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:80px;height:4px;background:var(--primary);border-radius:99px}
+    .section-title p{color:var(--muted);max-width:640px;margin:12px auto 0}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+    .service-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px 22px;box-shadow:var(--shadow-sm);transition:var(--transition);text-align:center}
+    .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(22,163,74,.55)}
+    .service-card i{font-size:2.8rem;color:var(--primary);margin-bottom:14px}
+    .service-card h3{font-size:1.45rem;margin-bottom:10px}
+    .spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:28px}
+    .spec-item{background:var(--light);border:1px solid var(--border);padding:28px 24px;border-radius:24px;display:flex;gap:18px;align-items:flex-start;transition:var(--transition)}
+    .spec-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(22,163,74,.45)}
+    .spec-icon{color:var(--primary);font-size:2.2rem;min-width:48px}
+    .spec-content h4{font-size:1.25rem;margin-bottom:8px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:28px}
+    .portfolio-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;box-shadow:var(--shadow-sm);transition:var(--transition);display:block}
+    .portfolio-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(22,163,74,.55)}
+    .portfolio-image{height:260px;background-size:cover;background-position:center;position:relative}
+    .portfolio-content{padding:22px 20px;text-align:center}
+    .portfolio-content h3{font-size:1.35rem;margin-bottom:10px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}
+    .card{background:var(--light);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:26px}
+    .contact-info h3{font-size:1.65rem;margin-bottom:14px;display:inline-block;position:relative;padding-bottom:10px}
+    .contact-info h3::after{content:"";position:absolute;left:0;bottom:0;width:60px;height:3px;background:var(--primary);border-radius:99px}
+    .contact-details p{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .contact-details i{color:var(--primary);width:22px}
+    .contact-link{text-decoration:none;color:var(--dark)}
+    .contact-link:hover{color:var(--primary)}
+    .google-profile{margin-top:20px;display:flex;align-items:center;gap:10px}
+    .contact-person{margin-top:18px;background:#fff;border:1px solid var(--border);border-left:5px solid var(--primary);border-radius:16px;padding:16px}
+    form .form-group{margin-bottom:14px}
+    input,textarea,select{width:100%;padding:14px;border:1px solid var(--border);border-radius:14px;font:inherit;background:#fff}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:rgba(22,163,74,.8);box-shadow:0 0 0 4px rgba(22,163,74,.12)}
+    textarea{min-height:140px}
+    .form-status{display:none;padding:12px;border-radius:14px;margin-bottom:14px;text-align:center;font-weight:700}
+    .form-status.success{background:var(--primary-soft);color:var(--primary-dark)}
+    .form-status.error{background:#fee2e2;color:#991b1b}
+    .submit-button{width:100%;padding:14px;border:none;border-radius:999px;background:var(--primary);color:#fff;font-weight:900;cursor:pointer}
+    .submit-button:hover{background:var(--primary-dark)}
+    footer{background:var(--dark);color:#fff;padding:3rem 0 2rem}
+    .footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:20px}
     .footer-logo{display:flex;align-items:center;gap:12px}
-    .footer-logo img{height:40px;filter:brightness(0) invert(1)}
-    .footer-contact a{color:#fff;text-decoration:none;margin:0 10px}
+    .footer-logo img{height:44px;filter:brightness(0) invert(1)}
+    .footer-contact a{color:#fff;text-decoration:none;margin:0 8px}
     .footer-contact a:hover{color:var(--primary)}
-    .copyright{text-align:center;margin-top:20px;color:#94a3b8;font-size:.85rem}
-
-    @media (max-width: 768px){
-      .gallery-grid{grid-template-columns:1fr}
-      .page-header h1{font-size:2rem}
-      .photo-form-inputs{grid-template-columns:1fr}
-      .top-contact .container{justify-content:center}
-    }
+    .copyright{text-align:center;color:#94a3b8;font-size:.85rem}
+    .mobile-bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);border-top:1px solid var(--border);z-index:1200;padding:10px 12px;display:none}
+    .mobile-bar .row{display:flex;gap:10px}
+    .mobile-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px;border-radius:999px;text-decoration:none;font-weight:900;border:1px solid var(--border)}
+    .mobile-bar .call{background:var(--primary);color:#fff;border-color:transparent}
+    @media (max-width: 1100px){.spec-grid,.portfolio-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 900px){.nav-links{display:none}.menu-toggle{display:inline-flex;align-items:center;gap:8px}.contact-grid{grid-template-columns:1fr}.mobile-bar{display:block}.trust{grid-template-columns:1fr}}
+    @media (max-width: 640px){.spec-grid,.portfolio-grid{grid-template-columns:1fr}.hero-content h1{font-size:2.2rem}.btn{width:100%}}
   </style>
 </head>
 <body>
-
-  <!-- Top Contact Bar -->
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="top-contact">
     <div class="container">
       <div class="contacts-title"><i class="fas fa-phone-alt"></i> CONTACTS</div>
@@ -155,8 +173,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Header -->
   <header>
     <div class="container">
       <nav>
@@ -167,359 +183,135 @@
             <div class="company-slogan">PROVIDING THE BEST QUALITY</div>
           </div>
         </div>
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#specializations">Specializations</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i> Menu</button>
+        <div class="nav-menu" id="navMenu">
+          <ul><li><a href="#services">Our Services</a></li><li><a href="#specializations">Specializations</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#contact">Contacts</a></li></ul>
+        </div>
       </nav>
     </div>
   </header>
-
-  <!-- Page Header -->
-  <div class="page-header">
-    <div class="container">
-      <h1><i class="fas fa-th-large" style="margin-right:15px;"></i> Wall Panels Portfolio</h1>
-      <p>Explore our custom wall panel installations — 3D panels, acoustic walls, modern accent walls, and luxury finishes for residential and commercial spaces in Toronto GTA.</p>
-    </div>
-  </div>
-
-  <!-- Gallery Section -->
-  <section class="gallery-section">
-    <div class="container">
-      <h2>Our Wall Panel Projects</h2>
-      
-      <!-- Filter Buttons -->
-      <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="3d">3D Panels</button>
-        <button class="filter-btn" data-filter="acoustic">Acoustic Panels</button>
-        <button class="filter-btn" data-filter="modern">Modern Accent Walls</button>
-        <button class="filter-btn" data-filter="luxury">Luxury Finishes</button>
+  <a href="#contact" class="floating-estimate">FREE<br>ESTIMATE</a>
+  <main id="main">
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge"><i class="fas fa-map-marker-alt"></i> Toronto GTA</div>
+          <h1>Professional Wallpaper & Wall Panels Installation in Toronto<br>Seamless Finish • Precision Work • Perfect Results</h1>
+          <div class="slogan">Professional work. Smooth finish. Clear communication.</div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tel:+14167315979"><i class="fas fa-phone"></i> Call / Text 416-731-5979</a>
+            <a class="btn btn-ghost" href="#contact"><i class="fas fa-message"></i> Get Free Estimate</a>
+          </div>
+          <div class="rating-block"><i class="fas fa-star" style="color:#FFD700;"></i> 5.0 Rating on Google <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank">See Our Reviews <i class="fas fa-arrow-right"></i></a></div>
+          <div class="trust"><div class="trust-item"><i class="fas fa-broom"></i><div><b>Clean Work</b><span>Protected floors • tidy finish</span></div></div><div class="trust-item"><i class="fas fa-clock"></i><div><b>On-Time</b><span>Clear schedule & updates</span></div></div><div class="trust-item"><i class="fas fa-receipt"></i><div><b>Fast Response</b><span>Quick replies within hours</span></div></div></div>
+        </div>
       </div>
-
-      <!-- Gallery Grid - Add your photos here -->
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Sample gallery items - REPLACE THESE WITH YOUR ACTUAL PHOTOS -->
-        <!-- To add new photos: copy this block, change the src, title, category, and description -->
-        
-        <div class="gallery-item" data-category="3d">
-          <img class="gallery-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="3D Wall Panels Installation" loading="lazy">
-          <div class="gallery-info">
-            <span class="category">3D Panels</span>
-            <h3>Geometric 3D Wall Panels</h3>
-            <p>Modern geometric panels creating depth and texture in a Toronto living room.</p>
-          </div>
+    </section>
+    <section id="services" class="section light">
+      <div class="container">
+        <div class="section-title"><h2>Our Services</h2><p>Focused, high-quality renovation help — from small repairs to full projects.</p></div>
+        <div class="services-grid">
+          <div class="service-card"><i class="fas fa-building"></i><h3>Commercial Renovation</h3><p>Offices, retail, restaurants — clean work, clear timelines.</p></div>
+          <div class="service-card"><i class="fas fa-home"></i><h3>Residential Renovation</h3><p>Room upgrades, repairs, and finishing — smooth walls.</p></div>
+          <div class="service-card"><i class="fas fa-th-large"></i><h3>Wall Panels</h3><p>Custom wall panels installation • modern accent walls • premium finishes</p></div>
+          <div class="service-card"><i class="fas fa-tools"></i><h3>Handyman Services</h3><p>Fixes, patching, adjustments — done right, without mess.</p></div>
         </div>
-
-        <div class="gallery-item" data-category="acoustic">
-          <img class="gallery-img" src="https://images.unsplash.com/photo-1629794367355-5b52a5f29b7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Acoustic Wall Panels" loading="lazy">
-          <div class="gallery-info">
-            <span class="category">Acoustic Panels</span>
-            <h3>Home Theater Acoustic Panels</h3>
-            <p>Sound-absorbing panels for optimal audio experience in a home theater.</p>
-          </div>
+      </div>
+    </section>
+    <section id="specializations" class="section">
+      <div class="container">
+        <div class="section-title"><h2>Our Specializations</h2><p>Most requested services in Toronto GTA.</p></div>
+        <div class="spec-grid">
+          <div class="spec-item"><div class="spec-icon"><i class="fas fa-paint-roller"></i></div><div class="spec-content"><h4>Wallpaper</h4><p>Install & removal • careful seams • clean edges</p></div></div>
+          <div class="spec-item"><div class="spec-icon"><i class="fas fa-th-large"></i></div><div class="spec-content"><h4>Wall Panels</h4><p>Custom panels • 3D walls • acoustic panels • modern accents</p></div></div>
+          <div class="spec-item"><div class="spec-icon"><i class="fas fa-paint-brush"></i></div><div class="spec-content"><h4>Painting</h4><p>Interior & exterior painting • clean lines • professional finish</p></div></div>
+          <div class="spec-item"><div class="spec-icon"><i class="fas fa-border-all"></i></div><div class="spec-content"><h4>Drywall & Finishing</h4><p>Installation • taping • mudding • sanding</p></div></div>
         </div>
-
-        <div class="gallery-item" data-category="modern">
-          <img class="gallery-img" src="https://images.unsplash.com/photo-1616486338812-3aadae4b4bce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Accent Wall" loading="lazy">
-          <div class="gallery-info">
-            <span class="category">Modern Accent Walls</span>
-            <h3>Wood Slat Accent Wall</h3>
-            <p>Elegant wood slat panels creating a warm, modern bedroom feature wall.</p>
-          </div>
+      </div>
+    </section>
+    <section id="portfolio" class="section light">
+      <div class="container">
+        <div class="section-title"><h2>Portfolio</h2><p>Explore our work across different renovation categories</p></div>
+        <div class="portfolio-grid">
+          <a href="portfolio-wallpaper.html" class="portfolio-card"><div class="portfolio-image" style="background-image:url('https://raw.githubusercontent.com/pbqrenovation/Construction/main/w1.jpg');"></div><div class="portfolio-content"><h3>Wallpaper</h3><p>Expert wallpaper installation, design, and removal</p></div></a>
+          <a href="portfolio-wallpanels.html" class="portfolio-card"><div class="portfolio-image" style="background-image:url('https://raw.githubusercontent.com/pbqrenovation/Construction/main/pa1.jpg');"></div><div class="portfolio-content"><h3>Wall Panels</h3><p>Custom wall panels, 3D panels, modern accent walls</p></div></a>
+          <a href="portfolio-painting.html" class="portfolio-card"><div class="portfolio-image" style="background-image:url('https://raw.githubusercontent.com/pbqrenovation/Construction/main/p1.jpg');"></div><div class="portfolio-content"><h3>Painting</h3><p>Interior and exterior painting projects with precision</p></div></a>
+          <a href="portfolio-drywall.html" class="portfolio-card"><div class="portfolio-image" style="background-image:url('https://raw.githubusercontent.com/pbqrenovation/Construction/main/d1.jpg');"></div><div class="portfolio-content"><h3>Drywall</h3><p>Professional drywall installation and finishing services</p></div></a>
         </div>
-
-        <div class="gallery-item" data-category="luxury">
-          <img class="gallery-img" src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Wall Panels" loading="lazy">
-          <div class="gallery-info">
-            <span class="category">Luxury Finishes</span>
-            <h3>Gold Accent Luxury Panels</h3>
-            <p>High-end luxury panels with metallic finish for a sophisticated office space.</p>
+      </div>
+    </section>
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-title"><h2>Contact Us</h2><p>Send details and photos — we'll reply with a fast estimate.</p></div>
+        <div class="contact-grid">
+          <div class="card contact-info">
+            <h3>Get In Touch</h3>
+            <div class="contact-details">
+              <p><i class="fas fa-phone-alt"></i><a href="tel:+14167315979" class="contact-link">+1 (416) 731-5979</a></p>
+              <p><i class="fas fa-envelope"></i><a href="mailto:pbqrenovation@gmail.com" class="contact-link">pbqrenovation@gmail.com</a></p>
+              <p><i class="fab fa-instagram"></i><a href="https://instagram.com/pbq_renovation" target="_blank" class="contact-link">@pbq_renovation</a></p>
+              <p><i class="fas fa-globe"></i><a href="https://pbqrenovation.ca" target="_blank" class="contact-link">pbqrenovation.ca</a></p>
+            </div>
+            <div class="google-profile"><i class="fas fa-map-marker-alt"></i><a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank">Our Google Business Profile</a></div>
+            <div class="contact-person"><h4>Nick Korzh</h4><div class="position">Owner</div><p>Tell us what you need — we'll suggest the best option and give a clear estimate.</p></div>
           </div>
-        </div>
-
-        <div class="gallery-item" data-category="3d">
-          <img class="gallery-img" src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="3D Wave Panels" loading="lazy">
-          <div class="gallery-info">
-            <span class="category">3D Panels</span>
-            <h3>Wave Pattern 3D Panels</h3>
-            <p>Fluid wave design panels adding movement and elegance to a dining area.</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="modern">
-          <img class="gallery-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Minimalist Wall Panels" loading="lazy">
-          <div class="gallery-info">
-            <span class="category">Modern Accent Walls</span>
-            <h3>Minimalist White Panels</h3>
-            <p>Clean, minimalist panel design for a contemporary condo renovation.</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="acoustic">
-          <img class="gallery-img" src="https://images.unsplash.com/photo-1573484454772-28895a39c300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office Acoustic Panels" loading="lazy">
-          <div class="gallery-info">
-            <span class="category">Acoustic Panels</span>
-            <h3>Commercial Office Acoustic Wall</h3>
-            <p>Sound-dampening panels for a modern office meeting room.</p>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="luxury">
-          <img class="gallery-img" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marble Effect Panels" loading="lazy">
-          <div class="gallery-info">
-            <span class="category">Luxury Finishes</span>
-            <h3>Marble Effect Wall Panels</h3>
-            <p>Luxury marble-look panels for a high-end bathroom renovation.</p>
+          <div class="card">
+            <form id="contactForm" action="https://formspree.io/f/mdawgbbw" method="POST">
+              <input type="text" name="_gotcha" style="display:none">
+              <div class="form-status success" id="successMessage">Thank you! We'll contact you within 24 hours.</div>
+              <div class="form-status error" id="errorMessage">Something went wrong. Please email us at pbqrenovation@gmail.com</div>
+              <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+              <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+              <div class="form-group"><input type="tel" name="phone" placeholder="Your Phone Number"></div>
+              <div class="form-group"><select name="service-type" required><option value="" disabled selected>Select Service Type</option><option value="wallpaper">Wallpaper</option><option value="wallpanels">Wall Panels</option><option value="painting">Painting</option><option value="drywall">Drywall</option><option value="other">Other</option></select></div>
+              <div class="form-group"><textarea name="message" placeholder="Tell us about your project (location, size, timeline). If possible, include photos." required></textarea></div>
+              <button type="submit" class="submit-button">SEND MESSAGE <i class="fas fa-paper-plane"></i></button>
+            </form>
           </div>
         </div>
       </div>
-
-      <!-- Instruction note for adding photos -->
-      <div style="text-align:center; margin-top:2rem; padding:1rem; background:var(--primary-soft); border-radius:16px;">
-        <i class="fas fa-info-circle" style="color:var(--primary); margin-right:8px;"></i>
-        <strong>How to add your photos:</strong> Scroll down to the "Add New Photos" section below, or manually edit this HTML file. Replace the image URLs with your own photo links (upload to GitHub, Imgur, or your server).
-      </div>
-
-      <!-- Add Photo Section - You can upload photos here -->
-      <div class="add-photo-section" id="addPhotoSection">
-        <h3><i class="fas fa-plus-circle"></i> Add New Wall Panel Photos</h3>
-        <p>Upload your photos and they will appear in the gallery (local storage - photos will stay until browser cache is cleared). For permanent storage, upload images to your server and add manually.</p>
-        
-        <div class="upload-area" id="uploadArea">
-          <label class="upload-label">
-            <i class="fas fa-cloud-upload-alt"></i>
-            <span>Click to select images (JPG, PNG, WEBP)</span>
-            <input type="file" id="photoUpload" accept="image/*" multiple>
-          </label>
-        </div>
-        
-        <div class="photo-form-inputs">
-          <input type="text" id="photoTitle" placeholder="Project Title (e.g., Modern 3D Panel)">
-          <select id="photoCategory">
-            <option value="3d">3D Panels</option>
-            <option value="acoustic">Acoustic Panels</option>
-            <option value="modern">Modern Accent Walls</option>
-            <option value="luxury">Luxury Finishes</option>
-          </select>
-        </div>
-        <input type="text" id="photoDesc" placeholder="Project Description (optional)" style="width:100%; padding:12px; border:1px solid var(--border); border-radius:12px; margin-top:10px;">
-        <button class="add-photo-btn" id="addPhotoBtn"><i class="fas fa-save"></i> Add Photo to Gallery</button>
-        <p style="font-size:0.8rem; margin-top:12px; color:var(--muted)"><i class="fas fa-lightbulb"></i> Tip: For permanent photos, upload images to your server and copy the URL. Then add a new gallery item manually in the HTML.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+    </section>
+  </main>
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">
-          <img src="LOGO.jpg" alt="PBQ Renovation Logo">
-          <div>
-            <div class="company-name" style="font-weight:800">PBQ RENOVATION</div>
-            <div style="font-size:0.7rem; opacity:0.7">PROVIDING THE BEST QUALITY</div>
-          </div>
-        </div>
-        <div class="footer-contact">
-          <a href="tel:+14167315979"><i class="fas fa-phone"></i> 416-731-5979</a>
-          <a href="mailto:pbqrenovation@gmail.com"><i class="fas fa-envelope"></i> pbqrenovation@gmail.com</a>
-          <a href="https://instagram.com/pbq_renovation" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        </div>
+        <div class="footer-logo"><img src="LOGO.jpg" alt="PBQ Renovation Logo"><div><div class="footer-company-name">PBQ RENOVATION</div><div class="footer-slogan">PROVIDING THE BEST QUALITY</div></div></div>
+        <div class="footer-contact"><a href="mailto:pbqrenovation@gmail.com"><i class="fas fa-envelope"></i> pbqrenovation@gmail.com</a> <a href="tel:+14167315979"><i class="fas fa-phone"></i> 416-731-5979</a> <a href="https://instagram.com/pbq_renovation" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></div>
       </div>
-      <div class="copyright"><p>&copy; 2025 PBQ Renovation. All rights reserved. | <a href="index.html" style="color:#94a3b8;">Back to Home</a></p></div>
+      <div class="copyright"><p>&copy; 2025 PBQ Renovation. All rights reserved.</p></div>
     </div>
   </footer>
-
+  <div class="mobile-bar"><div class="row"><a class="call" href="tel:+14167315979"><i class="fas fa-phone"></i> Call</a><a class="msg" href="sms:+14167315979"><i class="fas fa-message"></i> Message</a></div></div>
   <script>
-    // Gallery filtering
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filterValue = btn.getAttribute('data-filter');
-        
-        galleryItems.forEach(item => {
-          if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-            item.style.display = 'block';
-            item.style.animation = 'fadeIn 0.3s ease';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Lightbox Modal
-    let currentImageIndex = 0;
-    let currentImages = [];
-
-    function openLightbox(imgElement, index) {
-      const modal = document.getElementById('lightboxModal');
-      const modalImg = document.getElementById('modalImg');
-      const modalCaption = document.getElementById('modalCaption');
-      modal.classList.add('active');
-      modalImg.src = imgElement.src;
-      modalCaption.textContent = imgElement.parentElement?.querySelector('.gallery-info h3')?.textContent || 'Wall Panel Project';
-      
-      // Collect all visible images for navigation
-      const visibleItems = Array.from(document.querySelectorAll('.gallery-item')).filter(item => item.style.display !== 'none');
-      currentImages = visibleItems.map(item => ({
-        src: item.querySelector('.gallery-img').src,
-        title: item.querySelector('.gallery-info h3')?.textContent || 'Project'
-      }));
-      currentImageIndex = visibleItems.findIndex(item => item.querySelector('.gallery-img').src === imgElement.src);
-    }
-
-    function closeLightbox() {
-      document.getElementById('lightboxModal').classList.remove('active');
-    }
-
-    function prevImage() {
-      if (currentImages.length === 0) return;
-      currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
-      const modalImg = document.getElementById('modalImg');
-      const modalCaption = document.getElementById('modalCaption');
-      modalImg.src = currentImages[currentImageIndex].src;
-      modalCaption.textContent = currentImages[currentImageIndex].title;
-    }
-
-    function nextImage() {
-      if (currentImages.length === 0) return;
-      currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-      const modalImg = document.getElementById('modalImg');
-      const modalCaption = document.getElementById('modalCaption');
-      modalImg.src = currentImages[currentImageIndex].src;
-      modalCaption.textContent = currentImages[currentImageIndex].title;
-    }
-
-    // Add click event to all gallery images
-    document.querySelectorAll('.gallery-img').forEach((img, idx) => {
-      img.addEventListener('click', () => openLightbox(img, idx));
-    });
-
-    // Add Photo Functionality (local storage)
-    const addPhotoBtn = document.getElementById('addPhotoBtn');
-    const photoUpload = document.getElementById('photoUpload');
-    let uploadedImageData = null;
-
-    photoUpload.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-          uploadedImageData = event.target.result;
-          alert('Image loaded! Add title and category, then click "Add Photo to Gallery"');
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
-    addPhotoBtn.addEventListener('click', () => {
-      if (!uploadedImageData) {
-        alert('Please select an image first!');
-        return;
-      }
-      
-      const title = document.getElementById('photoTitle').value.trim();
-      const category = document.getElementById('photoCategory').value;
-      const desc = document.getElementById('photoDesc').value.trim();
-      
-      if (!title) {
-        alert('Please enter a project title');
-        return;
-      }
-      
-      const galleryGrid = document.getElementById('galleryGrid');
-      const newItem = document.createElement('div');
-      newItem.className = 'gallery-item';
-      newItem.setAttribute('data-category', category);
-      
-      const categoryNames = { '3d': '3D Panels', 'acoustic': 'Acoustic Panels', 'modern': 'Modern Accent Walls', 'luxury': 'Luxury Finishes' };
-      
-      newItem.innerHTML = `
-        <img class="gallery-img" src="${uploadedImageData}" alt="${title}" loading="lazy">
-        <div class="gallery-info">
-          <span class="category">${categoryNames[category]}</span>
-          <h3>${escapeHtml(title)}</h3>
-          <p>${escapeHtml(desc) || 'Custom wall panel installation by PBQ Renovation'}</p>
-        </div>
-      `;
-      
-      galleryGrid.appendChild(newItem);
-      
-      // Add click event to new image
-      newItem.querySelector('.gallery-img').addEventListener('click', (e) => {
-        openLightbox(e.target, Array.from(document.querySelectorAll('.gallery-img')).indexOf(e.target));
-      });
-      
-      // Clear inputs
-      document.getElementById('photoTitle').value = '';
-      document.getElementById('photoDesc').value = '';
-      photoUpload.value = '';
-      uploadedImageData = null;
-      
-      alert('Photo added to gallery! (Stored in browser memory - for permanent storage, upload images to your server)');
-    });
-
-    function escapeHtml(str) {
-      if (!str) return '';
-      return str.replace(/[&<>]/g, function(m) {
-        if (m === '&') return '&amp;';
-        if (m === '<') return '&lt;';
-        if (m === '>') return '&gt;';
-        return m;
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    function closeMenu() { navMenu.classList.remove('active'); menuToggle.setAttribute('aria-expanded', 'false'); }
+    menuToggle.addEventListener('click', (e) => { e.stopPropagation(); const isOpen = navMenu.classList.toggle('active'); menuToggle.setAttribute('aria-expanded', String(isOpen)); });
+    document.addEventListener('click', (e) => { if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) closeMenu(); });
+    document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', (e) => { const id = a.getAttribute('href'); if (id === '#') return; const target = document.querySelector(id); if (target) { e.preventDefault(); closeMenu(); target.scrollIntoView({ behavior: 'smooth' }); } }); });
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const submitBtn = document.querySelector('.submit-button');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'SENDING...';
+        const formData = new FormData(contactForm);
+        try {
+          const response = await fetch(contactForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+          if (response.ok) { document.getElementById('successMessage').style.display = 'block'; contactForm.reset(); if(typeof gtag!=='undefined'){gtag('event','conversion',{'send_to':'AW-18039120597/QYtnCKCvuo8cENXF3JlD'});} }
+          else { document.getElementById('errorMessage').style.display = 'block'; }
+        } catch (error) { document.getElementById('errorMessage').style.display = 'block'; }
+        finally { submitBtn.disabled = false; submitBtn.innerHTML = 'SEND MESSAGE <i class="fas fa-paper-plane"></i>'; }
       });
     }
-
-    // Drag and drop upload area
-    const uploadArea = document.getElementById('uploadArea');
-    uploadArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      uploadArea.style.borderColor = 'var(--primary)';
-      uploadArea.style.background = 'var(--primary-soft)';
-    });
-    uploadArea.addEventListener('dragleave', () => {
-      uploadArea.style.borderColor = 'var(--border)';
-      uploadArea.style.background = '#fff';
-    });
-    uploadArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      uploadArea.style.borderColor = 'var(--border)';
-      uploadArea.style.background = '#fff';
-      const file = e.dataTransfer.files[0];
-      if (file && file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-          uploadedImageData = event.target.result;
-          alert('Image loaded! Add title and category, then click "Add Photo to Gallery"');
-        };
-        reader.readAsDataURL(file);
-      }
-    });
   </script>
-
-  <!-- Lightbox Modal -->
-  <div id="lightboxModal" class="modal" onclick="closeLightbox()">
-    <span class="modal-close" onclick="closeLightbox()">&times;</span>
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <img id="modalImg" class="modal-img" src="" alt="">
-      <div id="modalCaption" class="modal-caption"></div>
-    </div>
-    <div class="modal-nav">
-      <button onclick="event.stopPropagation(); prevImage()">&#10094;</button>
-      <button onclick="event.stopPropagation(); nextImage()">&#10095;</button>
-    </div>
-  </div>
-
-  <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .gallery-item { animation: fadeIn 0.3s ease; }
-    .modal { cursor: pointer; }
-    .modal-content { cursor: default; }
-  </style>
 </body>
 </html>
