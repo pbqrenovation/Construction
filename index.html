@@ -32,10 +32,8 @@
   <meta property="og:description" content="Wallpaper installation, wall panels, drywall, painting services in Toronto GTA. Free estimates. Call/Text 416-731-5979.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pbqrenovation.ca/">
-  <meta property="og:image" content="https://pbqrenovation.ca/og.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -94,11 +92,11 @@
     .hero-content h1{font-size:3.15rem;letter-spacing:-1px;margin-bottom:14px}
     .hero-content .slogan{font-size:1.2rem;margin-bottom:16px;font-weight:700}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.22);text-decoration:none;font-weight:900;transition:var(--transition);cursor:pointer}
-    .btn-primary{background:var(--primary);border-color:transparent}
-    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
-    .btn-ghost{background:rgba(255,255,255,.10)}
-    .btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.22);text-decoration:none;font-weight:900;transition:var(--transition);cursor:pointer;color:#fff}
+    .btn-primary{background:var(--primary);border-color:transparent;color:#fff}
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);color:#fff}
+    .btn-ghost{background:rgba(255,255,255,.10);color:#fff}
+    .btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px);color:#fff}
     .rating-block{margin-top:20px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);display:inline-flex;align-items:center;gap:12px;padding:10px 20px;border-radius:999px;font-weight:600}
     .rating-block a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
     .rating-block a:hover{color:var(--primary);gap:10px}
@@ -110,7 +108,7 @@
     .section-title h2{font-size:2.35rem;display:inline-block;position:relative;padding-bottom:12px}
     .section-title h2::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:80px;height:4px;background:var(--primary);border-radius:99px}
     .section-title p{color:var(--muted);max-width:640px;margin:12px auto 0}
-    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
     .service-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px 22px;box-shadow:var(--shadow-sm);transition:var(--transition);text-align:center}
     .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(22,163,74,.55)}
     .service-card i{font-size:2.8rem;color:var(--primary);margin-bottom:14px}
@@ -125,7 +123,8 @@
     .portfolio-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(22,163,74,.55)}
     .portfolio-image{height:260px;background-size:cover;background-position:center;position:relative}
     .portfolio-content{padding:22px 20px;text-align:center}
-    .portfolio-content h3{font-size:1.35rem;margin-bottom:10px}
+    .portfolio-content h3{font-size:1.35rem;margin-bottom:10px;color:var(--dark)}
+    .portfolio-content p{color:var(--muted)}
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}
     .card{background:var(--light);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:26px}
     .contact-info h3{font-size:1.65rem;margin-bottom:14px;display:inline-block;position:relative;padding-bottom:10px}
@@ -220,8 +219,8 @@
         <div class="services-grid">
           <div class="service-card"><i class="fas fa-building"></i><h3>Commercial Renovation</h3><p>Offices, retail, restaurants — clean work, clear timelines.</p></div>
           <div class="service-card"><i class="fas fa-home"></i><h3>Residential Renovation</h3><p>Room upgrades, repairs, and finishing — smooth walls.</p></div>
-          <div class="service-card"><i class="fas fa-th-large"></i><h3>Wall Panels</h3><p>Custom wall panels installation • modern accent walls • premium finishes</p></div>
-          <div class="service-card"><i class="fas fa-tools"></i><h3>Handyman Services</h3><p>Fixes, patching, adjustments — done right, without mess.</p></div>
+          <div class="service-card"><i class="fas fa-paint-roller"></i><h3>Wallpaper Installation</h3><p>Expert wallpaper installation, removal, and seamless finishing.</p></div>
+          <div class="service-card"><i class="fas fa-paint-brush"></i><h3>Painting</h3><p>Interior and exterior painting with professional finish.</p></div>
         </div>
       </div>
     </section>
