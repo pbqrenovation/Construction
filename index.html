@@ -89,8 +89,10 @@
     .hero .container{padding:56px 24px}
     .hero-content{max-width:860px}
     .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);font-weight:900;margin-bottom:16px}
-    .hero-content h1{font-size:3.15rem;letter-spacing:-1px;margin-bottom:14px}
-    .hero-content .slogan{font-size:1.2rem;margin-bottom:16px;font-weight:700}
+    .hero-content h1{font-size:3.15rem;letter-spacing:-1px;margin-bottom:6px}
+    .hero-content .sub-slogan{font-size:1.8rem;font-weight:700;margin-bottom:6px;line-height:1.3}
+    .hero-content .sub-slogan span{display:inline-block;margin:0 2px}
+    .hero-content .tagline{font-size:1.1rem;margin-bottom:16px;font-weight:600;color:rgba(255,255,255,0.95)}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.22);text-decoration:none;font-weight:900;transition:var(--transition);cursor:pointer;color:#fff}
     .btn-primary{background:var(--primary);border-color:transparent;color:#fff}
@@ -337,7 +339,13 @@
       .carousel-btn.prev{left:-6px}
       .carousel-btn.next{right:-6px}
     }
-    @media (max-width: 640px){.spec-grid,.portfolio-grid{grid-template-columns:1fr}.hero-content h1{font-size:2.2rem}.btn{width:100%}.review-card{min-width:240px;max-width:260px}}
+    @media (max-width: 640px){
+      .spec-grid,.portfolio-grid{grid-template-columns:1fr}
+      .hero-content h1{font-size:2.2rem}
+      .hero-content .sub-slogan{font-size:1.2rem}
+      .btn{width:100%}
+      .review-card{min-width:240px;max-width:260px}
+    }
   </style>
 </head>
 <body>
@@ -383,8 +391,16 @@
       <div class="container">
         <div class="hero-content">
           <div class="hero-badge"><i class="fas fa-map-marker-alt"></i> Toronto GTA</div>
-          <h1>Professional Wallpaper & Wall Panels Installation in Toronto<br>Seamless Finish • Precision Work • Perfect Results</h1>
-          <div class="slogan">Professional work. Smooth finish. Clear communication.</div>
+          <h1>Professional Renovation Services in Toronto</h1>
+          <div class="sub-slogan">
+            <span>Wallpaper</span> <span style="color:var(--primary);font-weight:700;">•</span> 
+            <span>Wall Panels</span> <span style="color:var(--primary);font-weight:700;">•</span> 
+            <span>Painting</span><br>
+            <span>Drywall</span> <span style="color:var(--primary);font-weight:700;">•</span> 
+            <span>Taping</span> <span style="color:var(--primary);font-weight:700;">•</span> 
+            <span>Mudding</span>
+          </div>
+          <div class="tagline">Quality Work. Clean Finish. Reliable Service.</div>
           <div class="cta-row">
             <a class="btn btn-primary" href="tel:+14167315979"><i class="fas fa-phone"></i> Call / Text 416-731-5979</a>
             <a class="btn btn-ghost" href="#contact"><i class="fas fa-message"></i> Get Free Estimate</a>
@@ -392,14 +408,15 @@
           
           <!-- ===== STATS COUNTER ===== -->
           <div class="stats-row">
-            <div class="stat-item">
+            <!-- ===== 100+ Projects — теперь ведёт на PORTFOLIO ===== -->
+            <a href="#portfolio" class="stat-item" style="text-decoration:none;color:inherit;">
               <i class="fas fa-check-circle"></i>
               <div>
                 <div class="stat-number" id="projectCounter">100<span style="font-size:1rem;">+</span></div>
-                <div class="stat-label">Completed Projects</div>
+                <div class="stat-label">Completed Projects <i class="fas fa-arrow-down" style="font-size:.6rem;opacity:.6;margin-left:4px;"></i></div>
               </div>
-            </div>
-            <!-- ===== 5.0 Google Rating — кликабельно, ведёт к отзывам ===== -->
+            </a>
+            <!-- ===== 5.0 Google Rating — ведёт к отзывам ===== -->
             <a href="#reviews" class="stat-item" style="text-decoration:none;color:inherit;">
               <i class="fas fa-star"></i>
               <div>
@@ -495,7 +512,8 @@
               <div class="form-status success" id="successMessage">✓ Thank you! We'll contact you within 24 hours.</div>
               <div class="form-status error" id="errorMessage">✗ Something went wrong. Please email us at pbqrenovation@gmail.com</div>
               <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
-              <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+              <!-- Убираем required с email и меняем тип на text, чтобы не было валидации -->
+              <div class="form-group"><input type="text" name="email" placeholder="Your Email"></div>
               <div class="form-group"><input type="tel" name="phone" placeholder="Your Phone Number"></div>
               <div class="form-group"><select name="service-type" required><option value="" disabled selected>Select Service Type</option><option value="wallpaper">Wallpaper</option><option value="wallpanels">Wall Panels</option><option value="painting">Painting</option><option value="drywall">Drywall</option><option value="other">Other</option></select></div>
               <div class="form-group"><textarea name="message" placeholder="Tell us about your project (location, size, timeline). If possible, include photos." required></textarea></div>
