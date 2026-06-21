@@ -408,7 +408,7 @@
           
           <!-- ===== STATS COUNTER ===== -->
           <div class="stats-row">
-            <!-- ===== 100+ Projects — теперь ведёт на PORTFOLIO ===== -->
+            <!-- ===== 100+ Projects — ведёт на PORTFOLIO ===== -->
             <a href="#portfolio" class="stat-item" style="text-decoration:none;color:inherit;">
               <i class="fas fa-check-circle"></i>
               <div>
@@ -481,7 +481,7 @@
           </div>
         </div>
         
-        <!-- ===== SEE ALL REVIEWS BUTTON (под каруселью) ===== -->
+        <!-- ===== SEE ALL REVIEWS BUTTON ===== -->
         <div class="reviews-footer">
           <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" class="btn-see-reviews">
             <i class="fab fa-google"></i> See All Google Reviews
@@ -491,6 +491,7 @@
       </div>
     </section>
     
+    <!-- ===== КОНТАКТНАЯ ФОРМА (ИСПРАВЛЕННАЯ) ===== -->
     <section id="contact" class="section">
       <div class="container">
         <div class="section-title"><h2>Contact Us</h2><p>Send details and photos — we'll reply with a fast estimate.</p></div>
@@ -512,8 +513,8 @@
               <div class="form-status success" id="successMessage">✓ Thank you! We'll contact you within 24 hours.</div>
               <div class="form-status error" id="errorMessage">✗ Something went wrong. Please email us at pbqrenovation@gmail.com</div>
               <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
-              <!-- Убираем required с email и меняем тип на text, чтобы не было валидации -->
-              <div class="form-group"><input type="text" name="email" placeholder="Your Email"></div>
+              <!-- ВОЗВРАЩАЕМ ОБЫЧНЫЙ EMAIL С ВАЛИДАЦИЕЙ -->
+              <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
               <div class="form-group"><input type="tel" name="phone" placeholder="Your Phone Number"></div>
               <div class="form-group"><select name="service-type" required><option value="" disabled selected>Select Service Type</option><option value="wallpaper">Wallpaper</option><option value="wallpanels">Wall Panels</option><option value="painting">Painting</option><option value="drywall">Drywall</option><option value="other">Other</option></select></div>
               <div class="form-group"><textarea name="message" placeholder="Tell us about your project (location, size, timeline). If possible, include photos." required></textarea></div>
