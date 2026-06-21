@@ -97,11 +97,177 @@
     .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);color:#fff}
     .btn-ghost{background:rgba(255,255,255,.10);color:#fff}
     .btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px);color:#fff}
-    .rating-block{margin-top:20px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);display:inline-flex;align-items:center;gap:12px;padding:10px 20px;border-radius:999px;font-weight:600}
-    .rating-block a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-    .rating-block a:hover{color:var(--primary);gap:10px}
-    .trust{margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:780px}
+    
+    /* ===== STATS COUNTER ===== */
+    .stats-row{
+      display:flex;
+      gap:30px;
+      margin-top:20px;
+      flex-wrap:wrap;
+    }
+    .stat-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:16px;
+      padding:14px 24px;
+      backdrop-filter:blur(4px);
+      transition:var(--transition);
+      cursor:pointer;
+    }
+    .stat-item:hover{
+      background:rgba(255,255,255,.16);
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.25);
+    }
+    .stat-item i{
+      font-size:1.6rem;
+      color:var(--primary);
+    }
+    .stat-number{
+      font-size:1.8rem;
+      font-weight:900;
+      line-height:1;
+      font-family:'Poppins',sans-serif;
+    }
+    .stat-label{
+      font-size:.75rem;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      opacity:.8;
+    }
+    
+    .trust{margin-top:20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:780px}
     .trust-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:14px;display:flex;gap:10px;align-items:flex-start}
+    
+    /* ===== REVIEWS CAROUSEL ===== */
+    .reviews-section{padding:4rem 0;background:var(--light);scroll-margin-top:80px}
+    .reviews-carousel-wrapper{
+      position:relative;
+      max-width:100%;
+      overflow:hidden;
+      margin-top:28px;
+    }
+    .reviews-carousel{
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding:8px 4px 16px 4px;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+    }
+    .reviews-carousel::-webkit-scrollbar{display:none}
+    .review-card{
+      min-width:300px;
+      max-width:340px;
+      flex:0 0 auto;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:var(--shadow-sm);
+      transition:var(--transition);
+      display:flex;
+      flex-direction:column;
+    }
+    .review-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+    .review-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .review-avatar{width:40px;height:40px;border-radius:999px;background:var(--primary-soft);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:var(--primary-dark);flex-shrink:0}
+    .review-name{font-weight:700;font-size:.9rem}
+    .review-date{font-size:.7rem;color:var(--muted)}
+    .review-stars{color:#f59e0b;letter-spacing:1.5px;font-size:.8rem;margin-bottom:4px}
+    .review-text{
+      color:var(--muted);
+      font-size:.82rem;
+      line-height:1.5;
+      flex-grow:1;
+      display:-webkit-box;
+      -webkit-line-clamp:4;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+      transition:all .3s ease;
+    }
+    .review-text.expanded{
+      -webkit-line-clamp:unset;
+      display:block;
+    }
+    .review-read-more{
+      background:none;
+      border:none;
+      color:var(--primary);
+      font-weight:700;
+      font-size:.78rem;
+      cursor:pointer;
+      padding:6px 0 0 0;
+      transition:var(--transition);
+      display:inline-block;
+      width:fit-content;
+      font-family:'Inter',sans-serif;
+    }
+    .review-read-more:hover{color:var(--primary-dark);text-decoration:underline}
+    .review-source{font-size:.7rem;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:6px;border-top:1px solid var(--border);padding-top:10px}
+    .review-source i{color:var(--primary)}
+    
+    /* Carousel Buttons */
+    .carousel-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:40px;
+      height:40px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow-md);
+      color:var(--dark);
+      font-size:1rem;
+      cursor:pointer;
+      transition:var(--transition);
+      z-index:10;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .carousel-btn:hover{
+      background:var(--primary);
+      color:#fff;
+      border-color:var(--primary);
+    }
+    .carousel-btn.prev{left:-10px}
+    .carousel-btn.next{right:-10px}
+
+    /* ===== SEE ALL REVIEWS BUTTON (под каруселью) ===== */
+    .reviews-footer{
+      text-align:center;
+      margin-top:32px;
+    }
+    .btn-see-reviews{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 32px;
+      border-radius:999px;
+      background:var(--primary);
+      color:#fff;
+      font-weight:700;
+      text-decoration:none;
+      transition:var(--transition);
+      border:none;
+      cursor:pointer;
+      font-size:.95rem;
+    }
+    .btn-see-reviews:hover{
+      background:var(--primary-dark);
+      transform:translateY(-3px);
+      box-shadow:var(--shadow-md);
+      color:#fff;
+    }
+    .btn-see-reviews i{font-size:.9rem}
+    
     .section{padding:5.5rem 0;background:#fff}
     .section.light{background:var(--light)}
     .section-title{text-align:center;margin-bottom:3.5rem}
@@ -144,6 +310,7 @@
     .form-status.error{background:#fee2e2;color:#991b1b}
     .submit-button{width:100%;padding:14px;border:none;border-radius:999px;background:var(--primary);color:#fff;font-weight:900;cursor:pointer}
     .submit-button:hover{background:var(--primary-dark)}
+    .submit-button:disabled{opacity:.6;cursor:not-allowed;transform:none}
     footer{background:var(--dark);color:#fff;padding:3rem 0 2rem}
     .footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:20px}
     .footer-logo{display:flex;align-items:center;gap:12px}
@@ -158,8 +325,19 @@
     .mobile-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px;border-radius:999px;text-decoration:none;font-weight:900;border:1px solid var(--border)}
     .mobile-bar .call{background:var(--primary);color:#fff;border-color:transparent}
     @media (max-width: 1100px){.spec-grid,.portfolio-grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width: 900px){.nav-links{display:none}.menu-toggle{display:inline-flex;align-items:center;gap:8px}.contact-grid{grid-template-columns:1fr}.mobile-bar{display:block}.trust{grid-template-columns:1fr}}
-    @media (max-width: 640px){.spec-grid,.portfolio-grid{grid-template-columns:1fr}.hero-content h1{font-size:2.2rem}.btn{width:100%}}
+    @media (max-width: 900px){
+      .nav-links{display:none}
+      .menu-toggle{display:inline-flex;align-items:center;gap:8px}
+      .contact-grid{grid-template-columns:1fr}
+      .mobile-bar{display:block}
+      .trust{grid-template-columns:1fr}
+      .stats-row{flex-direction:column;align-items:stretch}
+      .review-card{min-width:260px;max-width:290px}
+      .carousel-btn{width:32px;height:32px;font-size:.8rem}
+      .carousel-btn.prev{left:-6px}
+      .carousel-btn.next{right:-6px}
+    }
+    @media (max-width: 640px){.spec-grid,.portfolio-grid{grid-template-columns:1fr}.hero-content h1{font-size:2.2rem}.btn{width:100%}.review-card{min-width:240px;max-width:260px}}
   </style>
 </head>
 <body>
@@ -189,11 +367,12 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#specializations">Specializations</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i> Menu</button>
         <div class="nav-menu" id="navMenu">
-          <ul><li><a href="#services">Our Services</a></li><li><a href="#specializations">Specializations</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#contact">Contacts</a></li></ul>
+          <ul><li><a href="#services">Our Services</a></li><li><a href="#specializations">Specializations</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contacts</a></li></ul>
         </div>
       </nav>
     </div>
@@ -210,13 +389,32 @@
             <a class="btn btn-primary" href="tel:+14167315979"><i class="fas fa-phone"></i> Call / Text 416-731-5979</a>
             <a class="btn btn-ghost" href="#contact"><i class="fas fa-message"></i> Get Free Estimate</a>
           </div>
-          <div class="rating-block"><i class="fas fa-star" style="color:#FFD700;"></i> 5.0 Rating on Google <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank">See Our Reviews <i class="fas fa-arrow-right"></i></a></div>
+          
+          <!-- ===== STATS COUNTER ===== -->
+          <div class="stats-row">
+            <div class="stat-item">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <div class="stat-number" id="projectCounter">100<span style="font-size:1rem;">+</span></div>
+                <div class="stat-label">Completed Projects</div>
+              </div>
+            </div>
+            <!-- ===== 5.0 Google Rating — кликабельно, ведёт к отзывам ===== -->
+            <a href="#reviews" class="stat-item" style="text-decoration:none;color:inherit;">
+              <i class="fas fa-star"></i>
+              <div>
+                <div class="stat-number">5.0</div>
+                <div class="stat-label">Google Rating <i class="fas fa-arrow-down" style="font-size:.6rem;opacity:.6;margin-left:4px;"></i></div>
+              </div>
+            </a>
+          </div>
+          
           <div class="trust"><div class="trust-item"><i class="fas fa-broom"></i><div><b>Clean Work</b><span>Protected floors • tidy finish</span></div></div><div class="trust-item"><i class="fas fa-clock"></i><div><b>On-Time</b><span>Clear schedule & updates</span></div></div><div class="trust-item"><i class="fas fa-receipt"></i><div><b>Fast Response</b><span>Quick replies within hours</span></div></div></div>
         </div>
       </div>
     </section>
     
-    <!-- OUR SERVICES - только Commercial и Residential -->
+    <!-- OUR SERVICES -->
     <section id="services" class="section light">
       <div class="container">
         <div class="section-title"><h2>Our Services</h2><p>Focused, high-quality renovation help — from small repairs to full projects.</p></div>
@@ -251,6 +449,31 @@
       </div>
     </section>
     
+    <!-- ===== GOOGLE REVIEWS CAROUSEL ===== -->
+    <section id="reviews" class="reviews-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>What Our Clients Say</h2>
+          <p>Real reviews from real clients across Toronto GTA</p>
+        </div>
+        <div class="reviews-carousel-wrapper">
+          <button class="carousel-btn prev" id="prevBtn" aria-label="Previous reviews"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next" id="nextBtn" aria-label="Next reviews"><i class="fas fa-chevron-right"></i></button>
+          <div class="reviews-carousel" id="reviewsCarousel">
+            <!-- Reviews will be inserted here by JavaScript -->
+          </div>
+        </div>
+        
+        <!-- ===== SEE ALL REVIEWS BUTTON (под каруселью) ===== -->
+        <div class="reviews-footer">
+          <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" class="btn-see-reviews">
+            <i class="fab fa-google"></i> See All Google Reviews
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    
     <section id="contact" class="section">
       <div class="container">
         <div class="section-title"><h2>Contact Us</h2><p>Send details and photos — we'll reply with a fast estimate.</p></div>
@@ -269,14 +492,14 @@
           <div class="card">
             <form id="contactForm" action="https://formspree.io/f/mdawgbbw" method="POST">
               <input type="text" name="_gotcha" style="display:none">
-              <div class="form-status success" id="successMessage">Thank you! We'll contact you within 24 hours.</div>
-              <div class="form-status error" id="errorMessage">Something went wrong. Please email us at pbqrenovation@gmail.com</div>
+              <div class="form-status success" id="successMessage">✓ Thank you! We'll contact you within 24 hours.</div>
+              <div class="form-status error" id="errorMessage">✗ Something went wrong. Please email us at pbqrenovation@gmail.com</div>
               <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
               <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
               <div class="form-group"><input type="tel" name="phone" placeholder="Your Phone Number"></div>
               <div class="form-group"><select name="service-type" required><option value="" disabled selected>Select Service Type</option><option value="wallpaper">Wallpaper</option><option value="wallpanels">Wall Panels</option><option value="painting">Painting</option><option value="drywall">Drywall</option><option value="other">Other</option></select></div>
               <div class="form-group"><textarea name="message" placeholder="Tell us about your project (location, size, timeline). If possible, include photos." required></textarea></div>
-              <button type="submit" class="submit-button">SEND MESSAGE <i class="fas fa-paper-plane"></i></button>
+              <button type="submit" class="submit-button" id="submitBtn">SEND MESSAGE <i class="fas fa-paper-plane"></i></button>
             </form>
           </div>
         </div>
@@ -307,26 +530,250 @@
   <div class="mobile-bar"><div class="row"><a class="call" href="tel:+14167315979"><i class="fas fa-phone"></i> Call</a><a class="msg" href="sms:+14167315979"><i class="fas fa-message"></i> Message</a></div></div>
   
   <script>
+    // ===== MENU =====
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     function closeMenu() { navMenu.classList.remove('active'); menuToggle.setAttribute('aria-expanded', 'false'); }
     menuToggle.addEventListener('click', (e) => { e.stopPropagation(); const isOpen = navMenu.classList.toggle('active'); menuToggle.setAttribute('aria-expanded', String(isOpen)); });
     document.addEventListener('click', (e) => { if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) closeMenu(); });
     document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', (e) => { const id = a.getAttribute('href'); if (id === '#') return; const target = document.querySelector(id); if (target) { e.preventDefault(); closeMenu(); target.scrollIntoView({ behavior: 'smooth' }); } }); });
+
+    // ===== COUNTER ANIMATION =====
+    function animateCounter() {
+      const counter = document.getElementById('projectCounter');
+      if (!counter) return;
+      const target = 100;
+      let current = 0;
+      const increment = 1;
+      const duration = 2000;
+      const stepTime = duration / target;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        counter.innerHTML = current + '<span style="font-size:1rem;">+</span>';
+      }, stepTime);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter();
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const counterElement = document.getElementById('projectCounter');
+    if (counterElement) {
+      counterObserver.observe(counterElement.parentElement.parentElement);
+    }
+
+    // ===== REVIEWS DATA (14 real reviews) =====
+    const reviewsData = [
+      {
+        name: "Zakhar",
+        initials: "Z",
+        text: "Nick and his team at PBQ Renovation recently completed the drywall, taping, and mudding work in my basement, and I couldn't be happier with the results. From start to finish, the professionalism and attention to detail were outstanding. The quality of the drywall finishing is exceptional, with perfectly smooth walls and ceilings ready for paint. What impressed me the most was how clean the job site was every single day. They took great care to contain dust and keep the rest of the house clean, which made a huge difference while the work was being completed. Nick was always responsive, reliable, and made sure everything was done to a very high standard. The final result exceeded my expectations, and I would not hesitate to recommend PBQ Renovation to anyone looking for drywall, taping, or mudding services. Thank you again for the amazing work!"
+      },
+      {
+        name: "Samantha K",
+        initials: "SK",
+        text: "Nick is great with communication and very accommodating to work with my schedule. He is very thorough, professional, kind and hardworking. Very excited to see the rest of the project upon completion."
+      },
+      {
+        name: "Jemimah Oshadami",
+        initials: "JO",
+        text: "Excellent service from start to finish. He was very responsive and professional. The installation was flawless, especially considering it was a mural wallpaper that required precise alignment. He worked quickly, paid attention to detail, and left everything clean when he was done. The finished result looks amazing, and I couldn't be happier. Highly recommend!"
+      },
+      {
+        name: "David Goldman",
+        initials: "DG",
+        text: "Nick is very good and detailed oriented. Goes over and above what he was originally contracted to do. Would highly recommend him and I intend to use him again in the future."
+      },
+      {
+        name: "Neha",
+        initials: "N",
+        text: "Highly recommend! The wallpaper installation turned out beautifully and I'm extremely happy with the final result. Nick paid close attention to detail throughout the process. The seams line up perfectly and the finish looks very clean and high-end. You can tell he takes pride in his work. Thank you again for the patience and hard work!"
+      },
+      {
+        name: "Sheena Vasu",
+        initials: "SV",
+        text: "Excellent wall panel work! The finishing was very neat and professional. I am very happy with the result. Highly recommend him for anyone looking to do wall panels at home. Very skilled, experienced, and a wonderful person. Thank you."
+      },
+      {
+        name: "Lei Gao",
+        initials: "LG",
+        text: "I had a great experience working with Nick for my wallpaper installation. He is extremely professional, detail-oriented, and reliable. From the very beginning, Nick was patient and communicative. He provided thoughtful, expert advice that really helped me choose the right wallpaper and approach for my space. His recommendations showed both strong experience and great taste. During the installation, he worked very carefully and efficiently. The final result is absolutely beautiful — the wallpaper is perfectly aligned, with clean edges and a flawless finish. You can really tell he takes pride in his work. Overall, I'm beyond satisfied with both the service and the result. I would highly recommend Nick to anyone looking for high-quality wallpaper installation. I will definitely work with him again in the future."
+      },
+      {
+        name: "Ujwal Patel",
+        initials: "UP",
+        text: "I find him from his instagram page but it turned out really well we r so much happy about his job done I recommend anyone who is looking to guy for wallpaper installation I highly recommend him."
+      },
+      {
+        name: "Seyi Folami",
+        initials: "SF",
+        text: "Had the pleasure of working with Nick to bring my feature wall to life. He did a phenomenal job installing the flute panels, making sure to pay extreme attention to detail and also assisted with my TV installation. Nick was professional and communicated clearly and timely throughout the whole process. I will definitely reach out to him if I have any further projects."
+      },
+      {
+        name: "Sara Factor",
+        initials: "SF",
+        text: "A beautiful painting job!! Efficient and quick! Will use him again in the future."
+      },
+      {
+        name: "Violca Yryku",
+        initials: "VY",
+        text: "Nick did an amazing job replacing drywall in one of my apartments. Fast, communicative, great price and left the place spotless upon completion. I will deff hire him again for future work."
+      },
+      {
+        name: "Anonymous",
+        initials: "A",
+        text: "Nick was very helpful getting my basement wood panelling done in preparation to rent my basement out. I highly recommend because he was fair, honest, worked quickly and reliable!"
+      },
+      {
+        name: "Yaro",
+        initials: "Y",
+        text: "Nick and his team did an amazing job installing wallpaper in my accent wall and dining room. The work was done quickly and with great attention to detail. Everything looks clean and professional. They also made sure to clean up everything after the job was done, which I really appreciated. Overall a great experience, I definitely recommend his company."
+      },
+      {
+        name: "Sophie Peters",
+        initials: "SP",
+        text: "Nikita is very professional. His painting and wallpaper work which he did was very good. He was always on time and was very tidy with his work. Would definitely recommend. Also his company does other projects too."
+      }
+    ];
+
+    // ===== RENDER REVIEWS WITH READ MORE =====
+    const carousel = document.getElementById('reviewsCarousel');
+    
+    function renderReviews() {
+      carousel.innerHTML = reviewsData.map((review, index) => {
+        const isLong = review.text.length > 120;
+        const shortText = isLong ? review.text.slice(0, 120) + '...' : review.text;
+        
+        return `
+          <div class="review-card" data-index="${index}">
+            <div class="review-header">
+              <div class="review-avatar">${review.initials}</div>
+              <div>
+                <div class="review-name">${review.name}</div>
+                <div class="review-date">Google Review</div>
+              </div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text ${isLong ? 'collapsed' : ''}" id="reviewText-${index}">
+              ${isLong ? shortText : review.text}
+            </div>
+            ${isLong ? `
+              <button class="review-read-more" data-index="${index}" onclick="toggleReview(${index})">
+                Read More
+              </button>
+            ` : ''}
+            <div class="review-source"><i class="fab fa-google"></i> Google Review</div>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    // ===== TOGGLE READ MORE =====
+    window.toggleReview = function(index) {
+      const textEl = document.getElementById(`reviewText-${index}`);
+      const btn = document.querySelector(`.review-read-more[data-index="${index}"]`);
+      if (!textEl || !btn) return;
+      
+      const review = reviewsData[index];
+      if (textEl.classList.contains('collapsed')) {
+        textEl.textContent = review.text;
+        textEl.classList.remove('collapsed');
+        textEl.classList.add('expanded');
+        btn.textContent = 'Read Less';
+      } else {
+        textEl.textContent = review.text.slice(0, 120) + '...';
+        textEl.classList.add('collapsed');
+        textEl.classList.remove('expanded');
+        btn.textContent = 'Read More';
+      }
+    };
+    
+    renderReviews();
+
+    // ===== CAROUSEL SCROLL BUTTONS =====
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+
+    // ===== KEYBOARD NAVIGATION =====
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        carousel.scrollBy({ left: -320, behavior: 'smooth' });
+      } else if (e.key === 'ArrowRight') {
+        carousel.scrollBy({ left: 320, behavior: 'smooth' });
+      }
+    });
+
+    // ===== CONTACT FORM =====
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const submitBtn = document.querySelector('.submit-button');
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const successMsg = document.getElementById('successMessage');
+        const errorMsg = document.getElementById('errorMessage');
+        
+        // Скрываем старые сообщения
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+        
+        // Блокируем кнопку
         submitBtn.disabled = true;
-        submitBtn.innerHTML = 'SENDING...';
+        submitBtn.innerHTML = 'SENDING... <i class="fas fa-spinner fa-spin"></i>';
+        
         const formData = new FormData(contactForm);
+        
         try {
-          const response = await fetch(contactForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-          if (response.ok) { document.getElementById('successMessage').style.display = 'block'; contactForm.reset(); if(typeof gtag!=='undefined'){gtag('event','conversion',{'send_to':'AW-18039120597/QYtnCKCvuo8cENXF3JlD'});} }
-          else { document.getElementById('errorMessage').style.display = 'block'; }
-        } catch (error) { document.getElementById('errorMessage').style.display = 'block'; }
-        finally { submitBtn.disabled = false; submitBtn.innerHTML = 'SEND MESSAGE <i class="fas fa-paper-plane"></i>'; }
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Успех
+            successMsg.style.display = 'block';
+            contactForm.reset();
+            // Отправляем конверсию в Google Ads
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'conversion', {'send_to': 'AW-18039120597/QYtnCKCvuo8cENXF3JlD'});
+            }
+            // Прокручиваем к сообщению об успехе
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            // Ошибка от сервера
+            errorMsg.style.display = 'block';
+            errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } catch (error) {
+          // Ошибка сети
+          errorMsg.style.display = 'block';
+          errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          console.error('Form submission error:', error);
+        } finally {
+          // Разблокируем кнопку
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'SEND MESSAGE <i class="fas fa-paper-plane"></i>';
+        }
       });
     }
   </script>
