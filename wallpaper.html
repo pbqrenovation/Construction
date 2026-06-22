@@ -107,13 +107,130 @@
     .services-list li{list-style:none;padding:12px 16px;background:var(--light);border-radius:12px;border-left:4px solid var(--primary);font-weight:500;display:flex;align-items:center;gap:10px}
     .services-list li i{color:var(--primary)}
     
-    /* ===== GALLERY ===== */
+    /* ===== GALLERY - ГОРИЗОНТАЛЬНАЯ ПРОКРУТКА ===== */
     .gallery-section{padding:4rem 0;background:var(--light)}
-    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:28px}
-    .gallery-item{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:var(--transition)}
+    .gallery-wrapper{
+      position:relative;
+      max-width:100%;
+      overflow:hidden;
+      margin-top:28px;
+    }
+    .gallery-scroll{
+      display:flex;
+      gap:24px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding:8px 4px 16px 4px;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+    }
+    .gallery-scroll::-webkit-scrollbar{display:none}
+    .gallery-item{
+      min-width:320px;
+      max-width:380px;
+      flex:0 0 auto;
+      background:#fff;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow-sm);
+      transition:var(--transition);
+      cursor:pointer;
+    }
     .gallery-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
-    .gallery-item img{width:100%;height:280px;object-fit:cover;display:block}
-    .gallery-item .caption{padding:14px 18px;font-weight:600;text-align:center;color:var(--dark)}
+    .gallery-item img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      display:block;
+      transition:var(--transition);
+    }
+    .gallery-item .caption{
+      padding:14px 18px;
+      font-weight:600;
+      text-align:center;
+      color:var(--dark);
+    }
+    .gallery-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:40px;
+      height:40px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow-md);
+      color:var(--dark);
+      font-size:1rem;
+      cursor:pointer;
+      transition:var(--transition);
+      z-index:10;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .gallery-btn:hover{
+      background:var(--primary);
+      color:#fff;
+      border-color:var(--primary);
+    }
+    .gallery-btn.prev{left:-10px}
+    .gallery-btn.next{right:-10px}
+    
+    /* ===== LIGHTBOX ===== */
+    .lightbox-overlay{
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,.92);
+      z-index:9999;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+      cursor:pointer;
+    }
+    .lightbox-overlay.active{
+      display:flex;
+    }
+    .lightbox-overlay img{
+      max-width:90%;
+      max-height:90%;
+      object-fit:contain;
+      border-radius:12px;
+      box-shadow:0 20px 60px rgba(0,0,0,.6);
+    }
+    .lightbox-overlay .close-btn{
+      position:absolute;
+      top:20px;
+      right:30px;
+      color:#fff;
+      font-size:2.5rem;
+      cursor:pointer;
+      transition:var(--transition);
+      background:none;
+      border:none;
+    }
+    .lightbox-overlay .close-btn:hover{
+      transform:rotate(90deg);
+      color:var(--primary);
+    }
+    .lightbox-overlay .caption-lightbox{
+      position:absolute;
+      bottom:40px;
+      left:50%;
+      transform:translateX(-50%);
+      color:#fff;
+      font-size:1.1rem;
+      font-weight:600;
+      background:rgba(0,0,0,.5);
+      padding:12px 24px;
+      border-radius:12px;
+      text-align:center;
+      max-width:80%;
+    }
     
     /* ===== REVIEWS CAROUSEL ===== */
     .reviews-section{padding:4rem 0;background:#fff}
@@ -245,14 +362,16 @@
       .company-slogan{font-size:.55rem}
       .menu-toggle{padding:8px 12px;font-size:.7rem;gap:4px}
       .page-hero h1{font-size:2rem}
-      .carousel-btn{width:32px;height:32px;font-size:.8rem}
+      .gallery-btn,.carousel-btn{width:32px;height:32px;font-size:.8rem}
+      .gallery-btn.prev{left:-6px}
+      .gallery-btn.next{right:-6px}
       .carousel-btn.prev{left:-6px}
       .carousel-btn.next{right:-6px}
     }
     @media (max-width: 640px){
       .page-hero h1{font-size:1.6rem}
       .page-hero{padding:50px 0 40px}
-      .gallery-grid{grid-template-columns:1fr}
+      .gallery-item{min-width:260px;max-width:300px}
       .gallery-item img{height:220px}
       .review-card{min-width:260px;max-width:300px}
       .services-list{grid-template-columns:1fr}
@@ -332,40 +451,51 @@
       </div>
     </section>
     
-    <!-- GALLERY -->
+    <!-- GALLERY - ГОРИЗОНТАЛЬНАЯ ПРОКРУТКА С УВЕЛИЧЕНИЕМ -->
     <section class="gallery-section">
       <div class="container">
-        <h2 style="text-align:center;font-size:1.8rem;margin-bottom:8px;">Our Wallpaper Projects</h2>
-        <p style="text-align:center;color:var(--muted);margin-bottom:8px;">See examples of our recent wallpaper installations</p>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w11.jpg" alt="Stone Texture Powder Room Wallpaper" loading="lazy">
-            <div class="caption">Stone Texture Powder Room Wallpaper</div>
-          </div>
-          <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w15.jpg" alt="Staircase Feature Wallpaper Installation" loading="lazy">
-            <div class="caption">Staircase Feature Wallpaper Installation</div>
-          </div>
-          <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w22.jpg" alt="Modern Botanical Powder Room Detail" loading="lazy">
-            <div class="caption">Modern Botanical Powder Room Detail</div>
-          </div>
-          <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w20.jpg" alt="Monochrome Botanical Bathroom Wallpaper" loading="lazy">
-            <div class="caption">Monochrome Botanical Bathroom Wallpaper</div>
-          </div>
-          <div class="gallery-item">
-            <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w25.jpg" alt="Luxury Powder Room Feature Wallpaper" loading="lazy">
-            <div class="caption">Luxury Powder Room Feature Wallpaper</div>
+        <h2 style="text-align:center;font-size:1.8rem;margin-bottom:4px;">Featured Wallpaper Projects</h2>
+        <p style="text-align:center;color:var(--muted);margin-bottom:8px;">A selection of our recent wallpaper installations</p>
+        <div class="gallery-wrapper">
+          <button class="gallery-btn prev" id="galleryPrevBtn" aria-label="Previous photos"><i class="fas fa-chevron-left"></i></button>
+          <button class="gallery-btn next" id="galleryNextBtn" aria-label="Next photos"><i class="fas fa-chevron-right"></i></button>
+          <div class="gallery-scroll" id="galleryScroll">
+            <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/pbqrenovation/Construction/main/w11.jpg', 'Stone Texture Powder Room Wallpaper')">
+              <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w11.jpg" alt="Stone Texture Powder Room Wallpaper" loading="lazy">
+              <div class="caption">Stone Texture Powder Room Wallpaper</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/pbqrenovation/Construction/main/w15.jpg', 'Staircase Feature Wallpaper Installation')">
+              <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w15.jpg" alt="Staircase Feature Wallpaper Installation" loading="lazy">
+              <div class="caption">Staircase Feature Wallpaper Installation</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/pbqrenovation/Construction/main/w22.jpg', 'Modern Botanical Powder Room Detail')">
+              <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w22.jpg" alt="Modern Botanical Powder Room Detail" loading="lazy">
+              <div class="caption">Modern Botanical Powder Room Detail</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/pbqrenovation/Construction/main/w20.jpg', 'Monochrome Botanical Bathroom Wallpaper')">
+              <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w20.jpg" alt="Monochrome Botanical Bathroom Wallpaper" loading="lazy">
+              <div class="caption">Monochrome Botanical Bathroom Wallpaper</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/pbqrenovation/Construction/main/w25.jpg', 'Luxury Powder Room Feature Wallpaper')">
+              <img src="https://raw.githubusercontent.com/pbqrenovation/Construction/main/w25.jpg" alt="Luxury Powder Room Feature Wallpaper" loading="lazy">
+              <div class="caption">Luxury Powder Room Feature Wallpaper</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- REVIEWS CAROUSEL - НОВЫЙ ЗАГОЛОВОК -->
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+      <button class="close-btn" onclick="closeLightbox()">&times;</button>
+      <img id="lightboxImage" src="" alt="">
+      <div class="caption-lightbox" id="lightboxCaption"></div>
+    </div>
+    
+    <!-- REVIEWS CAROUSEL -->
     <section class="reviews-section">
       <div class="container">
-        <h2 style="text-align:center;font-size:1.8rem;margin-bottom:8px;">Why Clients Choose PBQ Renovation</h2>
+        <h2 style="text-align:center;font-size:1.8rem;margin-bottom:4px;">Why Clients Choose PBQ Renovation</h2>
         <p style="text-align:center;color:var(--muted);margin-bottom:8px;">Real reviews from our wallpaper installation clients</p>
         <div class="reviews-carousel-wrapper">
           <button class="carousel-btn prev" id="prevBtn" aria-label="Previous reviews"><i class="fas fa-chevron-left"></i></button>
@@ -377,7 +507,7 @@
       </div>
     </section>
     
-    <!-- CTA SECTION - ССЫЛКИ НА ГЛАВНУЮ -->
+    <!-- CTA SECTION -->
     <section class="cta-section">
       <div class="container">
         <h2>Ready to Transform Your Space?</h2>
@@ -420,6 +550,41 @@
     menuToggle.addEventListener('click', (e) => { e.stopPropagation(); const isOpen = navMenu.classList.toggle('active'); menuToggle.setAttribute('aria-expanded', String(isOpen)); });
     document.addEventListener('click', (e) => { if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) closeMenu(); });
     document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', (e) => { const id = a.getAttribute('href'); if (id === '#') return; const target = document.querySelector(id); if (target) { e.preventDefault(); closeMenu(); target.scrollIntoView({ behavior: 'smooth' }); } }); });
+
+    // ===== LIGHTBOX =====
+    function openLightbox(src, caption) {
+      const overlay = document.getElementById('lightboxOverlay');
+      const img = document.getElementById('lightboxImage');
+      const captionEl = document.getElementById('lightboxCaption');
+      img.src = src;
+      captionEl.textContent = caption || '';
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+      const overlay = document.getElementById('lightboxOverlay');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    // Закрытие по Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ===== GALLERY SCROLL BUTTONS =====
+    const galleryScroll = document.getElementById('galleryScroll');
+    const galleryPrevBtn = document.getElementById('galleryPrevBtn');
+    const galleryNextBtn = document.getElementById('galleryNextBtn');
+    
+    galleryPrevBtn.addEventListener('click', () => {
+      galleryScroll.scrollBy({ left: -360, behavior: 'smooth' });
+    });
+    
+    galleryNextBtn.addEventListener('click', () => {
+      galleryScroll.scrollBy({ left: 360, behavior: 'smooth' });
+    });
 
     // ===== REVIEWS DATA =====
     const reviewsData = [
@@ -507,8 +672,10 @@
     // ===== KEYBOARD NAVIGATION =====
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
+        galleryScroll.scrollBy({ left: -360, behavior: 'smooth' });
         carousel.scrollBy({ left: -340, behavior: 'smooth' });
       } else if (e.key === 'ArrowRight') {
+        galleryScroll.scrollBy({ left: 360, behavior: 'smooth' });
         carousel.scrollBy({ left: 340, behavior: 'smooth' });
       }
     });
