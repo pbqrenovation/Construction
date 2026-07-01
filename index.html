@@ -100,7 +100,6 @@
     .btn-ghost{background:rgba(255,255,255,.10);color:#fff}
     .btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px);color:#fff}
     
-    /* ===== STATS COUNTER ===== */
     .stats-row{
       display:flex;
       gap:20px;
@@ -142,7 +141,6 @@
       opacity:.8;
     }
     
-    /* ===== TRUST BLOCK - ДВЕ СТРОКИ ===== */
     .trust{margin-top:20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:780px}
     .trust-item{
       background:rgba(255,255,255,.08);
@@ -170,7 +168,6 @@
       line-height:1.3;
     }
     
-    /* ===== REVIEWS CAROUSEL ===== */
     .reviews-section{padding:4rem 0;background:var(--light);scroll-margin-top:80px}
     .reviews-carousel-wrapper{
       position:relative;
@@ -239,7 +236,6 @@
     .review-source{font-size:.7rem;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:6px;border-top:1px solid var(--border);padding-top:10px}
     .review-source i{color:var(--primary)}
     
-    /* Carousel Buttons */
     .carousel-btn{
       position:absolute;
       top:50%;
@@ -267,7 +263,6 @@
     .carousel-btn.prev{left:-10px}
     .carousel-btn.next{right:-10px}
 
-    /* ===== SEE ALL REVIEWS BUTTON (под каруселью) ===== */
     .reviews-footer{
       text-align:center;
       margin-top:32px;
@@ -307,7 +302,6 @@
     .service-card i{font-size:2.8rem;color:var(--primary);margin-bottom:14px}
     .service-card h3{font-size:1.45rem;margin-bottom:10px}
     
-    /* ===== SPECIALIZATIONS - ССЫЛКИ ===== */
     .spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:28px}
     .spec-item{
       background:var(--light);
@@ -361,7 +355,6 @@
     .contact-link:hover{color:var(--primary)}
     .google-profile{margin-top:20px;display:flex;align-items:center;gap:10px}
     
-    /* ===== КОНТАКТНАЯ ИНФОРМАЦИЯ С ФОТО ===== */
     .contact-person{
       margin-top:18px;
       background:#fff;
@@ -422,7 +415,6 @@
     .mobile-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px;border-radius:999px;text-decoration:none;font-weight:900;border:1px solid var(--border)}
     .mobile-bar .call{background:var(--primary);color:#fff;border-color:transparent}
     
-    /* ===== АДАПТИВ ===== */
     @media (max-width: 1100px){.spec-grid,.portfolio-grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width: 900px){
       .nav-links{display:none}
@@ -435,8 +427,6 @@
       .carousel-btn{width:32px;height:32px;font-size:.8rem}
       .carousel-btn.prev{left:-6px}
       .carousel-btn.next{right:-6px}
-      
-      /* === МОБИЛЬНАЯ КОНТАКТНАЯ СТРОКА — УЖЕ === */
       .top-contact .container{
         flex-direction:column;
         align-items:stretch;
@@ -460,8 +450,6 @@
         font-size:.75rem;
         gap:4px;
       }
-      
-      /* === МЕНЮ НА МОБИЛЬНЫХ — УЖЕ === */
       .logo-container{
         min-width:auto;
         gap:8px;
@@ -528,11 +516,19 @@
           <li><a href="#specializations">Specializations</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#reviews">Reviews</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i> Menu</button>
         <div class="nav-menu" id="navMenu">
-          <ul><li><a href="#services">Our Services</a></li><li><a href="#specializations">Specializations</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contacts</a></li></ul>
+          <ul>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#specializations">Specializations</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#contact">Contacts</a></li>
+          </ul>
         </div>
       </nav>
     </div>
@@ -558,7 +554,6 @@
             <a class="btn btn-ghost" href="#contact"><i class="fas fa-message"></i> Get Free Estimate</a>
           </div>
           
-          <!-- ===== STATS COUNTER ===== -->
           <div class="stats-row">
             <a href="#portfolio" class="stat-item" style="text-decoration:none;color:inherit;">
               <i class="fas fa-check-circle"></i>
@@ -576,7 +571,6 @@
             </a>
           </div>
           
-          <!-- ===== TRUST BLOCK — ДВЕ СТРОКИ ===== -->
           <div class="trust">
             <div class="trust-item">
               <i class="fas fa-broom"></i>
@@ -604,7 +598,6 @@
       </div>
     </section>
     
-    <!-- OUR SERVICES -->
     <section id="services" class="section light">
       <div class="container">
         <div class="section-title"><h2>Our Services</h2><p>Focused, high-quality renovation help — from small repairs to full projects.</p></div>
@@ -615,7 +608,6 @@
       </div>
     </section>
     
-    <!-- ===== SPECIALIZATIONS - ССЫЛКИ НА СТРАНИЦЫ ===== -->
     <section id="specializations" class="section">
       <div class="container">
         <div class="section-title"><h2>Our Specializations</h2><p>Most requested services in Toronto GTA.</p></div>
@@ -668,7 +660,6 @@
       </div>
     </section>
     
-    <!-- ===== GOOGLE REVIEWS CAROUSEL ===== -->
     <section id="reviews" class="reviews-section">
       <div class="container">
         <div class="section-title">
@@ -679,10 +670,8 @@
           <button class="carousel-btn prev" id="prevBtn" aria-label="Previous reviews"><i class="fas fa-chevron-left"></i></button>
           <button class="carousel-btn next" id="nextBtn" aria-label="Next reviews"><i class="fas fa-chevron-right"></i></button>
           <div class="reviews-carousel" id="reviewsCarousel">
-            <!-- Reviews will be inserted here by JavaScript -->
           </div>
         </div>
-        
         <div class="reviews-footer">
           <a href="https://share.google/vZu9QP95xPfkF7ysI" target="_blank" class="btn-see-reviews">
             <i class="fab fa-google"></i> See All Google Reviews
@@ -692,7 +681,6 @@
       </div>
     </section>
     
-    <!-- ===== КОНТАКТНАЯ ФОРМА ===== -->
     <section id="contact" class="section">
       <div class="container">
         <div class="section-title"><h2>Contact Us</h2><p>Send details and photos — we'll reply with a fast estimate.</p></div>
@@ -758,7 +746,6 @@
   <div class="mobile-bar"><div class="row"><a class="call" href="tel:+14167315979"><i class="fas fa-phone"></i> Call</a><a class="msg" href="sms:+14167315979"><i class="fas fa-message"></i> Message</a></div></div>
   
   <script>
-    // ===== MENU =====
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     function closeMenu() { navMenu.classList.remove('active'); menuToggle.setAttribute('aria-expanded', 'false'); }
@@ -766,7 +753,6 @@
     document.addEventListener('click', (e) => { if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) closeMenu(); });
     document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', (e) => { const id = a.getAttribute('href'); if (id === '#') return; const target = document.querySelector(id); if (target) { e.preventDefault(); closeMenu(); target.scrollIntoView({ behavior: 'smooth' }); } }); });
 
-    // ===== COUNTER ANIMATION =====
     function animateCounter() {
       const counter = document.getElementById('projectCounter');
       if (!counter) return;
@@ -799,7 +785,6 @@
       counterObserver.observe(counterElement.parentElement.parentElement);
     }
 
-    // ===== REVIEWS DATA (14 real reviews) =====
     const reviewsData = [
       {
         name: "Zakhar",
@@ -873,7 +858,6 @@
       }
     ];
 
-    // ===== RENDER REVIEWS WITH READ MORE =====
     const carousel = document.getElementById('reviewsCarousel');
     
     function renderReviews() {
@@ -905,7 +889,6 @@
       }).join('');
     }
     
-    // ===== TOGGLE READ MORE =====
     window.toggleReview = function(index) {
       const textEl = document.getElementById(`reviewText-${index}`);
       const btn = document.querySelector(`.review-read-more[data-index="${index}"]`);
@@ -927,7 +910,6 @@
     
     renderReviews();
 
-    // ===== CAROUSEL SCROLL BUTTONS =====
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     
@@ -939,7 +921,6 @@
       carousel.scrollBy({ left: 320, behavior: 'smooth' });
     });
 
-    // ===== KEYBOARD NAVIGATION =====
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
         carousel.scrollBy({ left: -320, behavior: 'smooth' });
@@ -948,7 +929,6 @@
       }
     });
 
-    // ===== CONTACT FORM =====
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', async function(e) {
