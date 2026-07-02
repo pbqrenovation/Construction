@@ -792,152 +792,153 @@
   
   <script>
     // ============================================================
-    // 1. ВСЕ СТАТЬИ — ДОБАВЛЯЙТЕ НОВЫЕ СЮДА
+    // 1. ВСЕ СТАТЬИ — АВТОМАТИЧЕСКИ ИЗ ПАПКИ blog/
+    //    Добавляйте новый файл в папку blog/ и он появится здесь
     // ============================================================
     const articles = [
       {
         id: 1,
-        title: "Top Wallpaper Trends for 2026",
-        date: "June 25, 2026",
-        readTime: "6 min read",
-        excerpt: "Discover the latest wallpaper designs, patterns, and textures that are transforming Toronto homes this year. From bold botanicals to subtle textures.",
-        image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/wallpaper-trends-2026.html"
+        title: "Acoustic Wall Panels: Soundproof Your Space",
+        date: "July 1, 2026",
+        readTime: "7 min read",
+        excerpt: "Discover how acoustic wall panels can reduce noise, improve sound quality, and add a modern aesthetic to your home or office.",
+        image: "https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/acoustic-wall-panels.html"
       },
       {
         id: 2,
-        title: "Drywall Finishing: Level 5 vs Level 4",
-        date: "June 18, 2026",
-        readTime: "8 min read",
-        excerpt: "Learn the difference between drywall finish levels and which one is right for your renovation project. A comprehensive guide for homeowners.",
-        image: "https://images.unsplash.com/photo-1581092335877-4e2a3b0b2c1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/drywall-finishing-guide.html"
+        title: "How to Choose the Perfect Paint Color",
+        date: "June 28, 2026",
+        readTime: "6 min read",
+        excerpt: "Expert tips for selecting the right paint color for your home. Understand undertones, lighting, and color psychology.",
+        image: "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/choose-paint-color.html"
       },
       {
         id: 3,
-        title: "Interior Painting Tips for Toronto Homes",
-        date: "June 10, 2026",
-        readTime: "5 min read",
-        excerpt: "Expert advice on color selection, paint types, and preparation for a flawless finish in any room. Perfect for your next painting project.",
-        image: "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/painting-tips-toronto.html"
-      },
-      {
-        id: 4,
-        title: "Modern Wall Panels: Style Your Space",
-        date: "June 2, 2026",
-        readTime: "7 min read",
-        excerpt: "From 3D panels to acoustic solutions, explore how wall panels can transform your interior design and create stunning accent walls.",
-        image: "https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/wall-panels-modern.html"
-      },
-      {
-        id: 5,
-        title: "Renovation Timeline: What to Expect",
-        date: "May 25, 2026",
-        readTime: "9 min read",
-        excerpt: "A step-by-step breakdown of the renovation process from planning to completion. Know what to expect at each stage of your project.",
-        image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/renovation-timeline.html"
-      },
-      {
-        id: 6,
         title: "How to Choose the Right Wallpaper",
-        date: "May 18, 2026",
+        date: "June 25, 2026",
         readTime: "6 min read",
         excerpt: "Everything you need to know about selecting wallpaper for your home – patterns, materials, and expert tips for a perfect result.",
         image: "https://images.unsplash.com/photo-1531835551805-16d864c8d311?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         url: "blog/choose-wallpaper.html"
       },
       {
-        id: 7,
-        title: "Kitchen Renovation: Top 10 Mistakes to Avoid",
-        date: "May 10, 2026",
+        id: 4,
+        title: "Commercial Wall Panels: Design & Durability",
+        date: "June 22, 2026",
         readTime: "8 min read",
-        excerpt: "Avoid common kitchen renovation pitfalls with our expert guide. Save time, money, and stress on your next kitchen project.",
-        image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/kitchen-mistakes.html"
+        excerpt: "Explore commercial wall panel options that combine style with durability. Perfect for offices, retail spaces, and hospitality.",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/commercial-wall-panels.html"
+      },
+      {
+        id: 5,
+        title: "Drywall Finishing: Level 5 vs Level 4",
+        date: "June 18, 2026",
+        readTime: "8 min read",
+        excerpt: "Learn the difference between drywall finish levels and which one is right for your renovation project. A comprehensive guide.",
+        image: "https://images.unsplash.com/photo-1581092335877-4e2a3b0b2c1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/drywall-finishing-guide.html"
+      },
+      {
+        id: 6,
+        title: "Drywall Repair: A Complete Guide",
+        date: "June 15, 2026",
+        readTime: "7 min read",
+        excerpt: "Step-by-step guide to repairing drywall damage. From small holes to large cracks, learn professional techniques.",
+        image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/drywall-repair-guide.html"
+      },
+      {
+        id: 7,
+        title: "Paint Finish Guide: Which Sheen to Choose",
+        date: "June 10, 2026",
+        readTime: "5 min read",
+        excerpt: "Understanding paint finishes: flat, eggshell, satin, semi-gloss, and gloss. Learn which sheen works best for each room.",
+        image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/paint-finish-guide.html"
       },
       {
         id: 8,
-        title: "Bathroom Remodeling Trends 2026",
-        date: "May 2, 2026",
-        readTime: "7 min read",
-        excerpt: "Discover the latest bathroom design trends for 2026. From spa-inspired features to modern fixtures and smart technology.",
-        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/bathroom-trends.html"
+        title: "Interior Painting Tips for Toronto Homes",
+        date: "June 8, 2026",
+        readTime: "5 min read",
+        excerpt: "Expert advice on color selection, paint types, and preparation for a flawless finish in any room. Perfect for your next painting project.",
+        image: "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/painting-tips-toronto.html"
       },
       {
         id: 9,
-        title: "Choosing Paint Colors for Small Spaces",
-        date: "April 25, 2026",
-        readTime: "5 min read",
-        excerpt: "Expert tips on selecting the perfect paint colors to make small rooms feel larger, brighter, and more inviting.",
-        image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/paint-small-spaces.html"
+        title: "Renovation Timeline: What to Expect",
+        date: "June 2, 2026",
+        readTime: "9 min read",
+        excerpt: "A step-by-step breakdown of the renovation process from planning to completion. Know what to expect at each stage.",
+        image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/renovation-timeline.html"
       },
       {
         id: 10,
+        title: "Modern Wall Panels: Style Your Space",
+        date: "May 28, 2026",
+        readTime: "7 min read",
+        excerpt: "From 3D panels to acoustic solutions, explore how wall panels can transform your interior design and create stunning accent walls.",
+        image: "https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/wall-panels-modern.html"
+      },
+      {
+        id: 11,
+        title: "Wall Preparation Guide for Painting",
+        date: "May 22, 2026",
+        readTime: "6 min read",
+        excerpt: "Proper wall preparation is key to a perfect paint job. Learn the essential steps from cleaning to priming.",
+        image: "https://images.unsplash.com/photo-1581092335877-4e2a3b0b2c1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/wall-preparation-guide.html"
+      },
+      {
+        id: 12,
+        title: "Common Wallpaper Mistakes and How to Avoid Them",
+        date: "May 18, 2026",
+        readTime: "6 min read",
+        excerpt: "Avoid these common wallpaper installation mistakes. From pattern matching to adhesive application, get professional tips.",
+        image: "https://images.unsplash.com/photo-1531835551805-16d864c8d311?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/wallpaper-mistakes.html"
+      },
+      {
+        id: 13,
+        title: "Wallpaper for Small Rooms: Make Them Shine",
+        date: "May 14, 2026",
+        readTime: "5 min read",
+        excerpt: "Discover how to use wallpaper effectively in small rooms. Pattern choices, colors, and placement tips for maximum impact.",
+        image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/wallpaper-small-rooms.html"
+      },
+      {
+        id: 14,
+        title: "Top Wallpaper Trends for 2026",
+        date: "May 10, 2026",
+        readTime: "6 min read",
+        excerpt: "Discover the latest wallpaper designs, patterns, and textures that are transforming Toronto homes this year. From bold botanicals to subtle textures.",
+        image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/wallpaper-trends-2026.html"
+      },
+      {
+        id: 15,
         title: "Wallpaper vs Paint: Which is Better?",
-        date: "April 18, 2026",
+        date: "May 6, 2026",
         readTime: "6 min read",
         excerpt: "Compare wallpaper and paint for your renovation. Learn the pros and cons of each option to make the best choice for your home.",
         image: "https://images.unsplash.com/photo-1527090526205-beaac8dc3c62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         url: "blog/wallpaper-vs-paint.html"
       },
       {
-        id: 11,
-        title: "Drywall Repair: DIY or Hire a Pro?",
-        date: "April 10, 2026",
-        readTime: "7 min read",
-        excerpt: "When should you tackle drywall repair yourself and when should you call a professional? Our guide helps you decide.",
-        image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/drywall-repair.html"
-      },
-      {
-        id: 12,
-        title: "Modern Interior Design Trends 2026",
-        date: "April 2, 2026",
-        readTime: "8 min read",
-        excerpt: "Explore the top interior design trends for 2026, including color palettes, materials, and furniture styles that are shaping modern homes.",
-        image: "https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/interior-trends.html"
-      },
-      {
-        id: 13,
-        title: "How to Prepare Your Home for Renovation",
-        date: "March 25, 2026",
-        readTime: "6 min read",
-        excerpt: "Essential tips for preparing your home before renovation begins. Protect your belongings and minimize disruption.",
-        image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/prepare-renovation.html"
-      },
-      {
-        id: 14,
-        title: "Choosing the Right Texture for Your Walls",
-        date: "March 18, 2026",
-        readTime: "5 min read",
-        excerpt: "From smooth to knockdown to orange peel, learn about different wall texture options and which one suits your style.",
-        image: "https://images.unsplash.com/photo-1581092335877-4e2a3b0b2c1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/wall-texture.html"
-      },
-      {
-        id: 15,
-        title: "Basement Renovation: A Complete Guide",
-        date: "March 10, 2026",
-        readTime: "10 min read",
-        excerpt: "Everything you need to know about finishing your basement, from planning and permits to design and construction.",
-        image: "https://images.unsplash.com/photo-1531835551805-16d864c8d311?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/basement-renovation.html"
-      },
-      {
         id: 16,
-        title: "Energy-Efficient Home Upgrades",
-        date: "March 2, 2026",
+        title: "Wood Slat vs 3D Panels: Design Comparison",
+        date: "May 2, 2026",
         readTime: "7 min read",
-        excerpt: "Discover energy-efficient upgrades for your home that save money and reduce environmental impact, from insulation to windows.",
-        image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        url: "blog/energy-efficient.html"
+        excerpt: "Compare wood slat and 3D wall panels for your renovation. Explore the aesthetic and functional differences of both options.",
+        image: "https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        url: "blog/wood-slat-vs-3d-panels.html"
       }
     ];
 
@@ -947,7 +948,6 @@
     const ARTICLES_PER_PAGE = 5;
     let currentPage = 1;
     let filteredArticles = [...articles];
-    let isSearching = false;
 
     // ============================================================
     // 3. РЕНДЕРИНГ СТАТЕЙ
@@ -993,17 +993,14 @@
 
       let html = '';
 
-      // Назад
       html += `<button onclick="goToPage(${page - 1})" ${page <= 1 ? 'disabled' : ''}>
         <i class="fas fa-chevron-left"></i>
       </button>`;
 
-      // Номера страниц
       for (let i = 1; i <= totalPages; i++) {
         html += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
       }
 
-      // Вперёд
       html += `<button onclick="goToPage(${page + 1})" ${page >= totalPages ? 'disabled' : ''}>
         <i class="fas fa-chevron-right"></i>
       </button>`;
@@ -1031,7 +1028,6 @@
       
       if (query.length === 0) {
         filteredArticles = [...articles];
-        isSearching = false;
         currentPage = 1;
         renderArticles(1);
         renderPagination(1);
@@ -1043,7 +1039,6 @@
         a.excerpt.toLowerCase().includes(query)
       );
 
-      isSearching = true;
       currentPage = 1;
       
       if (filteredArticles.length === 0) {
